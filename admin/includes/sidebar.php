@@ -14,7 +14,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="index.php">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -29,19 +29,75 @@
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="account.php">
+                <a class="nav-link collapsed" href="user.php">
                     <i class="fas fa-fw fa-cog"></i>
-                    <span>Account</span>
+                    <span>User</span>
                 </a>
             </li>
 
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="farmer.php">
                     <i class="fas fa-fw fa-wrench"></i>
-                    <span>Utilities</span>
+                    <span>Farmer</span>
                 </a>
             </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="pending.php">
+                    <i class="fas fa-fw fa-wrench"></i>
+                    <span>Pending Farmer</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="fas fa-fw fa-wrench"></i>
+                    <span>Product</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="fas fa-fw fa-wrench"></i>
+                    <span>Product Category</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="fas fa-fw fa-wrench"></i>
+                    <span>Announcement</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="fas fa-fw fa-wrench"></i>
+                    <span>Request</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="fas fa-fw fa-wrench"></i>
+                    <span>Report</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="fas fa-fw fa-wrench"></i>
+                    <span>Concern</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="fas fa-fw fa-wrench"></i>
+                    <span>Generate Report</span>
+                </a>
+            </li>
+
+
+
 
             <!-- Divider -->
             <hr class="sidebar-divider">

@@ -26,7 +26,9 @@
 
 </head>
 
-<body id="page-top">
+<body>
+    
 <?php include('includes/sidebar.php');?>
+
 <?php include('includes/nav-top.php');?>
 
