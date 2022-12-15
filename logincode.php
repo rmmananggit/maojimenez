@@ -35,13 +35,13 @@ if(isset($_POST['login_btn']))
         }
         elseif( $_SESSION['auth_role'] == '3')
         {
-            $_SESSION['message'] = "Welcome Student!";
+            $_SESSION['message'] = "Welcome Farmer!";
             header("Location: index.php");
             exit(0);
         }
         elseif( $_SESSION['auth_role'] == '4')
         {
-            $_SESSION['message'] = "Welcome Secretary!";
+            $_SESSION['message'] = "Welcome !";
             header("Location: secretary/index.php");
             exit(0);
         }
