@@ -58,7 +58,7 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Manage:</h6>
                 <a class="collapse-item" href="manage_product.php">Manage Products</a>
-                <a class="collapse-item" href="utilities-border.html">Product Category</a>
+                <a class="collapse-item" href="product_category.php">Product Category</a>
             </div>
         </div>
     </li>
