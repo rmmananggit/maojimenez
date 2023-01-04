@@ -81,10 +81,10 @@
         <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Manage:</h6>
-                <a class="collapse-item" href="login.html">Announcement</a>
-                <a class="collapse-item" href="register.html">Request</a>
-                <a class="collapse-item" href="forgot-password.html">Report</a>
-                <a class="collapse-item" href="404.html">Concern</a>
+                <a class="collapse-item" href="announcement.php">Announcement</a>
+                <a class="collapse-item" href="request.php">Request</a>
+                <a class="collapse-item" href="#">Report</a>
+                <a class="collapse-item" href="#">Concern</a>
             </div>
         </div>
     </li>
@@ -92,6 +92,23 @@
 
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">
+
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#">
+        <i class="fas fa-newspaper"></i>
+            <span>Generate Report</span>
+        </a>
+        <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Manage:</h6>
+                <a class="collapse-item" href="announcement.php">Announcement</a>
+                <a class="collapse-item" href="request.php">Request</a>
+                <a class="collapse-item" href="#">Report</a>
+                <a class="collapse-item" href="#">Concern</a>
+            </div>
+        </div>
+    </li>
+
 
     <!-- Sidebar Toggler (Sidebar) -->
     <div class="text-center d-none d-md-inline">

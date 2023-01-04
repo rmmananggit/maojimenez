@@ -8,6 +8,12 @@
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
+                        <a href="farmer_add.php" class="btn btn-success btn-icon-split"> 
+                                        <span class="icon text-white-50">
+                                        <i class="fas fa-user"></i>
+                                        </span>
+                                        <span class="text">Add Account</span>
+                                    </a>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">

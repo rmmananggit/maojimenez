@@ -8,32 +8,23 @@
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                        <a href="product_category_add.php" class="btn btn-success btn-icon-split"> 
-                                        <span class="icon text-white-50">
-                                        <i class="fas fa-clipboard-list"></i>
-                                        </span>
-                                        <span class="text">Add Category</span>
-                                    </a>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>ID</th>
-                                            <th>Category Name</th>
-                                            <th>Description</th>
-                                            <th>Status</th>
-                                            <th class="text-center">Action</th>
+                                            <th>No.</th>
+                                            <th>Title</th>
+                                            <th>Body</th>
+                                            <th>Publish</th>
+                                            <th>Date Announced</th>
+                                            <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                     <?php
-                            $query = "SELECT
-                            *, 
-                            product_category.*
-                        FROM
-                            product_category";
+                            $query = "";
                             $query_run = mysqli_query($con, $query);
                             if(mysqli_num_rows($query_run) > 0)
                             {
@@ -41,11 +32,13 @@
                                 {
                                     ?>
                                     <tr>
-                                    <td><?= $row['product_category_id']; ?></td>
-                                        <td><?= $row['category_name']; ?></td>
-                                        <td><?= $row['category_description']; ?></td>
-                                        <td><?= $row['category_status']; ?></td>
-                                        <td class="text-center">    
+                                    <td><?= $row['ann_id']; ?></td>
+                                        <td><?= $row['ann_title']; ?></td>
+                                        <td><?= $row['ann_body']; ?></td>
+                                        <td><?= $row['ann_publish']; ?></td>
+                                        <td><?= $row['ann_date']; ?></td>
+                                        
+                                        <td>    
                                         
                                         <a href="#" class="btn btn-warning btn-circle mt-1">
                                         <i class="fas fa-pen"></i>

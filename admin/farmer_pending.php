@@ -18,7 +18,7 @@
                                             <th>Email</th>
                                             <th>Gender</th>
                                             <th>Status</th>
-                                            <th>Action</th>
+                                            <th class="text-center">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -50,13 +50,13 @@
                                         <td><?= $row['email']; ?></td>
                                         <td><?= $row['gender']; ?></td>
                                         <td><?= $row['user_status_name']; ?></td>
-                                        <td> 
+                                        <td class="text-center"> 
                                             
                                         <!-- <a href="view_user.php?id=<?=$row['user_id'];?>" class="btn-circle btn-info btn-sm">Update</a> -->
-                                        <a href="#" class="btn btn-success btn-circle">
+                                        <a href="#" class="btn btn-success btn-circle mr-1">
                                         <i class="fas fa-check"></i>
 
-                                        <a href="#" class="btn btn-danger btn-circle">
+                                        <a href="#" class="btn btn-danger btn-circle mr-1">
                                         <i class="fas fa-times"></i>
                                     </a>
                                     </tr>

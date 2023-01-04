@@ -17,7 +17,7 @@
                     <div class="card-body">
 
                     
-                    <form action="code.php" method="post" autocomplete="off" enctype="multipart/form-data">  
+                    <form action="code.php" method="POST">  
                     <div class="row"> 
                                 <div class="col-md-6 mb-3">
                                     <label for="">Name</label>
@@ -27,7 +27,7 @@
 
                                 <div class="col-md-6 mb-3">
                                 <label for="">Status</label>
-                                    <select name="role_as" required class="form-control">
+                                    <select name="status" required class="form-control">
                                         <option value="">--Select Status--</option>
                                         <option value="Available">Available</option>
                                         <option value="Not Available">Not Available</option>
@@ -36,7 +36,7 @@
 
                                 <div class="col-md-12 mb-3">
                                 <label for="Description">Description</label>
-                                <textarea placeholder="Enter Description" required type="text" class="form-control" rows="3"></textarea>
+                                <textarea placeholder="Enter Description" name="description" required type="text" class="form-control" rows="3"></textarea>
                                 </div>
 
 
@@ -44,7 +44,7 @@
 
                                 <div class="text-right">
                                 <a href="product_category.php" class="btn btn-danger">Back</a>
-                                <button type="submit" name="add_product" class="btn btn-primary">Save</button>
+                                <button type="submit" name="add_category" class="btn btn-primary">Save</button>
                                 </div>
                                
 

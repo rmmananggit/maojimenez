@@ -43,7 +43,34 @@
     <!-- Page level custom scripts -->
     <script src="js/demo/datatables-demo.js"></script>
 
+    <!-- SCRIPT FOR SWEET ALERT -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <?php
+        if(isset($_SESSION['status']) && $_SESSION['status_code'] !='' )
+        {
+            ?>
+                <script>
+                swal({
+                title: "<?php echo $_SESSION['status']; ?>",
+                icon: "<?php echo $_SESSION['status_code']; ?>",
+                button: "Close",
+                });
+                </script>
+                <?php
+                unset($_SESSION['status']);
+        }
+                ?>
+
     
+
+
+
+
+
+
+
+
 </body>
 
 </html>
