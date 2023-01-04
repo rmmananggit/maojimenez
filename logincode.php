@@ -30,44 +30,45 @@ if(isset($_POST['login_btn']))
         if( $_SESSION['auth_role'] == '1')
         {
             $_SESSION['message'] = "Welcome Administrator!";
+            $_SESSION['message_code'] = "success";
             header("Location: admin/index.php");
             exit(0);
         }
         elseif( $_SESSION['auth_role'] == '3')
         {
-            $_SESSION['message'] = "Welcome Farmer!";
+            $_SESSION['status'] = "Welcome Farmer!";
             header("Location: index.php");
             exit(0);
         }
         elseif( $_SESSION['auth_role'] == '4')
         {
-            $_SESSION['message'] = "Welcome !";
+            $_SESSION['status'] = "Welcome !";
             header("Location: secretary/index.php");
             exit(0);
         }
         elseif( $_SESSION['auth_role'] == '5')
         {
-            $_SESSION['message'] = "Welcome!";
+            $_SESSION['status'] = "Welcome!";
             header("Location: treasurer/index.php");
             exit(0);
         }
         elseif( $_SESSION['auth_role'] == '6')
         {
-            $_SESSION['message'] = "Welcome!";
+            $_SESSION['status'] = "Welcome!";
             header("Location: parent/index.php");
             exit(0);
         }
     }
     else
     {
-        $_SESSION['message'] = "Invalid Email or Password";
+        $_SESSION['status'] = "Invalid Email or Password";
         header("Location: login.php");
         exit(0);
     }
 }   
 else
 {
-    $_SESSION['message'] = "You are not allowed to access this site";
+    $_SESSION['status'] = "You are not allowed to access this site";
     header("Location: login.php");
     exit(0);
 }

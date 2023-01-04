@@ -9,7 +9,7 @@ if(isset($_POST['logout_btn']))
     unset( $_SESSION['auth_user']);
 
     $_SESSION['message'] = "Logout Successfully";
-    header("Location: login.php");
+    header("Location: ../login.php");
     exit(0);
 }
 
@@ -71,6 +71,33 @@ if(isset($_POST["add_product"])){
 
 <?php
 if(isset($_POST['add_category']))
+{
+    $name = $_POST['name'];
+    $description = $_POST['description'];
+    $status = $_POST['status'];
+
+    $query = "INSERT INTO `product_category`(`category_name`, `category_description`, `category_status`) VALUES ('$name','$description','$status')";
+    $query_run = mysqli_query($con,$query);
+
+    if($query_run)
+    {
+        $_SESSION['status'] = "New Category Added";
+        $_SESSION['status_code'] = "success";
+        header('Location: product_category.php');
+        exit(0);
+    }
+    else{
+        $_SESSION['status'] = "Error! SOMETHING WENT WRONG!";
+        $_SESSION['status_code'] = "error";
+        header('Location: product_category.php');
+        exit(0);
+    }
+}
+?>
+
+
+<?php
+if(isset($_POST['add_announcement']))
 {
     $name = $_POST['name'];
     $description = $_POST['description'];

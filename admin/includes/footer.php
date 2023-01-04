@@ -62,10 +62,42 @@
         }
                 ?>
 
-    
 
+<?php
+        if(isset($_SESSION['message']) && $_SESSION['message_code'] !='' )
+        {
+            ?>
+                <script>
+                swal({
+                title: "<?php echo $_SESSION['message']; ?>",
+                icon: "<?php echo $_SESSION['message_code']; ?>",
+                timer: 1500,
+                buttons: false,
+                }).then(
+                function () {},
+                // handling the promise rejection
+                function (dismiss) {
+                    if (dismiss === 'timer') {
+                    //console.log('I was closed by the timer')
+                    }
+                }
+                )
+                </script>
+                <?php
+                unset($_SESSION['message']);
+                unset($_SESSION['message_code']);
+        }
+                ?>
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
 
+<!-- date picket -->
+<script type="text/javascript">
+        $(function() {  
+            $('#datepicker').datepicker();
+        });
+</script>
 
 
 

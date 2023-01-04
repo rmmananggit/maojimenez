@@ -98,15 +98,6 @@
         <i class="fas fa-newspaper"></i>
             <span>Generate Report</span>
         </a>
-        <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Manage:</h6>
-                <a class="collapse-item" href="announcement.php">Announcement</a>
-                <a class="collapse-item" href="request.php">Request</a>
-                <a class="collapse-item" href="#">Report</a>
-                <a class="collapse-item" href="#">Concern</a>
-            </div>
-        </div>
     </li>
 
 

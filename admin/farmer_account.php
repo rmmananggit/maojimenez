@@ -1,8 +1,6 @@
 <?php include('authentication.php'); ?>
 <?php include('includes/header.php');?>
 
-<?php include('message.php'); ?>
-
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
                     <!-- DataTales Example -->

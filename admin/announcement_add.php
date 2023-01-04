@@ -21,24 +21,36 @@
                     <div class="row"> 
                                 <div class="col-md-12 mb-3">
                                     <label for="">Title</label>
-                                    <input required placeholder="Enter Announcement Title" type="text" name="name" class="form-control">
+                                    <input required placeholder="Enter Announcement Title" type="text" name="announcement_title" class="form-control">
                                 </div>
 
                                 <div class="col-md-12 mb-3">
                                 <label for="Description">Body</label>
-                                <textarea placeholder="Enter Message" required type="text"  name="message" class="form-control" rows="3"></textarea>
+                                <textarea placeholder="Enter Message" required type="text"  name="announcement_message" class="form-control" rows="3"></textarea>
                                 </div>
 
                                 <div class="col-md-12 mb-3">
                                     <label for="">Sender</label>
-                                    <input required placeholder="Enter Sender" type="text" name="sender" class="form-control">
+                                    <input required placeholder="Enter Sender" type="text" name="announcement_sender" class="form-control">
                                 </div>
 
+                                <div class="col-md-12 mb-3">
+                                    <div class="input-group date" id="datepicker">
+                                    <input type="text" name="date" placeholder="Input Date" class="form-control">
+                                    <span class="input-group-append">
+                                    <span class="input-group-text bg-white">
+                                    <i class="fa fa-calendar"></i>
+                                    </span>
+                                    </span>
+                                    </div>
+                                </div>
+
+                                
                     </div>
 
                                 <div class="text-right">
                                 <a href="announcement.php" class="btn btn-danger">Back</a>
-                                <button type="submit" name="add_product" class="btn btn-primary">Save</button>
+                                <button type="submit" name="add_announcement" class="btn btn-primary">Save</button>
                                 </div>
                                
 
