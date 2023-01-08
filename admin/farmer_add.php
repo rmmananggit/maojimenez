@@ -30,8 +30,8 @@
                                 </div>
 
                                 <div class="col-md-4 mb-3">
-                                    <label for="">Last Name</label>
-                                    <input required placeholder="Enter Last Name" type="text" name="lname" class="form-control">
+                                    <label for="">First Name</label>
+                                    <input required placeholder="Enter First Name" type="text" name="fname" class="form-control">
                                 </div>
                                 
                                 <div class="col-md-3 mb-3">
@@ -42,6 +42,27 @@
                                 </div>
 
                                 
+                                <div class="col-md-12 mb-3">
+                                <hr>
+                                </div>
+
+                                <div class="col-md-4 mb-3">
+                                    <label for="">Username</label>
+                                    <input required placeholder="Enter Username" type="text" name="username" class="form-control">
+                                </div>
+
+                                <div class="col-md-4 mb-3">
+                                    <label for="">Password</label>
+                                    <input required placeholder="Enter Password" type="password" name="password" class="form-control">
+                                </div>
+
+                                
+                                <div class="col-md-4 mb-3">
+                                    <label for="">Email Address</label>
+                                    <input required placeholder="Enter Email Address" type="email" name="text" class="form-control">
+                                </div>
+
+
                                 <div class="col-md-12 mb-3">
                                 <hr>
                                 </div>
@@ -60,35 +81,40 @@
                                     <input required placeholder="Enter Barangay" type="text" name="barangay" class="form-control">
                                 </div>
                                 <div class="col-md-4 mb-3">
-                                    <label for="">Municipality/Cyty</label>
-                                    <input required placeholder="Enter Municipality/City" type="text" name="municipality" class="form-control">
+                                    <label for="">Municipality/City</label>
+                                    <h6>Jimenez</h6>
                                 </div>
                                 <div class="col-md-4 mb-3">
                                     <label for="">Province</label>
-                                    <input required placeholder="Enter Province" type="text" name="province" class="form-control">
+                                    <h6>Misamis Occidental</h6>
                                 </div>
                                 <div class="col-md-4 mb-3">
                                     <label for="">Region</label>
-                                    <input required placeholder="Enter Region" type="text" name="region" class="form-control">
+                                    <h6>X</h6>
                                 </div>
 
                                 <div class="col-md-12 mb-3">
                                 <hr>
                                 </div>
 
-                                <div class="col-md-4 mb-3">
+                                <div class="col-md-3 mb-3">
                                     <label for="">Mobile Number</label>
                                     <input required placeholder="Enter Mobile Number" type="text" name="mobilenumber" class="form-control">
                                 </div>
 
-                                <div class="col-md-4 mb-3">
-                                <label class="control-label" for="date">Date</label>
-                                 <input class="form-control" id="date" name="date" placeholder="MM/DD/YYY" type="text"/>
+                                <div class="col-md-3 mb-3">
+                                    <label for="">Religion</label>
+                                    <input required placeholder="Enter Religion" type="text" name="religion" class="form-control">
                                 </div>
 
-                                <div class="col-md-4 mb-3">
+                                <div class="col-md-3 mb-3">
+                                <label class="control-label" for="date">Date of Birth</label>
+                                 <input class="form-control" id="date" name="dob" placeholder="MM/DD/YYY" type="date"/>
+                                </div>
+
+                                <div class="col-md-3 mb-3">
                                     <label for="">Place of Birth</label>
-                                    <input required placeholder="Enter Mobile Number" type="text" name="placeofbirth" class="form-control">
+                                    <input required placeholder="Enter Place of Birth" type="text" name="placeofbirth" class="form-control">
                                 </div>
 
                                 
@@ -109,7 +135,7 @@
 
                                 <div class="col-md-6 mb-3">
                                     <label for="">Name of Spouse (if married)</label>
-                                    <input required placeholder="Enter Mobile Number" type="text" name="placeofbirth" class="form-control">
+                                    <input required placeholder="Enter Name" type="text" name="placeofbirth" class="form-control">
                                 </div>
 
                                 <div class="col-md-4 mb-3">
@@ -189,85 +215,157 @@
                                 <input required  class="ml-4" type="radio" name="ml" value="Tenant"> Tenant
                                 </div>
 
-                                <div class="col-md-3 mb-3">                                   
-                                <hr> <h5>For Farmers:</h5>
-                                </div>
 
-                                <div class="col-md-3 mb-3">                                   
-                                <hr> <h5>For Farmworkers:</h5>
-                                </div>
-
-                                <div class="col-md-3 mb-3">                                   
-                                <hr> <h5>For Fisherfolk:</h5>
-                                </div>
-                                <div class="col-md-3 mb-3">                                   
-                                <hr> <h5>For Agri Youth:</h5>
-                                </div>
-
-
-                                <div class="col-md-3 mb-3">
-                                <h6>Type of Farming Activity</strong></h5>
-                                </div>
-
-                                <div class="col-md-3 mb-3">
-                                <h6>Kind of Work</strong></h5>
-                                </div>
-
-                                <div class="col-md-3 mb-3">
-                                <h6>Type of Fishing Activity</strong></h5>
-                                </div>
-
-                                <div class="col-md-3 mb-3">
-                                <h6>Type of Involvement</strong></h5>
-                                </div>                                 
-
-                                <div class="col-md-3 mb-3">
-                                <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="Rice" id="flexCheckDefault">
-                                <label class="form-check-label" for="flexCheckDefault">
+                                <div class="col-md-6 mb-3">
+                                 <h5 class="text-center mt-4"><b>FOR FARMER</b></h5>
+                                 <h6 class="text-center mt-4"><u>Type of Farming Activity</u></strong></h6>
+                                
+                                 <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="Rice" id="rice">
+                                <label class="form-check-label" for="rice">
                                 Rice
                                 </label>
                                 </div>
+
+                                <div class="form-check mt-2">
+                                <input class="form-check-input" type="checkbox" value="Corn" id="corn">
+                                <label class="form-check-label" for="corn">
+                                Corn
+                                </label>
                                 </div>
 
+                                <div class="form-check mt-2">
+                                <input class="form-check-input" type="checkbox" value="Other Crops" id="othercrops">
+                                <label class="form-check-label" for="othercrops">
+                                Other Crops
+                                </label>
+                                </div>
+
+
+                                <label fowr="">Specify:</label>
+                                <input required placeholder="" type="text" name="specifycrops" class="form-control">
+
+                                <div class="form-check mt-2">
+                                <input class="form-check-input" type="checkbox" value="Livestock" id="livestock">
+                                <label class="form-check-label" for="livestock">
+                                Livestock
+                                </label>
+                                </div>
+
+                                <label for="">Specify:</label>
+                                <input required placeholder="" type="text" name="specifycrops" class="form-control">
+
+                                <div class="form-check mt-2">
+                                <input class="form-check-input" type="checkbox" value="Poultry" id="poultry">
+                                <label class="form-check-label" for="poultry">
+                                Poultry
+                                </label>
+                                </div>
                                 
-                                <div class="col-md-3 mb-3">
+                                <label for="">Specify:</label>
+                                <input required placeholder="" type="text" name="specifycrops" class="form-control">
+                                </div>
+
+                                <div class="col-md-6 mb-3">
+                                <h5 class="text-center mt-4"><b>FOR FARMWORKER</b></h5>
+                                 <h6 class="text-center mt-4"><u>Kind of Work</u></strong></h6>
+
+
+                                 <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="Owner" id="owner">
+                                <label class="form-check-label" for="owner">
+                                Owner
+                                </label>
+                                </div>
+
                                 <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="Rice" id="flexCheckDefault">
-                                <label class="form-check-label" for="flexCheckDefault">
+                                <input class="form-check-input" type="checkbox" value="Land Preparation" id="lp">
+                                <label class="form-check-label" for="lp">
                                 Land Preparation
                                 </label>
                                 </div>
-                                </div>
 
-                                <div class="col-md-3 mb-3">
                                 <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="Rice" id="flexCheckDefault">
-                                <label class="form-check-label" for="flexCheckDefault">
-                                Fish Capture
+                                <input class="form-check-input" type="checkbox" value="Cultivation" id="Cultivation">
+                                <label class="form-check-label" for="Cultivation">
+                                Cultivation
                                 </label>
                                 </div>
-                                </div>
 
-                                <div class="col-md-3 mb-3">
                                 <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="Rice" id="flexCheckDefault">
-                                <label class="form-check-label" for="flexCheckDefault">
-                                Part of Farming Household
+                                <input class="form-check-input" type="checkbox" value="Planting" id="Planting">
+                                <label class="form-check-label" for="Planting">
+                                Planting
                                 </label>
                                 </div>
+
+                                <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="Harvesting" id="Harvesting">
+                                <label class="form-check-label" for="Harvesting">
+                                Harvesting
+                                </label>
+                                </div>
+
+                                  
+                                <label for="">Others, Please Specify:</label>
+                                <input required placeholder="" type="text" name="othersfarmworker" class="form-control">
+
                                 </div>
 
 
+                               <div class="col-md-6 mb-3">
+                               <h5 class="text-center mt-4"><b>FOR AGRI YOUTH</b></h5>
+                                 <h6 class="text-center mt-4"><u>Type of Involvement</u></strong></h6>
+                                 <p class="text-info">For the purpose of trainings, financial assistance, and other programs catered to the youth with involvement to any agriculture activity.</p>
+
+                                 <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="Part of a farming household" id="Part of a farming household">
+                                <label class="form-check-label" for="Part of a farming household">
+                                Part of a farming household
+                                </label>
+                                </div>
+
+                                <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="Attending/Attended non-formal agri-fishery related course" id="Attending/Attended non-formal agri-fishery related course">
+                                <label class="form-check-label" for="Attending/Attended non-formal agri-fishery related course">
+                                Attending/Attended non-formal agri-fishery related course
+                                </label>
+                                </div>
+
+                                <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="Participated in any agricultural activity/program" id="Participated in any agricultural activity/program">
+                                <label class="form-check-label" for="Participated in any agricultural activity/program">
+                                Participated in any agricultural activity/program
+                                </label>
+                                </div>
+
+                                <label for="">Others, Please Specify:</label>
+                                <input required placeholder="" type="text" name="fisherfolkothers" class="form-control">
+
+
+                               </div>
+
+
+                               <div class="col-md-6 mb-3">
+                               <h5 class="text-center mt-4"><b>DOCUMENT </b></h5>
+                               
+                               <label for="profilepicture">Upload 2x2 Picture </label> <br>
+                                <input type="file" name="profilepicture" id = "profilepicture" accept=".jpg, .jpeg, .png" value="">
+
+                                <br>
+                                <br>
+
+                                <label for="governmentidpicture">Upload any Government I.D </label> <br>
+                                <input type="file" name="governmentidpicture" id = "governmentidpicture" accept=".jpg, .jpeg, .png" value="">
 
 
 
-
-
+                               </div>
+                               
                                 </div>
                                 <div class="text-right">
                                 <a href="farmer_account.php" class="btn btn-danger">Back</a>
-                                <button type="submit" name="add_category" class="btn btn-primary">Save</button>
+                                <button type="submit" name="add_farmer" class="btn btn-primary">Save</button>
                                 </div>
                                
 

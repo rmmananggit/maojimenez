@@ -37,7 +37,7 @@ if(isset($_POST['login_btn']))
         elseif( $_SESSION['auth_role'] == '3')
         {
             $_SESSION['status'] = "Welcome Farmer!";
-            header("Location: index.php");
+            header("Location: farmer/farmer.php");
             exit(0);
         }
         elseif( $_SESSION['auth_role'] == '4')

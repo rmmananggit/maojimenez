@@ -49,16 +49,12 @@
                                         
                                         <td>    
                                         
-                                        <a href="#" class="btn btn-warning btn-circle mt-1">
-                                        <i class="fas fa-pen"></i>
-                                    <!-- </a>
-                                        <a href="view_user.php?id=<?=$row['user_id'];?>" class="btn btn-danger btn-sm">Delete</a>   -->
-
-                                        <a href="#" class="btn btn-danger btn-circle mt-1">
-                                        <i class="fas fa-trash"></i>
-                                    </a>
+                                        <a href="announcement_edit.php?id=<?=$row['ann_id'];?>"  class="btn btn-warning btn-sm mt-1 ">UPDATE</a>
+ 
+                                        <form action="code.php" method="POST">  
+                                         <button type="submit" name="ann_delete" value="<?=$row['ann_id']; ?>" class="btn btn-danger btn-sm mt-1">DELETE</button>
+                                        </form>
                                 </td>
-                                    
                                     </tr>
                                     <?php
                                 }

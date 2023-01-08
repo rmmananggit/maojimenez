@@ -60,9 +60,7 @@
                                         
                                         <a href="#" class="btn btn-warning btn-circle mr-1">
                                         <i class="fas fa-pen"></i>
-                                    <!-- </a>
-                                        <a href="view_user.php?id=<?=$row['user_id'];?>" class="btn btn-danger btn-sm">Delete</a>   -->
-
+    
                                         <a href="#" class="btn btn-danger btn-circle mr-1">
                                         <i class="fas fa-trash"></i>
                                     </a>

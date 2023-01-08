@@ -47,16 +47,15 @@
                                         <td><?= $row['category_status']; ?></td>
                                         <td class="text-center">    
                                         
-                                        <a href="#" class="btn btn-warning btn-circle mt-1">
-                                        <i class="fas fa-pen"></i>
-                                    <!-- </a>
-                                        <a href="view_user.php?id=<?=$row['user_id'];?>" class="btn btn-danger btn-sm">Delete</a>   -->
+                                        <a href="product_category_edit.php?id=<?=$row['product_category_id'];?>" class="btn btn-warning btn-sm mt-1">
+                                        UPDATE </a>
 
-                                        <a href="#" class="btn btn-danger btn-circle mt-1">
-                                        <i class="fas fa-trash"></i>
-                                    </a>
+                                        <form action="code.php" method="POST">  
+                                         <button type="submit" name="category_delete" value="<?=$row['product_category_id']; ?>" class="btn btn-danger btn-sm mt-1">DELETE</button>
+                                        </form>
+                                     
                                 </td>
-                                    
+                            
                                     </tr>
                                     <?php
                                 }

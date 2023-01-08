@@ -1,6 +1,6 @@
-<?php
-include('authentication.php');
+<?php include('authentication.php'); ?>
 
+<?php
 if(isset($_POST['logout_btn']))
 {
     // session_destroy();
@@ -99,6 +99,138 @@ if(isset($_POST['add_category']))
 <?php
 if(isset($_POST['add_announcement']))
 {
+    $title = $_POST['announcement_title'];
+    $body = $_POST['announcement_message'];
+    $event_dt = $_POST['announcement_dt'];
+    $sender = $_POST['announcement_sender'];
+
+    $query = "INSERT INTO `announcement`(`ann_title`, `ann_body`, `ann_publish`, `ann_date`) VALUES ('$title','$body','$sender','$event_dt')";
+    $query_run = mysqli_query($con,$query);
+
+    if($query_run)
+    {
+        $_SESSION['status'] = "Announcement Added";
+        $_SESSION['status_code'] = "success";
+        header('Location: announcement.php');
+        exit(0);
+    }
+    else{
+        $_SESSION['status'] = "Error! SOMETHING WENT WRONG!";
+        $_SESSION['status_code'] = "error";
+        header('Location: announcement.php');
+        exit(0);
+    }
+}
+?>
+
+<?php
+if(isset($_POST['edit_category']))
+{
+    $user_id = $_POST['user_id'];
+    $name = $_POST['editcategory_name'];
+    $description = $_POST['editdescription'];
+    $status = $_POST['editstatus'];
+
+    $query = "UPDATE `product_category` SET `category_name`='$name',`category_description`='$description',`category_status`='$status' WHERE  `product_category_id`='$user_id'";
+    $query_run = mysqli_query($con,$query);
+
+    if($query_run)
+    {
+        $_SESSION['status'] = "Category Update";
+        $_SESSION['status_code'] = "success";
+        header('Location: product_category.php');
+        exit(0);
+    }
+    else{
+        $_SESSION['status'] = "SOMETHING WENT WRONG!";
+        $_SESSION['status_code'] = "error";
+        header('Location: product_category.php');
+        exit(0);
+    }
+}
+?>
+
+
+<?php
+if(isset($_POST['category_delete']))
+{
+    $user_id= $_POST['category_delete'];
+
+    $query = "DELETE FROM product_category WHERE product_category_id ='$user_id' ";
+    $query_run = mysqli_query($con, $query);
+    if($query_run)
+    {
+      $_SESSION['status'] = "Category Deleted Successfully";
+      $_SESSION['status_code'] = "success";
+      header('Location: product_category.php');
+      exit(0);
+    }
+    else
+    {
+      $_SESSION['status'] = "There is a product under this category. Please delete the product first before deleting this category!";
+      $_SESSION['status_code'] = "error";
+      header('Location: product_category.php');
+      exit(0);
+    }
+}
+
+?>
+
+<?php
+if(isset($_POST['ann_delete']))
+{
+    $user_id= $_POST['ann_delete'];
+
+    $query = "DELETE FROM announcement WHERE ann_id ='$user_id' ";
+    $query_run = mysqli_query($con, $query);
+    if($query_run)
+    {
+      $_SESSION['status'] = "Announcement Deleted Successfully";
+      $_SESSION['status_code'] = "success";
+      header('Location: announcement.php');
+      exit(0);
+    }
+    else
+    {
+      $_SESSION['status'] = "SOMETHING WENT WRONG!";
+      $_SESSION['status_code'] = "error";
+      header('Location: announcement.php');
+      exit(0);
+    }
+}
+?>
+
+<?php
+if(isset($_POST['edit_announcement']))
+{
+    $user_id = $_POST['user_id'];
+    $edit_title = $_POST['edit_announcement_title'];
+    $edit_body = $_POST['edit_announcement_message'];
+    $edit_event_dt = $_POST['edit_announcement_dt'];
+    $edit_sender = $_POST['edit_announcement_sender'];
+
+    $query = "UPDATE `announcement` SET `ann_title`='$edit_title',`ann_body`='$edit_body',`ann_publish`='$edit_sender',`ann_date`='$edit_event_dt' WHERE `ann_id` = '$user_id'";
+    $query_run = mysqli_query($con,$query);
+
+    if($query_run)
+    {
+        $_SESSION['status'] = "Announcement has been updated successfully!";
+        $_SESSION['status_code'] = "success";
+        header('Location: announcement.php');
+        exit(0);
+    }
+    else{
+        $_SESSION['status'] = "Error! SOMETHING WENT WRONG!";
+        $_SESSION['status_code'] = "error";
+        header('Location: announcement.php');
+        exit(0);
+    }
+}
+?>
+
+<?php
+if(isset($_POST['add_category']))
+{
     $name = $_POST['name'];
     $description = $_POST['description'];
     $status = $_POST['status'];
@@ -121,3 +253,31 @@ if(isset($_POST['add_announcement']))
     }
 }
 ?>
+
+
+<?php
+if(isset($_POST['add_farmer']))
+{
+    $fname = $_POST[''];
+    $mname = $_POST[''];
+    $mname = $_POST[''];
+
+    $query = "INSERT INTO `product_category`(`category_name`, `category_description`, `category_status`) VALUES ('$name','$description','$status')";
+    $query_run = mysqli_query($con,$query);
+
+    if($query_run)
+    {
+        $_SESSION['status'] = "New Category Added";
+        $_SESSION['status_code'] = "success";
+        header('Location: product_category.php');
+        exit(0);
+    }
+    else{
+        $_SESSION['status'] = "Error! SOMETHING WENT WRONG!";
+        $_SESSION['status_code'] = "error";
+        header('Location: product_category.php');
+        exit(0);
+    }
+}
+?>
+

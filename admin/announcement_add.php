@@ -29,20 +29,14 @@
                                 <textarea placeholder="Enter Message" required type="text"  name="announcement_message" class="form-control" rows="3"></textarea>
                                 </div>
 
-                                <div class="col-md-12 mb-3">
+                                <div class="col-md-6 mb-3">
                                     <label for="">Sender</label>
                                     <input required placeholder="Enter Sender" type="text" name="announcement_sender" class="form-control">
                                 </div>
 
-                                <div class="col-md-12 mb-3">
-                                    <div class="input-group date" id="datepicker">
-                                    <input type="text" name="date" placeholder="Input Date" class="form-control">
-                                    <span class="input-group-append">
-                                    <span class="input-group-text bg-white">
-                                    <i class="fa fa-calendar"></i>
-                                    </span>
-                                    </span>
-                                    </div>
+                                <div class="col-md-6 mb-3">
+                                <label for="">Date and Time Announced</label>
+                                <input type="datetime-local" name="announcement_dt" class="form-control">
                                 </div>
 
                                 
