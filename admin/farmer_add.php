@@ -22,18 +22,21 @@
                                 <div class="col-md-4 mb-3">
                                     <label for="">Last Name</label>
                                     <input required placeholder="Enter First Name" type="text" name="lname" class="form-control">
-                                </div>
+                                </div> 
+                            
 
                                 <div class="col-md-4 mb-3">
                                     <label for="">Middle Name</label>
                                     <input required placeholder="Enter Middle Name" type="text" name="mname" class="form-control">
                                 </div>
 
+
                                 <div class="col-md-4 mb-3">
                                     <label for="">First Name</label>
                                     <input required placeholder="Enter First Name" type="text" name="fname" class="form-control">
                                 </div>
                                 
+
                                 <div class="col-md-3 mb-3">
                                     <label for="">Gender</label>
                                     <br>
@@ -41,7 +44,7 @@
                                     <input required class="ml-2"  type="radio" name="gender" value="Female"> Female
                                 </div>
 
-                                
+                             
                                 <div class="col-md-12 mb-3">
                                 <hr>
                                 </div>
@@ -59,7 +62,7 @@
                                 
                                 <div class="col-md-4 mb-3">
                                     <label for="">Email Address</label>
-                                    <input required placeholder="Enter Email Address" type="email" name="text" class="form-control">
+                                    <input required placeholder="Enter Email Address" type="email" name="email" class="form-control">
                                 </div>
 
 
@@ -67,15 +70,17 @@
                                 <hr>
                                 </div>
 
-                                <div class="col-md-4 mb-3">
+                                <div class="col-md-4 mb-3">   
                                     <label for="">Purok</label>
                                     <input required placeholder="Enter Purok No." type="text" name="purok" class="form-control">
-                                </div> 
+                                </div>
+                                 <!-- done  -->
 
                                 <div class="col-md-4 mb-3">
                                     <label for="">Street/Sitio</label>
                                     <input required placeholder="Enter Street/Sitio" type="text" name="street" class="form-control">
                                 </div>
+                                <!-- done -->
                                 <div class="col-md-4 mb-3">
                                     <label for="">Barangay</label>
                                     <input required placeholder="Enter Barangay" type="text" name="barangay" class="form-control">
@@ -90,7 +95,7 @@
                                 </div>
                                 <div class="col-md-4 mb-3">
                                     <label for="">Region</label>
-                                    <h6>X</h6>
+                                    <h6>10</h6>
                                 </div>
 
                                 <div class="col-md-12 mb-3">
@@ -124,7 +129,7 @@
 
                                 <div class="col-md-6 mb-3">
                                 <label for="">Civil Status</label>
-                                    <select name="status" required class="form-control">
+                                    <select name="civilstatus" required class="form-control">
                                         <option value="None">--Select Civil Status--</option>
                                         <option value="Single">Single</option>
                                         <option value="Married">Married</option>
@@ -148,8 +153,8 @@
                                 <div class="col-md-4 mb-3">
                                 <label for="">4P's Beneficiary?</label>
                                 <br>
-                                <input required class="ml-2" type="radio" name="4ps" value="Yes"> Yes
-                                <input required class="ml-2" type="radio" name="4ps" value="No"> No
+                                <input required class="ml-2" type="radio" name="fourps" value="Yes"> Yes
+                                <input required class="ml-2" type="radio" name="fourps" value="No"> No
                                 </div>
 
                                 <div class="col-md-4 mb-3">
@@ -208,34 +213,33 @@
                                 <div class="col-md-12 mb-3">
                                 <label for=""><strong>Main Livelihood</strong></label>
                                 <br>
-                                <input required class="ml-4" type="radio" name="ml" value="Farmer"> Farmer
-                                <input required  class="ml-4" type="radio" name="ml" value="Farmworker/Laborer"> Farmworker/Laborer
-                                <input required class="ml-4" type="radio" name="ml" value="Fisherfolk"> Fisherfolk
-                                <input required  class="ml-4" type="radio" name="ml" value="Agri Youth"> Agri Youth
-                                <input required  class="ml-4" type="radio" name="ml" value="Tenant"> Tenant
+                                <input required class="ml-4" type="radio" name="livelihood" value="Farmer" id="option1" onclick="showDiv('div1')"> Farmer
+                                <input required  class="ml-4" type="radio" name="livelihood" value="Farmworker" id="option2" onclick="showDiv('div2')"> Farmworker/Laborer
+
+                                <input required  class="ml-4" type="radio" name="livelihood" value="Agri Youth" id="option3" onclick="showDiv('div3')"> Agri Youth
                                 </div>
 
 
-                                <div class="col-md-6 mb-3">
+                                <div class="col-md-12 mb-3"  id="div1" style="display: none;">
                                  <h5 class="text-center mt-4"><b>FOR FARMER</b></h5>
                                  <h6 class="text-center mt-4"><u>Type of Farming Activity</u></strong></h6>
                                 
                                  <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="Rice" id="rice">
+                                <input class="form-check-input" type="checkbox" value="Rice" name="livelihood_details[]">
                                 <label class="form-check-label" for="rice">
                                 Rice
                                 </label>
                                 </div>
 
                                 <div class="form-check mt-2">
-                                <input class="form-check-input" type="checkbox" value="Corn" id="corn">
+                                <input class="form-check-input" type="checkbox" value="Corn" name="corn">
                                 <label class="form-check-label" for="corn">
                                 Corn
                                 </label>
                                 </div>
 
                                 <div class="form-check mt-2">
-                                <input class="form-check-input" type="checkbox" value="Other Crops" id="othercrops">
+                                <input class="form-check-input" type="checkbox" value="Other Crops" name="othercrops">
                                 <label class="form-check-label" for="othercrops">
                                 Other Crops
                                 </label>
@@ -266,7 +270,7 @@
                                 <input required placeholder="" type="text" name="specifycrops" class="form-control">
                                 </div>
 
-                                <div class="col-md-6 mb-3">
+                                <div class="col-md-12 mb-3" id="div2" style="display: none;">
                                 <h5 class="text-center mt-4"><b>FOR FARMWORKER</b></h5>
                                  <h6 class="text-center mt-4"><u>Kind of Work</u></strong></h6>
 
@@ -313,7 +317,7 @@
                                 </div>
 
 
-                               <div class="col-md-6 mb-3">
+                               <div class="col-md-12 mb-3" id="div3" style="display: none;">
                                <h5 class="text-center mt-4"><b>FOR AGRI YOUTH</b></h5>
                                  <h6 class="text-center mt-4"><u>Type of Involvement</u></strong></h6>
                                  <p class="text-info">For the purpose of trainings, financial assistance, and other programs catered to the youth with involvement to any agriculture activity.</p>
@@ -346,22 +350,21 @@
                                </div>
 
 
-                               <div class="col-md-6 mb-3">
-                               <h5 class="text-center mt-4"><b>DOCUMENT </b></h5>
-                               
+                               <div class="col-md-12 mb-3 text-center">                                   
+                                <hr> <h5>DOCUMENT</h5>  <hr>                                
+                                </div>
+
+                               <div class="col-md-6 mb-3 ml-4">                             
                                <label for="profilepicture">Upload 2x2 Picture </label> <br>
                                 <input type="file" name="profilepicture" id = "profilepicture" accept=".jpg, .jpeg, .png" value="">
+                               </div>
 
-                                <br>
-                                <br>
-
-                                <label for="governmentidpicture">Upload any Government I.D </label> <br>
-                                <input type="file" name="governmentidpicture" id = "governmentidpicture" accept=".jpg, .jpeg, .png" value="">
-
-
-
+                               <div class="col-md-6-mb-3 ml-4">
+                               <label for="profilepicture">Upload Government Id</label> <br>
+                                <input type="file" name="profilepicture" id = "profilepicture" accept=".jpg, .jpeg, .png" value="">
                                </div>
                                
+
                                 </div>
                                 <div class="text-right">
                                 <a href="farmer_account.php" class="btn btn-danger">Back</a>

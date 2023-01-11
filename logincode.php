@@ -37,7 +37,7 @@ if(isset($_POST['login_btn']))
         elseif( $_SESSION['auth_role'] == '3')
         {
             $_SESSION['status'] = "Welcome Farmer!";
-            header("Location: farmer/farmer.php");
+            header("Location: farmer/index.php");
             exit(0);
         }
         elseif( $_SESSION['auth_role'] == '4')
@@ -61,14 +61,14 @@ if(isset($_POST['login_btn']))
     }
     else
     {
-        $_SESSION['status'] = "Invalid Email or Password";
+        $_SESSION['message'] = "Invalid Email or Password";
         header("Location: login.php");
         exit(0);
     }
 }   
 else
 {
-    $_SESSION['status'] = "You are not allowed to access this site";
+    $_SESSION['message'] = "You are not allowed to access this site";
     header("Location: login.php");
     exit(0);
 }

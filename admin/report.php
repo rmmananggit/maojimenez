@@ -15,35 +15,29 @@
                                     <thead>
                                         <tr>
                                             <th>No.</th>
-                                            <th>Requested By</th>
-                                            <th>Product</th>
-                                            <th>Quantity</th>
-                                            <th>Request Date</th>
-                                            <th>Request Status</th>
+                                            <th>Report By</th>
+                                            <th>Message</th>
+                                            <th>Photo</th>
+                                            <th>Date Reported</th>
                                             <th>ACTION</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                     <?php
                             $query = "SELECT
+                            report.report_id, 
                             `user`.fname, 
                             `user`.mname, 
                             `user`.lname, 
-                            product.product_name, 
-                            request.request_id, 
-                            request.request_quantity, 
-                            request.request_date, 
-                            request.request_status
+                            report.message, 
+                            report.photo, 
+                            report.date_created
                         FROM
-                            request
+                            report
                             INNER JOIN
                             `user`
                             ON 
-                                request.user_id = `user`.user_id
-                            INNER JOIN
-                            product
-                            ON 
-                                request.product_id = product.product_id";
+                                report.user_id = `user`.user_id";
                             $query_run = mysqli_query($con, $query);
                             if(mysqli_num_rows($query_run) > 0)
                             {
@@ -51,24 +45,22 @@
                                 {
                                     ?>
                                     <tr>
-                                    <td><?= $row['request_id']; ?></td>
+                                    <td><?= $row['report_id']; ?></td>
                                         <td><?= $row['fname']; ?> <?= $row['mname']; ?> <?= $row['lname']; ?></td>
-                                        <td><?= $row['product_name']; ?></td>
-                                        <td><?= $row['request_quantity']; ?></td>
-                                        <td><?= $row['request_date']; ?></td>
-                                        <td><?= $row['request_status']; ?></td>
+                                        <td><?= $row['message']; ?></td>
+                                        <td><img src="img/<?php echo $row["photo"]; ?>" class="img-responsive center-block d-block mx-auto"  width = 200 height= 200 title="<?php echo $row['photo']; ?>"></td>
+                                        <td><?= $row['date_created']; ?></td>
                                         <td>    
                                         
                                         <a href="#" class="btn btn-warning btn-circle mr-2">
                                         <i class="fas fa-check"></i> 
-                                    <!-- </a>
-                                        <a href="view_user.php?id=<?=$row['user_id'];?>" class="btn btn-danger btn-sm">Delete</a>   -->
+                                    </a>
 
                                          <a href="#" class="btn btn-danger btn-circle mt-1">
                                         <i class="fas fa-trash"></i>
                                     </a>
                                 </td>
-                                    
+                              
                                     </tr>
                                     <?php
                                 }

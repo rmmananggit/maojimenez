@@ -1,7 +1,7 @@
 <?php
-session_start();
 include('includes/header.php');
 include('includes/navbar.php');
+include('authentication.php');
 ?>
 
 <div class="py-5">

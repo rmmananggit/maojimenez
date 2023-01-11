@@ -1,6 +1,7 @@
 <?php
 include('includes/header.php');
 
+
 session_start();
 
 if(isset($_SESSION['auth']))
@@ -23,7 +24,7 @@ if(isset($_SESSION['auth']))
                                     <div class="card-body">
                                     <form action="logincode.php" method="POST">
 
-                                        <?php include('message.php'); ?>
+                                    <?php include('message.php'); ?>
 
                                             <div class="form-floating mb-3">
                                             <input required type="email" name="email" placeholder="Enter Email Address" class="form-control">
@@ -41,6 +42,7 @@ if(isset($_SESSION['auth']))
                                                 <a class="small" href="">Forgot Password?</a>
                                                 <button type="submit" name="login_btn" class="btn btn-primary">Login</button>
                                             </div>
+                                            
                                         </form>
                                     </div>
                                     <div class="card-footer text-center py-3">
@@ -49,7 +51,12 @@ if(isset($_SESSION['auth']))
                                 </div>
                             </div>
                         </div>
+
+                        <div class="small"><a href="qrlogin.php">QR HERE</a></div>
                     </div>
+
+
+ 
 
 
 <?php

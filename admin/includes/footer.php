@@ -90,6 +90,17 @@
                 ?>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+function showDiv(id) {
+    $(`#${id}`).show();
+    var divs = ["div1", "div2", "div3"];
+    divs.forEach(div => {
+        if (div !== id) {
+            $(`#${div}`).hide();
+        }
+    });
+}
+</script>
 
 
 

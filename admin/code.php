@@ -258,9 +258,30 @@ if(isset($_POST['add_category']))
 <?php
 if(isset($_POST['add_farmer']))
 {
-    $fname = $_POST[''];
-    $mname = $_POST[''];
-    $mname = $_POST[''];
+    $lname = $_POST['lname'];
+    $mname = $_POST['mname'];
+    $fname = $_POST['fname'];
+    $purok = $_POST['purok'];
+    $street = $_POST['street'];
+    $barangay = $_POST['barangay'];
+    $municipality = "Jimenez";
+    $province = "Misamis Occidental";
+    $region = "10";
+    $gender = $_POST['gender'];
+    $gender = $_POST['gender'];
+    $civilstatus = $_POST['civilstatus'];
+    $religion = $_POST['religion'];
+    $mobilenumber = $_POST['mobilenumber'];
+    $email = $_POST['email'];
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+    $fourps = $_POST['fourps'];
+    $ig = $_POST['ig'];
+    $pwd = $_POST['pwd'];
+    $livelihood = $_POST['livelihood'];
+    
+
+
 
     $query = "INSERT INTO `product_category`(`category_name`, `category_description`, `category_status`) VALUES ('$name','$description','$status')";
     $query_run = mysqli_query($con,$query);

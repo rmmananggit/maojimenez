@@ -15,35 +15,27 @@
                                     <thead>
                                         <tr>
                                             <th>No.</th>
-                                            <th>Requested By</th>
-                                            <th>Product</th>
-                                            <th>Quantity</th>
-                                            <th>Request Date</th>
-                                            <th>Request Status</th>
+                                            <th>Concern By</th>
+                                            <th>Message</th>
+                                            <th>Date</th>
                                             <th>ACTION</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                     <?php
                             $query = "SELECT
+                            concern.concern_id, 
                             `user`.fname, 
                             `user`.mname, 
                             `user`.lname, 
-                            product.product_name, 
-                            request.request_id, 
-                            request.request_quantity, 
-                            request.request_date, 
-                            request.request_status
+                            concern.concern_message, 
+                            concern.date_created
                         FROM
-                            request
+                            concern
                             INNER JOIN
                             `user`
                             ON 
-                                request.user_id = `user`.user_id
-                            INNER JOIN
-                            product
-                            ON 
-                                request.product_id = product.product_id";
+                                concern.user_id = `user`.user_id";
                             $query_run = mysqli_query($con, $query);
                             if(mysqli_num_rows($query_run) > 0)
                             {
@@ -51,12 +43,10 @@
                                 {
                                     ?>
                                     <tr>
-                                    <td><?= $row['request_id']; ?></td>
+                                    <td><?= $row['concern_id']; ?></td>
                                         <td><?= $row['fname']; ?> <?= $row['mname']; ?> <?= $row['lname']; ?></td>
-                                        <td><?= $row['product_name']; ?></td>
-                                        <td><?= $row['request_quantity']; ?></td>
-                                        <td><?= $row['request_date']; ?></td>
-                                        <td><?= $row['request_status']; ?></td>
+                                        <td><?= $row['concern_message']; ?></td>
+                                        <td><?= $row['date_created']; ?></td>
                                         <td>    
                                         
                                         <a href="#" class="btn btn-warning btn-circle mr-2">
