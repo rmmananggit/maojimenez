@@ -361,7 +361,7 @@
 
                                <div class="col-md-6-mb-3 ml-4">
                                <label for="profilepicture">Upload Government Id</label> <br>
-                                <input type="file" name="profilepicture" id = "profilepicture" accept=".jpg, .jpeg, .png" value="">
+                                <input type="file" name="governmentid" id = "profilepicture" accept=".jpg, .jpeg, .png" value="">
                                </div>
                                
 
