@@ -53,20 +53,22 @@ if(isset($_SESSION['auth']))
 
               <div class="form-group first">
                 <label for="">Email</label>
-                <input type="text" name="email" class="form-control" placeholder="your-email@gmail.com" id="username">
+                <input required type="email" name="email" class="form-control" placeholder="your-email@gmail.com" id="username">
               </div>
               <div class="form-group last mb-3">
                 <label for="">Password</label>
-                <input type="password" name="password" class="form-control" placeholder="Your Password" id="password">
+                <input required type="password" name="password" class="form-control" placeholder="Your Password" id="password">
               </div>
               
-              <!-- <div class="d-flex mb-5 align-items-center">
+              <div class="d-flex mb-5 align-items-center">
                 <label class="control control--checkbox mb-0"><span class="caption">Remember me</span>
                   <input type="checkbox"/>
                   <div class="control__indicator"></div>
                 </label>
-                <span class="ml-auto"><a href="#" class="forgot-pass">Forgot Password</a></span> 
-              </div> -->
+
+                <span class="ml-auto"><a href="#">Login via QR</a></span> 
+                
+              </div>
 
               <button type="submit" name="login_btn" class="btn btn-block btn-primary">Login</button>
             </form>

@@ -62,14 +62,15 @@ if(isset($_POST['login_btn']))
     else
     {
         $_SESSION['message'] = "Invalid Email or Password";
-        header("Location: login.php");
+        $_SESSION['message_code'] = "error";
+        header("Location: ../login/index.php");
         exit(0);
     }
 }   
 else
 {
     $_SESSION['message'] = "You are not allowed to access this site";
-    header("Location: login.php");
+    header("Location: ../login/index.php");
     exit(0);
 }
 
