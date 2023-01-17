@@ -9,7 +9,8 @@ if(isset($_POST['logout_btn']))
     unset( $_SESSION['auth_user']);
 
     $_SESSION['message'] = "Logout Successfully";
-    header("Location: ../login.php");
+    $_SESSION['message_code'] = "success";
+    header("Location: ../login/index.php");
     exit(0);
 }
 

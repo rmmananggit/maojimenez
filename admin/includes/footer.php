@@ -59,6 +59,7 @@
                 </script>
                 <?php
                 unset($_SESSION['status']);
+                unset($_SESSION['status_code']);
         }
                 ?>
 
@@ -72,7 +73,7 @@
                 title: "<?php echo $_SESSION['message']; ?>",
                 icon: "<?php echo $_SESSION['message_code']; ?>",
                 timer: 1500,
-                buttons: false,
+                button: "Close",
                 }).then(
                 function () {},
                 // handling the promise rejection

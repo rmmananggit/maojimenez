@@ -62,8 +62,10 @@
 
           <li class="dropdown"><a href="#"><span> <?= $_SESSION['auth_user'] ['user_name'];  ?></span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li><a href="#">Drop Down 1</a></li>
-              <li><a href="#">Drop Down 2</a></li>
+              <li><a href="">My Profile</a></li>
+              <li>  <form action="code.php" method="POST">
+          <button type="submit" name="logout_btn" class="btn btn-danger">Logout</button>
+        </form></li>
               <li><a href="#">Drop Down 3</a></li>
               <li><a href="#">Drop Down 4</a></li>
             </ul>

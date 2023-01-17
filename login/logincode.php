@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('admin/config/dbcon.php');
+include('../admin/config/dbcon.php');
 
 if(isset($_POST['login_btn']))
 {
@@ -31,7 +31,7 @@ if(isset($_POST['login_btn']))
         {
             $_SESSION['message'] = "Welcome Administrator!";
             $_SESSION['message_code'] = "success";
-            header("Location: admin/index.php");
+            header("Location: ../admin/index.php");
             exit(0);
         }
         elseif( $_SESSION['auth_role'] == '3')
