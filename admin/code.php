@@ -10,7 +10,7 @@ if(isset($_POST['logout_btn']))
 
     $_SESSION['message'] = "You have successfully disconnected from your account.";
     $_SESSION['message_code'] = "success";
-    header("Location: ../login/index.php");
+    header("Location: ../index.php");
     exit(0);
 }
 

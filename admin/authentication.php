@@ -6,7 +6,7 @@ if(!isset($_SESSION['auth']))
 {
     $_SESSION['message'] = "Login to Access Dashboard";
     $_SESSION['message_code'] = "error";
-    header("Location: ../login/index.php");
+    header("Location: ./index.php");
     exit(0);
 }
 else
@@ -15,7 +15,7 @@ else
     {
         $_SESSION['message'] = "You are not authorized as ADMIN";
         $_SESSION['message_code'] = "error";
-        header("Location: index.php");
+        header("Location: ./index.php");
         exit(0);
     }
 }
