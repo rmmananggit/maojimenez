@@ -48,7 +48,7 @@ if(isset($_SESSION['auth']))
         <div class="row align-items-center justify-content-center">
           <div class="col-md-7">
             <h3>Login to <strong>MAO JIMENEZ</strong></h3>
-
+            <p class="mb-4">A system where churva churva</p>
             <form action="logincode.php" method="POST">
 
               <div class="form-group first">
@@ -66,7 +66,7 @@ if(isset($_SESSION['auth']))
                   <div class="control__indicator"></div>
                 </label>
 
-                <span class="ml-auto"><a href="#">Login via QR</a></span> 
+                <span class="ml-auto"><a class="qr" data-toggle="modal" data-target="#exampleModal"><u>Click here to login via QR</u></a></span> 
                 
               </div>
 
@@ -77,6 +77,32 @@ if(isset($_SESSION['auth']))
       </div>
     </div>
   </div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"><label>SCAN QR CODE HERE</label></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
 
 
   <script src="js/sweetalert.js"></script>
