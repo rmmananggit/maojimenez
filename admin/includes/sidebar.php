@@ -54,7 +54,7 @@
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Manage:</h6>
-                <a class="collapse-item" href="farmer_account.php">Account</a>
+                <a class="collapse-item" href="farmer_account.php">Profile</a>
                 <a class="collapse-item" href="farmer_pending.php">Pending Account</a>
             </div>
         </div>

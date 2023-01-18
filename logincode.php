@@ -36,14 +36,14 @@ if(isset($_POST['login_btn']))
         }
         elseif( $_SESSION['auth_role'] == '3')
         {
-            $_SESSION['status'] = "Welcome Farmer!";
+            $_SESSION['status'] = "Welcome !";
             header("Location: farmer/index.php");
             exit(0);
         }
-        elseif( $_SESSION['auth_role'] == '4')
+        elseif( $_SESSION['auth_role'] == '2')
         {
-            $_SESSION['status'] = "Welcome !";
-            header("Location: secretary/index.php");
+            $_SESSION['status'] = "Welcome!";
+            header("Location: ./staff/index.php");
             exit(0);
         }
         elseif( $_SESSION['auth_role'] == '5')

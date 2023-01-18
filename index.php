@@ -108,13 +108,13 @@ if(isset($_SESSION['auth']))
   <script src="js/sweetalert.js"></script>
 
     <?php
-        if(isset($_SESSION['message']) && $_SESSION['message_code'] !='' )
+        if(isset($_SESSION['status']) && $_SESSION['status_code'] !='' )
         {
             ?>
                 <script>
                 swal({
-                title: "<?php echo $_SESSION['message']; ?>",
-                icon: "<?php echo $_SESSION['message_code']; ?>",
+                title: "<?php echo $_SESSION['status']; ?>",
+                icon: "<?php echo $_SESSION['status_code']; ?>",
                 timer: 1500,
                 button: "Close",
                 }).then(
