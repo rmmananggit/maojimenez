@@ -7,7 +7,11 @@ if(isset($_POST['login_btn']))
     $email = mysqli_real_escape_string($con, $_POST['email']);
     $password = mysqli_real_escape_string($con, $_POST['password']);
 
-    $login_query = "SELECT * FROM user WHERE email='$email' AND password= '$password' LIMIT 1";
+    $login_query = "SELECT user_id,fname,lname,email,password,user_type FROM user
+    WHERE email = '$email' AND password = '$password'
+    UNION
+    SELECT user_id,fname,lname,email,password,user_type FROM farmer
+    WHERE email = '$email' AND password = '$password' LIMIT 1";
     $login_query_run = mysqli_query($con, $login_query);
 
     if(mysqli_num_rows($login_query_run) > 0)
@@ -29,8 +33,8 @@ if(isset($_POST['login_btn']))
 
         if( $_SESSION['auth_role'] == '1')
         {
-            $_SESSION['message'] = "Welcome Administrator!";
-            $_SESSION['message_code'] = "success";
+            $_SESSION['status'] = "Welcome Administrator!";
+            $_SESSION['status_code'] = "success";
             header("Location: ./admin/index.php");
             exit(0);
         }
@@ -61,16 +65,18 @@ if(isset($_POST['login_btn']))
     }
     else
     {
-        $_SESSION['message'] = "Invalid Email or Password";
-        $_SESSION['message_code'] = "error";
-        header("Location: ../login/index.php");
+        $_SESSION['status'] = "Invalid Email or Password";
+        $_SESSION['status_code'] = "error";
+        header("Location: /index.php");
         exit(0);
     }
 }   
 else
 {
-    $_SESSION['message'] = "You are not allowed to access this site";
-    header("Location: ../login/index.php");
+    $_SESSION['status'] = "You are not allowed to access this site";
+    $_SESSION['status_code'] = "error";
+    header("Location: /index.php");
+    
     exit(0);
 }
 

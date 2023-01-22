@@ -24,6 +24,7 @@
 
 session_start();
 
+
 if(isset($_SESSION['auth']))
 {
     if(!isset($_SESSION['message'])){
@@ -32,7 +33,6 @@ if(isset($_SESSION['auth']))
     header("Location: ./index.php");
     exit(0);
 }
-
 
 ?>
   <body>

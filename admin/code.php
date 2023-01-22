@@ -13,62 +13,193 @@ if(isset($_POST['logout_btn']))
     header("Location: ../index.php");
     exit(0);
 }
-
-?>  
+?>
 
 <?php
+//addstaff
+if(isset($_POST["add_staff"])){
 
-if(isset($_POST["add_product"])){
-    $name = $_POST['name'];
-    $quantity = $_POST['quantity'];
-    $category = $_POST['category'];
-    $status = $_POST['status'];
-    if($_FILES["image"]["error"] == 4){
+  $userprofile = $_FILES['userprofile'];
 
-      $_SESSION['status'] = "Image does not exist!";
-      $_SESSION['status_code'] = "error";
-      header('Location: manage_product_add.php');
-      exit(0);
+  $fileName = $userprofile['name'];
+  $fileTmpname = $userprofile['tmp_name'];
+  $fileSize = $userprofile['size'];
+  $fileError = $userprofile['error'];
+
+  $fileExt = explode('.',$fileName);
+  $fileActExt = strtolower(end($fileExt));
+  $allowed = array('jpg','jpeg','png');
+
+
+  if(in_array($fileActExt, $allowed)){
+    if($fileError === 0){
+        if($fileSize < 50000000){
+          $fname = $_POST['fname'];
+          $mname = $_POST['mname'];
+          $lname = $_POST['lname'];
+          $email = $_POST['email'];
+          $password = $_POST['password'];
+          $user_type = '2';
+          $user_status = '1';
+          $userprofile = addslashes(file_get_contents($_FILES["userprofile"]['tmp_name']));
+
+          $query = "INSERT INTO `user`(`fname`, `mname`, `lname`, `email`, `password`, `picture`, `user_type`, `user_status`) VALUES ('$fname','$mname','$lname','$email','$password','$userprofile','$user_type','$user_status')";
+
+            $query_run = mysqli_query($con, $query);
+
+            if($query_run){
+              $_SESSION['status'] = "User Added Successfully!";
+              $_SESSION['status_code'] = "success";
+              header('Location: staff.php');
+              exit(0);
+            }else{
+              $_SESSION['status'] = "User was not added";
+              $_SESSION['status_code'] = "error";
+              header('Location: staff_add.php');
+              exit(0);
+            }
+
+        }else{
+            $_SESSION['status']="File is too large file must be 10mb";
+            $_SESSION['status_code'] = "error"; 
+            header('Location: staff_add.php');
+        }
+    }else{
+        $_SESSION['status']="File Error";
+        $_SESSION['status_code'] = "error"; 
+        header('Location: staff_add.php');
     }
-    else{
-      $fileName = $_FILES["image"]["name"];
-      $fileSize = $_FILES["image"]["size"];
-      $tmpName = $_FILES["image"]["tmp_name"];
-  
-      $validImageExtension = ['jpg', 'jpeg', 'png'];
-      $imageExtension = explode('.', $fileName);
-      $imageExtension = strtolower(end($imageExtension));
-      if ( !in_array($imageExtension, $validImageExtension) ){
-      
-        $_SESSION['status'] = "Invalid Image Extension";
-        $_SESSION['status_code'] = "error";
-        header('Location: manage_product_add.php');
-        exit(0);
-      }
-      else if($fileSize > 1000000){
+}else{
+   
+}
+}
 
-        $_SESSION['status'] = "Image size is too large!";
-        $_SESSION['status_code'] = "error";
-        header('Location: manage_product.php');
-        exit(0);
-      }
-      else{
-        $newImageName = uniqid();
-        $newImageName .= '.' . $imageExtension;
-  
-        move_uploaded_file($tmpName, 'img/' . $newImageName);
-        $query = "INSERT INTO `product`(`product_name`, `product_image`, `product_quantity`, `product_category_id`, `product_status`) VALUES ('$name','$newImageName','$quantity','$category','$status')";
-        mysqli_query($con, $query);
-        echo
-
-        $_SESSION['status'] = "Product Added!";
-        $_SESSION['status_code'] = "success";
-        header('Location: manage_product.php');
-        exit(0);
-      }
-    }
-  }
 ?>
+
+
+<?php
+//update product 
+if(isset($_POST["update_product"])){
+  $product_image = $_FILES['product_image'];
+
+  $fileName = $product_image['name'];
+  $fileTmpname = $product_image['tmp_name'];
+  $fileSize = $product_image['size'];
+  $fileError = $product_image['error'];
+
+  $fileExt = explode('.',$fileName);
+  $fileActExt = strtolower(end($fileExt));
+  $allowed = array('jpg','jpeg','png');
+
+
+  if(in_array($fileActExt, $allowed)){
+    if($fileError === 0){
+        if($fileSize < 50000000){
+          $user_id = $_POST['product_id'];
+          $name = $_POST['name'];
+          $quantity = $_POST['quantity'];
+          $category = $_POST['category'];
+          $status = $_POST['status'];
+          $product_image = addslashes(file_get_contents($_FILES["product_image"]['tmp_name']));
+
+          $query = "UPDATE `product` SET `product_name`='$name',`product_image`='$product_image',`product_quantity`='$quantity',`product_category_id`='$category',`product_status`='$status' WHERE `product_id`='$user_id'";
+
+            $query_run = mysqli_query($con, $query);
+
+            if($query_run){
+              $_SESSION['status'] = "Product Added!";
+              $_SESSION['status_code'] = "success";
+              header('Location: manage_product.php');
+              exit(0);
+            }else{
+              $_SESSION['status'] = "Product Not Added!";
+              $_SESSION['status_code'] = "error";
+              header('Location: manage_product.php');
+              exit(0);
+            }
+
+        }else{
+            $_SESSION['status']="File is too large file must be 10mb";
+            $_SESSION['status_code'] = "error"; 
+            header('Location: manage_product.php');
+        }
+    }else{
+        $_SESSION['status']="File Error";
+        $_SESSION['status_code'] = "error"; 
+        header('Location: manage_product.php');
+    }
+}else{
+    $_SESSION['status']="File not allowed";
+    $_SESSION['status_code'] = "error"; 
+    header('Location: manage_product.php');
+}
+}
+?>
+
+
+
+
+
+<?php
+//register product 
+if(isset($_POST["add_product"])){
+  $product_image = $_FILES['product_image'];
+
+  $fileName = $product_image['name'];
+  $fileTmpname = $product_image['tmp_name'];
+  $fileSize = $product_image['size'];
+  $fileError = $product_image['error'];
+
+  $fileExt = explode('.',$fileName);
+  $fileActExt = strtolower(end($fileExt));
+  $allowed = array('jpg','jpeg','png');
+
+
+  if(in_array($fileActExt, $allowed)){
+    if($fileError === 0){
+        if($fileSize < 50000000){
+          $name = $_POST['name'];
+          $quantity = $_POST['quantity'];
+          $category = $_POST['category'];
+          $status = $_POST['status'];
+          $product_image = addslashes(file_get_contents($_FILES["product_image"]['tmp_name']));
+
+          $query = "INSERT INTO `product`(`product_name`, `product_image`, `product_quantity`, `product_category_id`, `product_status`) VALUES ('$name','$product_image','$quantity','$category','$status')";
+
+            $query_run = mysqli_query($con, $query);
+
+            if($query_run){
+              $_SESSION['status'] = "Product Added!";
+              $_SESSION['status_code'] = "success";
+              header('Location: manage_product.php');
+              exit(0);
+            }else{
+              $_SESSION['status'] = "Product Not Added!";
+              $_SESSION['status_code'] = "error";
+              header('Location: manage_product.php');
+              exit(0);
+            }
+
+        }else{
+            $_SESSION['status']="File is too large file must be 10mb";
+            $_SESSION['status_code'] = "error"; 
+            header('Location: manage_product.php');
+        }
+    }else{
+        $_SESSION['status']="File Error";
+        $_SESSION['status_code'] = "error"; 
+        header('Location: manage_product.php');
+    }
+}else{
+    $_SESSION['status']="File not allowed";
+    $_SESSION['status_code'] = "error"; 
+    header('Location: manage_product.php');
+}
+
+}
+?>
+
+
 
 <?php
 if(isset($_POST['add_category']))

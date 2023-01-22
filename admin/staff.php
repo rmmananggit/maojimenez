@@ -6,11 +6,11 @@
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                        <a href="farmer_add.php" class="btn btn-success btn-icon-split"> 
+                        <a href="staff_add.php" class="btn btn-success btn-icon-split"> 
                                         <span class="icon text-white-50">
                                         <i class="fas fa-user"></i>
                                         </span>
-                                        <span class="text">Add Farmer Account</span>
+                                        <span class="text">Add Staff Account</span>
                                     </a>
                         </div>
                         <div class="card-body">
@@ -18,9 +18,10 @@
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
+                                            <th>Id</th>
                                             <th>Name</th>
+                                            <th>Picture</th>
                                             <th>Email</th>
-                                            <th>Gender</th>
                                             <th>Status</th>
                                             <th class="text-center">Action</th>
 
@@ -29,22 +30,25 @@
                                     <tbody>
                                     <?php
                             $query = "SELECT
-                            farmer.user_id, 
-                            farmer.fname, 
-                            farmer.mname, 
-                            farmer.lname, 
-                            farmer.email, 
-                            farmer.gender, 
+                            `user`.user_id, 
+                            `user`.mname, 
+                            `user`.fname, 
+                            `user`.email, 
+                            `user`.lname, 
+                            `user`.`password`, 
+                            `user`.picture, 
+                            user_type.user_name, 
                             user_status.user_status_name
                         FROM
-                            farmer
+                            `user`
+                            INNER JOIN
+                            user_type
+                            ON 
+                                `user`.user_type = user_type.user_id
                             INNER JOIN
                             user_status
                             ON 
-                                farmer.user_status = user_status.user_status_id
-                        WHERE
-                            farmer.user_type = 3 AND
-                            user_status.user_status_name = 1";
+                                `user`.user_status = user_status.user_status_id";
                             $query_run = mysqli_query($con, $query);
                             if(mysqli_num_rows($query_run) > 0)
                             {
@@ -52,14 +56,18 @@
                                 {
                                     ?>
                                     <tr>
+                                        <td><?= $row['user_id']; ?></td>
                                         <td><?= $row['fname']; ?> <?= $row['mname']; ?> <?= $row['lname']; ?></td>
+                                        <td><?php 
+                                        echo '<img class="zoom img-fluid img-bordered-sm" src = "data:image;base64,'.base64_encode($row['picture']).'" 
+                                        alt="image" style="height: 170px; max-width: 310px; object-fit: cover;">';
+                                        ?></td>
                                         <td><?= $row['email']; ?></td>
-                                        <td><?= $row['gender']; ?></td>
                                         <td><?= $row['user_status_name']; ?></td>
                                         <td class="text-center"> 
                                             
                                         <!-- <a href="view_user.php?id=<?=$row['user_id'];?>" class="btn-circle btn-info btn-sm">Update</a> -->
-                                        <a href="farmer_view.php" class="btn btn-success btn-circle mr-1">
+                                        <a href="staff_view.php?id=<?=$row['user_id'];?>" class="btn btn-success btn-circle mr-1">
                                         <i class="fas fa-eye"></i>
                                         
                                         <a href="#" class="btn btn-warning btn-circle mr-1">

@@ -51,14 +51,17 @@
                                     <tr>
                                     <td><?= $row['product_id']; ?></td>
                                         <td><?= $row['product_name']; ?></td>
-                                        <td><img src="img/<?php echo $row["product_image"]; ?>" class="img-responsive center-block d-block mx-auto"  width = 200 height= 200 title="<?php echo $row['product_image']; ?>"></td>
+                                        <td> <?php 
+                                        echo '<img class="img-fluid img-bordered-sm" src = "data:image;base64,'.base64_encode($row['product_image']).'" 
+                                        alt="image" style="height: 170px; max-width: 310px; object-fit: cover;">';
+                                        ?></td>
                                         <td><?= $row['product_quantity']; ?></td>
                                         <td><?= $row['category_name']; ?></td>
                                         <td><?= $row['product_status']; ?></td>
                                         
                                         <td>    
                                         
-                                        <a href="#" class="btn btn-warning btn-circle mr-1">
+                                        <a href="manage_product_update.php?id=<?=$row['product_id'];?>" class="btn btn-warning btn-circle mr-1">
                                         <i class="fas fa-pen"></i>
     
                                         <a href="#" class="btn btn-danger btn-circle mr-1">
