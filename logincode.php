@@ -50,18 +50,6 @@ if(isset($_POST['login_btn']))
             header("Location: ./staff/index.php");
             exit(0);
         }
-        elseif( $_SESSION['auth_role'] == '5')
-        {
-            $_SESSION['status'] = "Welcome!";
-            header("Location: treasurer/index.php");
-            exit(0);
-        }
-        elseif( $_SESSION['auth_role'] == '6')
-        {
-            $_SESSION['status'] = "Welcome!";
-            header("Location: parent/index.php");
-            exit(0);
-        }
     }
     else
     {
