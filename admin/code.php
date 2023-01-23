@@ -10,10 +10,100 @@ if(isset($_POST['logout_btn']))
 
     $_SESSION['status'] = "You have successfully disconnected from your account.";
     $_SESSION['status_code'] = "success";
-    header("Location: ../index.php");
+    header("Location: ../login/index.php");
     exit(0);
 }
 ?>
+
+
+<?php
+//update staff 
+if(isset($_POST["update_staff"])){
+  $userprofile = $_FILES['userprofile'];
+
+  $fileName = $userprofile['name'];
+  $fileTmpname = $userprofile['tmp_name'];
+  $fileSize = $userprofile['size'];
+  $fileError = $userprofile['error'];
+
+  $fileExt = explode('.',$fileName);
+  $fileActExt = strtolower(end($fileExt));
+  $allowed = array('jpg','jpeg','png');
+
+
+  if(in_array($fileActExt, $allowed)){
+    if($fileError === 0){
+        if($fileSize < 50000000){
+          $user_id = $_POST['user_id'];
+          $fname = $_POST['fname'];
+          $mname = $_POST['mname'];
+          $lname = $_POST['lname'];
+          $email = $_POST['email'];
+          $product_image = addslashes(file_get_contents($_FILES["userprofile"]['tmp_name']));
+
+          $query = "UPDATE `user` SET `fname`='$fname',`mname`='$mname',`lname`='$lname',`email`='$email',`picture`='$product_image' WHERE `user_id`='$user_id'";
+
+            $query_run = mysqli_query($con, $query);
+
+            if($query_run){
+              $_SESSION['status'] = "User Update Successfully";
+              $_SESSION['status_code'] = "success";
+              header('Location: staff.php');
+              exit(0);
+            }else{
+              $_SESSION['status'] = "Something is wrong!";
+              $_SESSION['status_code'] = "error";
+              header('Location: staff.php');
+              exit(0);
+            }
+
+        }else{
+            $_SESSION['status']="File is too large file must be 10mb";
+            $_SESSION['status_code'] = "error"; 
+            header('Location: staff.php');
+        }
+    }else{
+        $_SESSION['status']="File Error";
+        $_SESSION['status_code'] = "error"; 
+        header('Location: staff.php');
+    }
+}else{
+    $_SESSION['status']="File not allowed";
+    $_SESSION['status_code'] = "error"; 
+    header('Location: staff.php');
+}
+}
+?>
+
+
+
+
+<?php
+if(isset($_POST['id']))
+{
+    $id = $_POST['id'];
+
+    $query = "DELETE FROM product WHERE product_id='$id'";
+    $query_run = mysqli_query($con, $query);
+    
+    if($query_run)
+    {
+      $_SESSION['status'] = "The product has been successfully removed.";
+      $_SESSION['status_code'] = "success";
+        header('Location: manage_product.php');
+        exit(0);
+    }
+    else
+    {
+        $_SESSION['message'] = "Something went wrong!";
+        header('Location: manage_product.php');
+        exit(0);
+    }
+}
+?>
+
+
+
 
 <?php
 //addstaff

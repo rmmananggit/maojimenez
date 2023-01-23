@@ -64,28 +64,28 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                                PENDING USER (FARMER)</div>
+                                                REQUEST</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">
 
-                                            <?php
-                                            $pending_farmer = "SELECT
-                                            `user`.*
-                                        FROM
-                                            `user`
-                                        WHERE
-                                            `user`.user_type = 3 AND
-                                            `user`.user_status = 3";
-                                            $pending_farmer_query_run = mysqli_query($con, $pending_farmer);
+                                            <!-- <?php
+                                        //     $pending_farmer = "SELECT
+                                        //     `user`.*
+                                        // FROM
+                                        //     `user`
+                                        // WHERE
+                                        //     `user`.user_type = 3 AND
+                                        //     `user`.user_status = 3";
+                                        //     $pending_farmer_query_run = mysqli_query($con, $pending_farmer);
 
-                                            if($pending_count = mysqli_num_rows($pending_farmer_query_run))
-                                            {
-                                                echo '<h4>'.$pending_count.'</h4>';
-                                            }
-                                            else{
-                                                echo '<h4>0</h4>';
-                                            }
+                                        //     if($pending_count = mysqli_num_rows($pending_farmer_query_run))
+                                        //     {
+                                        //         echo '<h4>'.$pending_count.'</h4>';
+                                        //     }
+                                        //     else{
+                                        //         echo '<h4>0</h4>';
+                                        //     }
 
-                                            ?>
+                                            ?> -->
 
                                             </div>
                                         </div>

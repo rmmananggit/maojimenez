@@ -1,8 +1,6 @@
 <?php include('authentication.php'); ?>
 <?php include('includes/header.php');?>
 
-<?php include('message.php'); ?>
-
 
 <div class="container-fluid">
                     <!-- DataTales Example -->
@@ -48,12 +46,12 @@
                                         <td><?= $row['ann_date']; ?></td>
                                         
                                         <td>    
-                                        
-                                        <a href="announcement_edit.php?id=<?=$row['ann_id'];?>"  class="btn btn-warning btn-sm mt-1 ">UPDATE</a>
+
+<a href="announcement_edit.php?id=<?=$row['ann_id'];?>"  class="btn btn-warning btn-sm mt-1 ">UPDATE</a>
  
-                                        <form action="code.php" method="POST">  
-                                         <button type="submit" name="ann_delete" value="<?=$row['ann_id']; ?>" class="btn btn-danger btn-sm mt-1">DELETE</button>
-                                        </form>
+ <form action="code.php" method="POST">  
+  <button type="submit" name="ann_delete" value="<?=$row['ann_id']; ?>" class="btn btn-danger btn-sm mt-1">DELETE</button>
+ </form>               
                                 </td>
                                     </tr>
                                     <?php

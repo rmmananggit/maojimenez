@@ -64,7 +64,7 @@
                                         <a href="manage_product_update.php?id=<?=$row['product_id'];?>" class="btn btn-warning btn-circle mr-1">
                                         <i class="fas fa-pen"></i>
     
-                                        <a href="#" class="btn btn-danger btn-circle mr-1">
+                                        <a class="btn btn-danger btn-circle mr-1">
                                         <i class="fas fa-trash"></i>
                                     </a>
                                 </td>
@@ -89,6 +89,8 @@
                     </div>
 
                 </div>
+
+
 
 
 

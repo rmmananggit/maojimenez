@@ -31,10 +31,10 @@
                                     <?php
                             $query = "SELECT
                             `user`.user_id, 
-                            `user`.mname, 
                             `user`.fname, 
-                            `user`.email, 
+                            `user`.mname, 
                             `user`.lname, 
+                            `user`.email, 
                             `user`.`password`, 
                             `user`.picture, 
                             user_type.user_name, 
@@ -48,7 +48,9 @@
                             INNER JOIN
                             user_status
                             ON 
-                                `user`.user_status = user_status.user_status_id";
+                                `user`.user_status = user_status.user_status_id
+                        WHERE
+                            `user`.user_type = 2";
                             $query_run = mysqli_query($con, $query);
                             if(mysqli_num_rows($query_run) > 0)
                             {
@@ -70,12 +72,10 @@
                                         <a href="staff_view.php?id=<?=$row['user_id'];?>" class="btn btn-success btn-circle mr-1">
                                         <i class="fas fa-eye"></i>
                                         
-                                        <a href="#" class="btn btn-warning btn-circle mr-1">
+                                        <a href="staff_update.php?id=<?=$row['user_id'];?>" class="btn btn-warning btn-circle mr-1">
                                         <i class="fas fa-pen"></i>
-                                    <!-- </a>
-                                        <a href="view_user.php?id=<?=$row['user_id'];?>" class="btn btn-danger btn-sm">Delete</a>   -->
-
-                                        <a href="#" class="btn btn-danger btn-circle mr-1">
+                                
+                                        <a href="" class="btn btn-danger btn-circle mr-1">
                                         <i class="fas fa-trash"></i>
                                     </a>
                                     </tr>
