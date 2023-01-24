@@ -366,7 +366,7 @@
 
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
             <div class="member">
-              <img src="assets/img/team/team-2.jpg" alt="">
+              <img class="" src="assets/img/balmadres.jpg" alt="" style="height: 190px;">
               <h4>Christine Mae Isana Balmadres</h4>
               <span>Full Stack Developer</span>
               <p>
@@ -383,7 +383,7 @@
 
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
             <div class="member">
-              <img src="assets/img/team/team-3.jpg" alt="">
+              <img src="assets/img/cindy.jpg" alt="">
               <h4>Cindy Bantilan Sapalleda</h4>
               <span>Full Stack Developer</span>
               <p>

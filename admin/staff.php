@@ -61,7 +61,7 @@
                                         <td><?= $row['user_id']; ?></td>
                                         <td><?= $row['fname']; ?> <?= $row['mname']; ?> <?= $row['lname']; ?></td>
                                         <td><?php 
-                                        echo '<img class="zoom img-fluid img-bordered-sm" src = "data:image;base64,'.base64_encode($row['picture']).'" 
+                                        echo '<img class="zoom img-fluid img-bordered-sm" src ="data:image;base64,'.base64_encode($row['picture']).'" 
                                         alt="image" style="height: 170px; max-width: 310px; object-fit: cover;">';
                                         ?></td>
                                         <td><?= $row['email']; ?></td>
