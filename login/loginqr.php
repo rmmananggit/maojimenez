@@ -8,7 +8,9 @@
     <link rel="stylesheet" href="fonts/icomoon/style.css">
 
     <link rel="stylesheet" href="css/owl.carousel.min.css">
-
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/webrtc-adapter/3.3.3/adapter.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.10/vue.min.js"></script>
+<script type="text/javascript" src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
     
@@ -44,40 +46,49 @@ if(isset($_SESSION['auth']))
     <div class="contents order-2 order-md-1">
 
       <div class="container">
-        <div class="row align-items-center justify-content-center">
-          <div class="col-md-7">
-            <h3>Login to <strong>MAO JIMENEZ</strong></h3>
-            <p class="mb-4">A system where churva churva</p>
-            <form action="logincode.php" method="POST">
+        <div class="row align-items-center justify-content-center text-center">
+          <div class="col-md-12">
+            <h3>Login via <strong>QR CODE</strong></h3>
+            
+            <form action="loginqrcode.php" method="POST">
 
-              <div class="form-group first">
-                <label for="">Email</label>
-                <input required type="email" name="email" class="form-control" placeholder="your-email@gmail.com" id="username">
-              </div>
-              <div class="form-group last mb-3">
-                <label for="">Password</label>
-                <input required type="password" name="password" class="form-control" placeholder="Your Password" id="password">
-              </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <video id="preview" width="430px"></video>
+                </div>
+            </div>
+            </form>
+
+            <div class="d-flex mb-5 align-items-center">
               
-              <div class="d-flex mb-5 align-items-center">
-                <label class="control control--checkbox mb-0"><span class="caption">Remember me</span>
-                  <input type="checkbox"/>
-                  <div class="control__indicator"></div>
-                </label>
-
-                <span class="ml-auto"><a href="loginqr.php"><u>Click here to login via QR</u></a></span> 
+                <span class="ml-auto"><a href="index.php"><u>Click here to login manually</u></a></span> 
                 
               </div>
-
-              <button type="submit" name="login_btn" class="btn btn-block btn-primary">Login</button>
-            </form>
           </div>
         </div>
       </div>
     </div>
   </div>
 
+  <script>
+           let scanner = new Instascan.Scanner({ video: document.getElementById('preview')});
+           Instascan.Camera.getCameras().then(function(cameras){
+               if(cameras.length > 0 ){
+                   scanner.start(cameras[0]);
+               } else{
+                   alert('No cameras found');
+               }
 
+           }).catch(function(e) {
+               console.error(e);
+           });
+
+           scanner.addListener('scan',function(c){
+               document.getElementById('text').value=c;
+               document.forms[0].submit();
+           });
+
+        </script>
 
 
   <script src="js/sweetalert.js"></script>
