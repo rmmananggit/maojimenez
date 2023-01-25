@@ -17,28 +17,66 @@
                     <!-- Content Row -->
                     <div class="row">
 
-                        <!-- Earnings (Monthly) Card Example -->
+                        <!-- Request Card Example -->
                         <div class="col-xl-3 col-md-6 mb-4">
                             <div class="card border-left-primary shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                Total Account (Farmer)</div>
+                                                Total Request SENT</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">
 
+                                            
                                             <?php
-                                            $total_farmer = "SELECT
-                                            `user`.*
-                                        FROM
-                                            `user`
-                                        WHERE
-                                            `user`.user_type = 3";
-                                            $total_farmer_query_run = mysqli_query($con, $total_farmer);
 
-                                            if($farmer_count = mysqli_num_rows($total_farmer_query_run))
+                                            if(isset($_SESSION['auth_user'])) 
+                                            $currentUSER = $_SESSION['auth_user']['user_id'];
+                                            $total_request = "SELECT `request_id`FROM `request` WHERE id=$currentUSER";
+                                            $total_request_query_run = mysqli_query($con, $total_request);
+
+                                            if($total_request = mysqli_num_rows($total_request_query_run))
                                             {
-                                                echo '<h4>'.$farmer_count.'</h4>';
+                                                echo '<h4>'.$total_request.'</h4>';
+                                            }
+                                            else{
+                                                echo '<h4>0</h4>';
+                                            }
+
+                                            ?>
+
+                                            </div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-user-alt fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    <!-- Report -->
+                      <!-- Request Card Example -->
+                      <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-success shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                                Total Report SENT</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">
+
+                                            
+                                            <?php
+
+                                            if(isset($_SESSION['auth_user'])) 
+                                            $currentUSER = $_SESSION['auth_user']['user_id'];
+                                            $total_request = "SELECT `report_id`FROM `report` WHERE user_id=$currentUSER";
+                                            $total_request_query_run = mysqli_query($con, $total_request);
+
+                                            if($total_request = mysqli_num_rows($total_request_query_run))
+                                            {
+                                                echo '<h4>'.$total_request.'</h4>';
                                             }
                                             else{
                                                 echo '<h4>0</h4>';
@@ -58,61 +96,22 @@
 
                         <!-- Earnings (Monthly) Card Example -->
                         <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-success shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                                REQUEST</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">
-
-                                            <!-- <?php
-                                        //     $pending_farmer = "SELECT
-                                        //     `user`.*
-                                        // FROM
-                                        //     `user`
-                                        // WHERE
-                                        //     `user`.user_type = 3 AND
-                                        //     `user`.user_status = 3";
-                                        //     $pending_farmer_query_run = mysqli_query($con, $pending_farmer);
-
-                                        //     if($pending_count = mysqli_num_rows($pending_farmer_query_run))
-                                        //     {
-                                        //         echo '<h4>'.$pending_count.'</h4>';
-                                        //     }
-                                        //     else{
-                                        //         echo '<h4>0</h4>';
-                                        //     }
-
-                                            ?> -->
-
-                                            </div>
-                                        </div>
-                                        <div class="col-auto">
-                                        <i class="fas fa-user-alt fa-2x text-gray-300"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Earnings (Monthly) Card Example -->
-                        <div class="col-xl-3 col-md-6 mb-4">
                             <div class="card border-left-info shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">TOTAL CATEGORY
+                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">TOTAL CONCERN SENT
                                             </div>
                                             <div class="row no-gutters align-items-center">
                                                 <div class="col-auto">
                                                     <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">
 
                                                     <?php
-                                            $total_category = "SELECT
-                                            product_category.*
-                                        FROM
-                                            product_category";
+
+                                            if(isset($_SESSION['auth_user'])) 
+                                            $currentUSER = $_SESSION['auth_user']['user_id'];    
+
+                                            $total_category = "SELECT `concern_id` FROM concern WHERE user_id=$currentUSER";
                                             $total_category_query_run = mysqli_query($con, $total_category);
 
                                             if($category_count = mysqli_num_rows($total_category_query_run))
@@ -145,14 +144,11 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                                TOTAL PRODUCT</div>
+                                                TOTAL ANNOUNCEMENT</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">
 
                                             <?php
-                                            $total_product = "SELECT
-                                            product.*
-                                        FROM
-                                            product";
+                                            $total_product = "SELECT `ann_id` FROM announcement";
                                             $total_product_query_run = mysqli_query($con, $total_product);
 
                                             if($total_product = mysqli_num_rows($total_product_query_run))
