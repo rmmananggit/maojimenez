@@ -1,19 +1,33 @@
-<?php include('authentication.php');?>
+<?php include('authentication.php'); ?>
 <?php include('includes/header.php');?>
 
-<div class="container">
 
-<h2 class="text-center mb-3">YOUR REQUEST</h2>
+<div class="container-fluid">
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                       <h3 class="text-center">YOUR REQUEST</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Product Name</th>
+                                            <th>Image</th>
+                                            <th>Quantity</th>
+                                            <th>Description</th>
+                                            <th>Status</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        
+                                    <?php
 
-            <div class="row"> 
-                <div class="col-lg-12 col-md-12 col-sm-12">
-                    <div class="card-group">
-                        <?php
-
-                        
-                            if(isset($_SESSION['auth_user'])) 
-                            $currentUSER = $_SESSION['auth_user']['user_id'];
-
+                if(isset($_SESSION['auth_user'])) 
+                $currentUSER = $_SESSION['auth_user']['user_id'];
                             $query = "SELECT
                             request.request_id, 
                             request.id, 
@@ -40,37 +54,71 @@
                         WHERE
                             request.id = $currentUSER";
                             $query_run = mysqli_query($con, $query);
-                            $product = mysqli_num_rows($query_run) > 0;
+                            if(mysqli_num_rows($query_run) > 0)
+                            {
+                                foreach($query_run as $row)
+                                {
+                                    ?>
+                                    <tr>
+                                    <td><?= $row['request_id']; ?></td>
+                                        <td><?= $row['product_name']; ?></td>
+                                        <td> <?php 
+                                        echo '<img class="img-fluid img-bordered-sm" style="object-fit: cover;" src ="data:image;base64,'.base64_encode($row['product_image']).'" 
+                                        alt="image" style="height: 170px; max-width: 310px; object-fit: cover;">';
+                                        ?></td>
+                                        <td class="text-center"><?= $row['request_quantity']; ?></td>
+                                        <td><?= $row['description'];?></td>
+                                        <td>            <?php
+                                                        if($row['request_name'] == "Pending"){
+                                                        ?>
+                                                            <p> <span style="color: blue;">Pending</span></p>
+                                                        <?php
+                                                        }elseif($row['request_name'] == "Approved"){
+                                                        ?>
+                                                            <p><span style="color: green;">Approved</span></p>
+                                                        <?php
+                                                        }else{
+                                                        ?>
+                                                        <p><span style="color: red;">Deny</span></p>
+                                                        <?php
+                                                        }
+                                                         ?>
+                                                         </td>
+                                        
+                                        <td>    
 
-                        if($product)
-                        {
-                            while($row = mysqli_fetch_assoc($query_run))
+                                        <a href="request_update.php?id=<?=$row['request_id'];?>" class="btn btn-warning btn-circle mr-1">
+                                        <i class="fas fa-pen"></i>
+    
+                                        <a class="btn btn-danger btn-circle mr-1">
+                                        <i class="fas fa-trash"></i>
+                                    </a>
+                                </td>
+                                    
+                                    </tr>
+                                    <?php
+                                }
+                            }
+                            else
                             {
                             ?>
-                            <div class="col-12 col-md-6 col-lg-3 mb-4">
-                            <div class="card h-100">
-                                <img class="img-fluid card-img-top" src="data:image;base64,<?php echo base64_encode($row['product_image']) ?>"  alt="user-avatar" style= "height:250px; width: 100%; object-fit: cover;">
-                                <div class="card-body">
-                                    <h3 class="card-title text-center" style="font-size: 22px;"><?php echo $row['product_name']; ?></h3>
-                                    <p class="card-text text-center"> Quantity: <?php echo $row['request_quantity'];?></p>
-                                    <p class="card-text text-center"> <?php echo $row['description'];?> </p>
-                                 </div>
-                                 <div class="card-footer text-muted text-center"><?php echo $row['request_name'];?> </div>
-                                  
-                              
+                                <tr>
+                                    <td colspan="7">No Record Found</td>
+                                </tr>
+                            <?php
+                            }
+                            ?>
+                                    </tbody>
+                                </table>
                             </div>
-                            </div>
-                        <?php
-                        }
-                        }
-                        else
-                        {
-                        echo "Nothing to View";
-                        }
-                        ?>
+                        </div>
                     </div>
+
                 </div>
-            </div>
-        </div>
+
+
+
+
+
 
 <?php include('includes/footer.php');?>

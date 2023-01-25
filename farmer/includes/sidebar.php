@@ -58,7 +58,7 @@
     </li>
 
     <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="report.php">
                     <i class="fas fa-fw fa-envelope-open-text"></i>
                     <span>Report</span></a>
     </li>

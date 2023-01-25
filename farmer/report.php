@@ -8,7 +8,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                    <h5>Request Product</h5>
+                    <h5>Send a Report</h5>
                     </div>
                     <div class="card-body">
 
@@ -52,7 +52,7 @@
                                 </div>
 
                                 <div class="col-md-12 mb-3">
-                                <label for="Description">Description</label>
+                                <label for="Description">Description (Optional)</label>
                                 <textarea placeholder="Enter Description" name="description" required type="text" class="form-control" rows="3"></textarea>
                                 </div>
 
@@ -64,7 +64,7 @@
                                 </div>
 
                                 <div class="text-right">
-                                <a href="index.php" class="btn btn-danger">Back</a>
+                                <a href="product_category.php" class="btn btn-danger">Back</a>
                                 <button type="submit" name="add_request" class="btn btn-primary">Save</button>
                                 </div>
                             
