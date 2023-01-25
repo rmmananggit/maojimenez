@@ -64,7 +64,7 @@
                                 </div>
 
                                 <div class="text-right">
-                                <a href="index.php" class="btn btn-danger">Back</a>
+                                <a href="request.php" class="btn btn-danger">Back</a>
                                 <button type="submit" name="add_request" class="btn btn-primary">Save</button>
                                 </div>
                             

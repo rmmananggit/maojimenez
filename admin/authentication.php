@@ -15,7 +15,7 @@ else
     {
         $_SESSION['status'] = "You are not authorized as ADMIN";
         $_SESSION['status_code'] = "error";
-        header("Location: ../login/index.php");
+        header("Location: ../farmer/index.php");
         exit(0);
     }
 }

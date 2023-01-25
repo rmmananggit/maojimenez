@@ -43,18 +43,9 @@
 
 
     <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#account"
-            aria-expanded="true" aria-controls="account">
-            <i class="fas fa-poll-h"></i>
-            <span>Request</span>
-        </a>
-        <div id="account" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Manage:</h6>
-                <a class="collapse-item" href="request_view.php">View</a>
-                <a class="collapse-item" href="request.php">Add</a>
-            </div>
-        </div>
+                <a class="nav-link" href="request.php">
+                    <i class="fas fa-fw fa-poll-h"></i>
+                    <span>Request</span></a>
     </li>
 
     <li class="nav-item">
@@ -64,13 +55,13 @@
     </li>
 
     <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="concern.php">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Concern</span></a>
     </li>
 
     <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="generate_qr.php">
                     <i class="fas fa-fw fa-qrcode"></i>
                     <span>Generate QR Code</span></a>
     </li>
