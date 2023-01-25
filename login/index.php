@@ -26,10 +26,11 @@ session_start();
 
 if(isset($_SESSION['auth']))
 {
-    if(!isset($_SESSION['message'])){
-        $_SESSION['message'] = "You are already logged in";
+    if(!isset($_SESSION['status'])){
+        $_SESSION['status'] = "You are already logged in";
+        $_SESSION['status_code'] = "error";
     }
-    header("Location: ./index.php");
+    header("Location: ../admin/index.php");
     exit(0);
 }
 
