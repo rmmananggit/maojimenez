@@ -44,22 +44,6 @@
         </div>
     </li>
 
-    <!-- Nav Item - Pages Collapse Menu -->
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-            aria-expanded="true" aria-controls="collapseTwo">
-            <i class="fas fa-user-alt"></i>
-            <span>Farmer</span>
-        </a>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Manage:</h6>
-                <a class="collapse-item" href="farmer_account.php">Profile</a>
-                <a class="collapse-item" href="farmer_pending.php">Pending Account</a>
-            </div>
-        </div>
-    </li>
-
     <!-- Nav Item - Utilities Collapse Menu -->
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
@@ -75,6 +59,14 @@
                 <a class="collapse-item" href="product_category.php">Product Category</a>
             </div>
         </div>
+    </li>
+
+
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="farmer_account.php">
+        <i class="fas fa-newspaper"></i>
+            <span>Farmer Profile</span>
+        </a>
     </li>
 
     <!-- Divider -->

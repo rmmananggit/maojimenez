@@ -48,29 +48,27 @@ if(isset($_SESSION['auth']))
       <div class="container">
         <div class="row align-items-center justify-content-center text-center">
           <div class="col-md-12">
+
+          <form action="loginqrcode.php" method="post">
             <h3>Login via <strong>QR CODE</strong></h3>
             
-            <form action="loginqrcode.php" method="POST">
-
             <div class="row">
                 <div class="col-md-12">
-                    <video id="preview" width="430px"></video>
+                    <video id="preview" width="100%"></video>
                 </div>
+                <div class="col-md-6" hidden="true">
+                   <form method="post" class="form-horizontal">
+                    <label>SCAN QR CODE HERE</label>
+                    <input type="text" name="qrcode_text" id="text" readonyy="" placeholder="INPUT QR CODE" class="form-control">
+                   </form>
+
+     	<button type="submit">LOGIN</button>
+     	</div>
             </div>
+
             </form>
-
-            <div class="d-flex mb-5 align-items-center">
-              
-                <span class="ml-auto"><a href="index.php"><u>Click here to login manually</u></a></span> 
-                
-              </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <script>
+     </form>
+             <script>
            let scanner = new Instascan.Scanner({ video: document.getElementById('preview')});
            Instascan.Camera.getCameras().then(function(cameras){
                if(cameras.length > 0 ){
@@ -89,6 +87,19 @@ if(isset($_SESSION['auth']))
            });
 
         </script>
+
+            <div class="d-flex mb-5 align-items-center">
+              
+                <span class="ml-auto"><a href="index.php"><u>Click here to login manually</u></a></span> 
+                
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
 
 
   <script src="js/sweetalert.js"></script>

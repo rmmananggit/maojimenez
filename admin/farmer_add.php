@@ -10,7 +10,7 @@
         <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-12">
-                <div class="card mt-5">
+                <div class="card mt-1">
                     <div class="card-header">
                     <h5>Farmer Information</h5>
                     </div>
@@ -26,7 +26,7 @@
                             
 
                                 <div class="col-md-4 mb-3">
-                                    <label for="">Middle Name</label>
+                                    <label for="">Middle Name (Type N/A if not available)</label>
                                     <input required placeholder="Enter Middle Name" type="text" name="mname" class="form-control">
                                 </div>
 
