@@ -67,17 +67,20 @@
                                         <td><?= $row['email']; ?></td>
                                         <td><?= $row['user_status_name']; ?></td>
                                         <td class="text-center"> 
-                                            
-                                        <!-- <a href="view_user.php?id=<?=$row['user_id'];?>" class="btn-circle btn-info btn-sm">Update</a> -->
-                                        <a href="staff_view.php?id=<?=$row['user_id'];?>" class="btn btn-success btn-circle mr-1">
-                                        <i class="fas fa-eye"></i>
-                                        
-                                        <a href="staff_update.php?id=<?=$row['user_id'];?>" class="btn btn-warning btn-circle mr-1">
-                                        <i class="fas fa-pen"></i>
-                                
-                                        <a href="" class="btn btn-danger btn-circle mr-1">
-                                        <i class="fas fa-trash"></i>
-                                    </a>
+
+                                        <div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+ ACTIONS
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="staff_view.php?id=<?=$row['user_id'];?>"> VIEW
+    </a>
+    <a class="dropdown-item" href="staff_update.php?id=<?=$row['user_id'];?>" > UPDATE
+    </a>
+    <a class="dropdown-item" href="#"> DELETE
+    </a>
+  </div>
+</div>
                                     </tr>
                                     <?php
                                 }

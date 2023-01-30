@@ -142,7 +142,9 @@ if(isset($_POST["add_report"])){
           header('Location: index.php');
       }
   }else{
-    
+    $_SESSION['status']="File Error";
+    $_SESSION['status_code'] = "error"; 
+    header('Location: index.php');
   }
   
   }
