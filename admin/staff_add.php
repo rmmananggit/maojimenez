@@ -4,6 +4,7 @@
 
         <ol class="breadcrumb mb-4">    
             <li class="breadcrumb-item">Dashboard</li>
+            <li class="breadcrumb-item">Account</li>
             <li class="breadcrumb-item">Staff</li>
             <li class="breadcrumb-item">Add Account</li>
         </ol>
