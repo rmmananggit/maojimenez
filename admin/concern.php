@@ -16,8 +16,7 @@
                                             <th>Concern Id</th>
                                             <th>Name</th>
                                             <th>Message</th>
-                                            <th>Date Filed</th>
-                                            <th>ACTION</th>
+                                            <th>Date Filed</th>    
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -44,7 +43,6 @@
                                         <td><?= $row['fname']; ?> <?= $row['mname']; ?> <?= $row['lname']; ?></td>
                                         <td><?= $row['concern_message']; ?></td>
                                         <td><?= $row['date_created']; ?></td>
-                                        <td>   </td>
                                     
                                     </tr>
                                     <?php

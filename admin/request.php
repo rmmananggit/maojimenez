@@ -56,7 +56,8 @@
                                         <td><?= $row['request_date']; ?></td>
                                         <td><?= $row['request_name']; ?></td>
                                         <td class="text-center">
-                                           
+                                        
+                                        <input type="hidden" name="user_id" value="<?=$user['ann_id'];?>"> 
                                         
                                         <div class="dropdown ">
   <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

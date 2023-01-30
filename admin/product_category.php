@@ -45,13 +45,19 @@
                                         <td><?= $row['category_status']; ?></td>
                                         <td class="text-center">    
                                         
-                                        <a href="product_category_edit.php?id=<?=$row['product_category_id'];?>" class="btn btn-warning btn-sm mt-1">
-                                        UPDATE </a>
 
-                                        <form action="code.php" method="POST">  
-                                         <button type="submit" name="category_delete" value="<?=$row['product_category_id']; ?>" class="btn btn-danger btn-sm mt-1">DELETE</button>
-                                        </form>
-                                     
+                                        <div class="dropdown ">
+  <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+ ACTIONS
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item"href="product_category_edit.php?id=<?=$row['product_category_id'];?>" > UPDATE
+    </a>
+    <form action="code.php" method="POST">  
+    <button type="submit" name="category_delete" value="<?=$row['product_category_id']; ?>" class="dropdown-item" href="#"> DELETE
+    </button>  </form> 
+  </div>
+</div>        
                                 </td>
                             
                                     </tr>
