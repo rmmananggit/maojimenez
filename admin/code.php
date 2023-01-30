@@ -289,6 +289,28 @@ if(isset($_POST["add_product"])){
 }
 ?>
 
+<?php
+if(isset($_POST['category_delete']))
+{
+    $user_id= $_POST['category_delete'];
+
+    $query = "DELETE FROM product_category WHERE product_category_id ='$user_id' ";
+    $query_run = mysqli_query($con, $query);
+    if($query_run)
+    {
+      $_SESSION['status'] = "The Category has been successfully deleted.";
+      $_SESSION['status_code'] = "success";
+      header('Location: product_category.php');
+      exit(0);
+    }
+    else{
+      $_SESSION['status'] = "There is a product under this category. Please delete the product first before deleting this category!";
+      $_SESSION['status_code'] = "error";
+      header('Location: product_category.php');
+      exit(0);
+    }
+}
+?>
 
 
 <?php
@@ -373,30 +395,7 @@ if(isset($_POST['edit_category']))
 ?>
 
 
-<?php
-if(isset($_POST['category_delete']))
-{
-    $user_id= $_POST['category_delete'];
 
-    $query = "DELETE FROM product_category WHERE product_category_id ='$user_id' ";
-    $query_run = mysqli_query($con, $query);
-    if($query_run)
-    {
-      $_SESSION['status'] = "The Category has been successfully deleted.";
-      $_SESSION['status_code'] = "success";
-      header('Location: product_category.php');
-      exit(0);
-    }
-    else
-    {
-      $_SESSION['status'] = "There is a product under this category. Please delete the product first before deleting this category!";
-      $_SESSION['status_code'] = "error";
-      header('Location: product_category.php');
-      exit(0);
-    }
-}
-
-?>
 
 <?php
 if(isset($_POST['ann_delete']))
