@@ -78,6 +78,7 @@ if(isset($_POST["update_staff"])){
 <?php
 if(isset($_POST['req_approve']))
 {
+
     $request_id = $_POST['request_id'];
     $status = 2;
 

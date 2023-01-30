@@ -5,7 +5,7 @@
         <ol class="breadcrumb mb-4">    
             <li class="breadcrumb-item">Dashboard</li>
             <li class="breadcrumb-item">Product</li>
-            <li class="breadcrumb-item">Manage Category</li>
+            <li class="breadcrumb-item">Edit Category</li>
             
         </ol>
         <div class="row">

@@ -3,6 +3,11 @@
 
 
 <div class="container-fluid">
+<ol class="breadcrumb mb-4">    
+            <li class="breadcrumb-item">Dashboard</li>
+            <li class="breadcrumb-item">Other</li>
+            <li class="breadcrumb-item">Request</li>
+             </ol>
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3 text-center">
@@ -65,7 +70,7 @@
   </button>
   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
   <form action="code.php" method="POST"> 
-    <button type="submit" name="req_approve" value="<?=$row['request_id']; ?>"  class="dropdown-item" href="" > APPROVE
+    <button type="submit" name="req_approve" value="<?=$row['request_id']; ?>"  class="dropdown-item"> APPROVE
     </button> 
     <button type="submit" name="req_deny" value="" class="dropdown-item" href="#"> DENY
     </button>  </form> 

@@ -2,12 +2,12 @@
 <?php include('includes/header.php');?>
 
 <div class="container-fluid px-4">
-        <ol class="breadcrumb mb-4">    
+<ol class="breadcrumb mb-4">    
             <li class="breadcrumb-item">Dashboard</li>
+            <li class="breadcrumb-item">Other</li>
             <li class="breadcrumb-item">Announcement</li>
             <li class="breadcrumb-item">Add Announcement</li>
-            
-        </ol>
+             </ol>
         <div class="row">
             <div class="col-md-12">
                 <div class="card">

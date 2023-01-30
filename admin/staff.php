@@ -2,7 +2,12 @@
 <?php include('includes/header.php');?>
 
                 <!-- Begin Page Content -->
-                <div class="container-fluid">
+                <div class="container-fluid px-4">
+                <ol class="breadcrumb mb-4">    
+            <li class="breadcrumb-item">Dashboard</li>
+            <li class="breadcrumb-item">Accounts</li>
+            <li class="breadcrumb-item">Staff</li>
+             </ol>
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">

@@ -3,6 +3,11 @@
 
 
 <div class="container-fluid">
+<ol class="breadcrumb mb-4">    
+            <li class="breadcrumb-item">Dashboard</li>
+            <li class="breadcrumb-item">Product</li>
+            <li class="breadcrumb-item">Product Category</li>
+             </ol>
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
