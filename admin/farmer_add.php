@@ -17,7 +17,8 @@
                     <div class="card-body">
 
                     
-                    <form action="code.php" method="POST">  
+ 
+                    <form action="code.php" method="post" autocomplete="off" enctype="multipart/form-data"> 
                     <div class="row"> 
                                 <div class="col-md-4 mb-3">
                                     <label for="">Last Name</label>
@@ -49,20 +50,14 @@
                                 <hr>
                                 </div>
 
-                                <div class="col-md-4 mb-3">
-                                    <label for="">Username</label>
-                                    <input required placeholder="Enter Username" type="text" name="username" class="form-control">
-                                </div>
-
-                                <div class="col-md-4 mb-3">
-                                    <label for="">Password</label>
-                                    <input required placeholder="Enter Password" type="password" name="password" class="form-control">
-                                </div>
-
-                                
-                                <div class="col-md-4 mb-3">
+                                <div class="col-md-6 mb-3">
                                     <label for="">Email Address</label>
                                     <input required placeholder="Enter Email Address" type="email" name="email" class="form-control">
+                                </div>
+
+                                <div class="col-md-6 mb-3">
+                                    <label for="">Password</label>
+                                    <input required placeholder="Enter Password" type="password" name="password" class="form-control">
                                 </div>
 
 
@@ -139,8 +134,8 @@
                                 </div>
 
                                 <div class="col-md-6 mb-3">
-                                    <label for="">Name of Spouse (if married)</label>
-                                    <input required placeholder="Enter Name" type="text" name="placeofbirth" class="form-control">
+                                    <!-- <label for="">Name of Spouse (if married)</label>
+                                    <input required placeholder="Enter Name" type="text" name="placeofbirth" class="form-control"> -->
                                 </div>
 
                                 <div class="col-md-4 mb-3">
@@ -173,7 +168,7 @@
 
                                 <div class="col-md-7 mb-3">
                                     <label for="">If yes, specify:</label>
-                                    <input required placeholder="" type="text" name="igyes" class="form-control">
+                                    <input  placeholder="" type="text" name="igyes" class="form-control">
                                 </div>
 
                                 <div class="col-md-5 mb-3">
@@ -185,7 +180,7 @@
 
                                 <div class="col-md-7 mb-3">
                                     <label for="">If yes, specify:</label>
-                                    <input required placeholder="" type="text" name="yesgovid" class="form-control">
+                                    <input  placeholder="" type="text" name="yesgovid" class="form-control">
                                 </div>
 
                                 <div class="col-md-5 mb-3">
@@ -198,7 +193,7 @@
                                 
                                 <div class="col-md-7 mb-3">
                                     <label for="">If yes, specify:</label>
-                                    <input required placeholder="" type="text" name="yesgovid" class="form-control">
+                                    <input  placeholder="" type="text" name="yesgovid" class="form-control">
                                 </div>
 
                                 <!-- <div class="col-md-12 mb-3">
