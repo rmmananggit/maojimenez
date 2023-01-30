@@ -45,13 +45,20 @@
                                         <td><?= $row['ann_publish']; ?></td>
                                         <td><?= $row['ann_date']; ?></td>
                                         
-                                        <td>    
+                                        <td class="text-center">    
 
-<a href="announcement_edit.php?id=<?=$row['ann_id'];?>"  class="btn btn-warning btn-sm mt-1 ">UPDATE</a>
- 
- <form action="code.php" method="POST">  
-  <button type="submit" name="ann_delete" value="<?=$row['ann_id']; ?>" class="btn btn-danger btn-sm mt-1">DELETE</button>
- </form>               
+                                        <div class="dropdown ">
+  <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+ ACTIONS
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="announcement_edit.php?id=<?=$row['ann_id'];?>" > UPDATE
+    </a>
+    <form action="code.php" method="POST">  
+    <button type="submit" name="ann_delete" value="<?=$row['ann_id']; ?>" class="dropdown-item" href="#"> DELETE
+    </button>  </form> 
+  </div>
+</div>         
                                 </td>
                                     </tr>
                                     <?php

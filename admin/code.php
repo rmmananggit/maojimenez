@@ -75,6 +75,56 @@ if(isset($_POST["update_staff"])){
 }
 ?>
 
+<?php
+if(isset($_POST['req_approve']))
+{
+    $request_id = $_POST['request_id'];
+    $status = 2;
+
+    $query = "UPDATE `request` SET `request_status`= '$status' WHERE `request_id` = '$request_id'";
+    $query_run = mysqli_query($con, $query);
+    
+    if($query_run)
+    {
+      $_SESSION['status'] = "Request has been approved!";
+      $_SESSION['status_code'] = "success";
+        header('Location: request.php');
+        exit(0);
+    }
+    else
+    {
+        $_SESSION['message'] = "Something went wrong!";
+        header('Location: request.php');
+        exit(0);
+    }
+}
+?>
+
+
+<?php
+if(isset($_POST['req_deny']))
+{
+    $request_id = $_POST['request_id'];
+    $status = 3;
+
+    $query = "UPDATE `request` SET `request_status`= '$status' WHERE `request_id` = '$request_id'";
+    $query_run = mysqli_query($con, $query);
+    
+    if($query_run)
+    {
+      $_SESSION['status'] = "Request has been denied!";
+      $_SESSION['status_code'] = "error";
+        header('Location: request.php');
+        exit(0);
+    }
+    else
+    {
+        $_SESSION['message'] = "Something went wrong!";
+        header('Location: request.php');
+        exit(0);
+    }
+}
+?>
 
 
 
@@ -292,10 +342,14 @@ if(isset($_POST["add_product"])){
 <?php
 if(isset($_POST['category_delete']))
 {
+  try{
     $user_id= $_POST['category_delete'];
+
 
     $query = "DELETE FROM product_category WHERE product_category_id ='$user_id' ";
     $query_run = mysqli_query($con, $query);
+    var_dump($query_run);
+
     if($query_run)
     {
       $_SESSION['status'] = "The Category has been successfully deleted.";
@@ -303,12 +357,17 @@ if(isset($_POST['category_delete']))
       header('Location: product_category.php');
       exit(0);
     }
-    else{
-      $_SESSION['status'] = "There is a product under this category. Please delete the product first before deleting this category!";
-      $_SESSION['status_code'] = "error";
-      header('Location: product_category.php');
-      exit(0);
-    }
+  } catch (Exception $e){
+    $_SESSION['status'] = "There is a product under this category. Please delete the product first before deleting this category!";
+    $_SESSION['status_code'] = "error";
+    header('Location: product_category.php');
+    exit(0);
+  }
+   
+ 
+    
+    
+    
 }
 ?>
 

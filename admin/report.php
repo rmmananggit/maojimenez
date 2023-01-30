@@ -1,43 +1,41 @@
 <?php include('authentication.php'); ?>
 <?php include('includes/header.php');?>
 
-<?php include('message.php'); ?>
-
 
 <div class="container-fluid">
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
-                        <div class="card-header py-3">
-                        </div>
+                        <div class="card-header py-3 text-center">
+                            <h2><strong>REPORT</strong></h2>
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>No.</th>
-                                            <th>Report By</th>
+                                            <th>Report Id</th>
+                                            <th>Full Name</th>
                                             <th>Message</th>
-                                            <th>Photo</th>
-                                            <th>Date Reported</th>
+                                            <th>Photo #1</th>
+                                            <th>Photo #2</th>
+                                            <th>Date</th>
                                             <th>ACTION</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                     <?php
                             $query = "SELECT
-                            report.report_id, 
-                            `user`.fname, 
-                            `user`.mname, 
-                            `user`.lname, 
-                            report.message, 
-                            report.photo, 
+                            report.report_id,
+                            farmer.fname,
+                            farmer.mname,
+                            farmer.lname,
+                            report.message,
+                            report.photo,
+                            report.photo1,
                             report.date_created
-                        FROM
-                            report
-                            INNER JOIN
-                            `user`
-                            ON 
-                                report.user_id = `user`.user_id";
+                            FROM
+                            farmer
+                            INNER JOIN report ON report.user_id = farmer.user_id
+                            ";
                             $query_run = mysqli_query($con, $query);
                             if(mysqli_num_rows($query_run) > 0)
                             {
@@ -45,22 +43,25 @@
                                 {
                                     ?>
                                     <tr>
-                                    <td><?= $row['report_id']; ?></td>
+                                        <td><?= $row['report_id']; ?></td>
                                         <td><?= $row['fname']; ?> <?= $row['mname']; ?> <?= $row['lname']; ?></td>
                                         <td><?= $row['message']; ?></td>
-                                        <td><img src="img/<?php echo $row["photo"]; ?>" class="img-responsive center-block d-block mx-auto"  width = 200 height= 200 title="<?php echo $row['photo']; ?>"></td>
+                                        <td> <?php 
+                                        echo '<img class="img-fluid img-bordered-sm" src = "data:image;base64,'.base64_encode($row['photo']).'" 
+                                        alt="image" style="height: 170px; max-width: 310px; object-fit: cover;">';
+                                        ?></td>
+
+                                        <td> <?php 
+                                        echo '<img class="img-fluid img-bordered-sm" src = "data:image;base64,'.base64_encode($row['photo1']).'" 
+                                        alt="image" style="height: 170px; max-width: 310px; object-fit: cover;">';
+                                        ?></td>
                                         <td><?= $row['date_created']; ?></td>
                                         <td>    
                                         
-                                        <a href="#" class="btn btn-warning btn-circle mr-2">
-                                        <i class="fas fa-check"></i> 
-                                    </a>
-
-                                         <a href="#" class="btn btn-danger btn-circle mt-1">
-                                        <i class="fas fa-trash"></i>
-                                    </a>
-                                </td>
+                                      
                               
+                                </td>
+                                    
                                     </tr>
                                     <?php
                                 }
@@ -69,7 +70,7 @@
                             {
                             ?>
                                 <tr>
-                                    <td colspan="6">No Record Found</td>
+                                    <td colspan="7">No Record Found</td>
                                 </tr>
                             <?php
                             }
@@ -81,6 +82,8 @@
                     </div>
 
                 </div>
+
+
 
 
 
