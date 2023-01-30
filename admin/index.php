@@ -30,11 +30,11 @@
 
                                             <?php
                                             $total_farmer = "SELECT
-                                            `user`.*
+                                            `farmer`.*
                                         FROM
-                                            `user`
+                                            `farmer`
                                         WHERE
-                                            `user`.user_type = 3";
+                                            `farmer`.user_status = 1";
                                             $total_farmer_query_run = mysqli_query($con, $total_farmer);
 
                                             if($farmer_count = mysqli_num_rows($total_farmer_query_run))
@@ -67,25 +67,21 @@
                                                 REQUEST</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">
 
-                                            <!-- <?php
-                                        //     $pending_farmer = "SELECT
-                                        //     `user`.*
-                                        // FROM
-                                        //     `user`
-                                        // WHERE
-                                        //     `user`.user_type = 3 AND
-                                        //     `user`.user_status = 3";
-                                        //     $pending_farmer_query_run = mysqli_query($con, $pending_farmer);
+                                            <?php
+                                            $request = "SELECT * FROM `request`
+                                        WHERE
+                                            request_status = 1;";
+                                            $request_query_run = mysqli_query($con, $request);
 
-                                        //     if($pending_count = mysqli_num_rows($pending_farmer_query_run))
-                                        //     {
-                                        //         echo '<h4>'.$pending_count.'</h4>';
-                                        //     }
-                                        //     else{
-                                        //         echo '<h4>0</h4>';
-                                        //     }
+                                            if($request_cpimt = mysqli_num_rows($request_query_run))
+                                            {
+                                                echo '<h4>'.$request_cpimt.'</h4>';
+                                            }
+                                            else{
+                                                echo '<h4>0</h4>';
+                                            }
 
-                                            ?> -->
+                                            ?>
 
                                             </div>
                                         </div>
