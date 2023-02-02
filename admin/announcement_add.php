@@ -35,7 +35,7 @@
                                 </div>
 
                                 <div class="col-md-6 mb-3">
-                                <label for="">Date and Time Announced</label>
+                                <label for="">Date</label>
                                 <input type="datetime-local" name="announcement_dt" class="form-control">
                                 </div>
 

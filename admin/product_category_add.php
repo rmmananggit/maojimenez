@@ -24,16 +24,6 @@
                                     <input required placeholder="Enter Category Name" type="text" name="name" class="form-control">
                                 </div>
 
-
-                                <div class="col-md-6 mb-3">
-                                <label for="">Status</label>
-                                    <select name="status" required class="form-control">
-                                        <option value="">--Select Status--</option>
-                                        <option value="Available">Available</option>
-                                        <option value="Not Available">Not Available</option>
-                                    </select>
-                                </div>
-
                                 <div class="col-md-12 mb-3">
                                 <label for="Description">Description</label>
                                 <textarea placeholder="Enter Description" name="description" required type="text" class="form-control" rows="3"></textarea>

@@ -64,6 +64,11 @@
                                 </div>
 
                                 <div class="col-md-6 mb-3">
+                                <label for="">Expiration Date</label>
+                                <input type="date" name="exp_date" class="form-control">
+                                </div>
+
+                                <div class="col-md-6 mb-3">
                                 <label for="">Status</label>
                                     <select name="status" required class="form-control">
                                         <option value="">--Select Status--</option>

@@ -29,6 +29,7 @@
                                             <th>Quantity</th>
                                             <th>Category</th>
                                             <th>Status</th>
+                                            <th>Expiration Date</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -39,6 +40,7 @@
                             product.product_name, 
                             product.product_image, 
                             product.product_quantity, 
+                            product.exp_date, 
                             product_category.category_name, 
                             product.product_status
                         FROM
@@ -63,6 +65,7 @@
                                         <td><?= $row['product_quantity']; ?></td>
                                         <td><?= $row['category_name']; ?></td>
                                         <td><?= $row['product_status']; ?></td>
+                                        <td><?= $row['exp_date']; ?></td>
                                         
                                         <td>    
                                         

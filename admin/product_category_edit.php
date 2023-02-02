@@ -38,14 +38,6 @@
                                 </div>
 
 
-                                <div class="col-md-6 mb-3">
-                                <label for="">Status</label>
-                                    <select name="editstatus" required class="form-control">
-                                        <option value="Available" <?= $user['category_status'] == 'Available' ? 'selected' :'' ?>>Available</option>
-                                        <option value="Not Available" <?= $user['category_status'] == 'Not Available' ? 'selected' :'' ?>>Not Available</option>
-                                    </select>
-                                </div>
-
                                 <div class="col-md-12 mb-3">
                                 <label for="Description">Description</label>
                                 <textarea placeholder="Enter Description" name="editdescription" required  value="<?= $user['category_description']; ?>" class="form-control" rows="5"><?= $user['category_description']; ?></textarea>

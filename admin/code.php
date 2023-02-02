@@ -303,9 +303,10 @@ if(isset($_POST["add_product"])){
           $quantity = $_POST['quantity'];
           $category = $_POST['category'];
           $status = $_POST['status'];
+          $exp_date = $_POST['exp_date'];
           $product_image = addslashes(file_get_contents($_FILES["product_image"]['tmp_name']));
 
-          $query = "INSERT INTO `product`(`product_name`, `product_image`, `product_quantity`, `product_category_id`, `product_status`) VALUES ('$name','$product_image','$quantity','$category','$status')";
+          $query = "INSERT INTO `product`(`product_name`, `product_image`, `product_quantity`,`exp_date`, `product_category_id`, `product_status`) VALUES ('$name','$product_image','$quantity','$exp_date','$category','$status')";
 
             $query_run = mysqli_query($con, $query);
 
@@ -378,9 +379,8 @@ if(isset($_POST['add_category']))
 {
     $name = $_POST['name'];
     $description = $_POST['description'];
-    $status = $_POST['status'];
 
-    $query = "INSERT INTO `product_category`(`category_name`, `category_description`, `category_status`) VALUES ('$name','$description','$status')";
+    $query = "INSERT INTO `product_category`(`category_name`, `category_description`) VALUES ('$name','$description')";
     $query_run = mysqli_query($con,$query);
 
     if($query_run)
@@ -433,9 +433,8 @@ if(isset($_POST['edit_category']))
     $user_id = $_POST['user_id'];
     $name = $_POST['editcategory_name'];
     $description = $_POST['editdescription'];
-    $status = $_POST['editstatus'];
 
-    $query = "UPDATE `product_category` SET `category_name`='$name',`category_description`='$description',`category_status`='$status' WHERE  `product_category_id`='$user_id'";
+    $query = "UPDATE `product_category` SET `category_name`='$name',`category_description`='$description' WHERE  `product_category_id`='$user_id'";
     $query_run = mysqli_query($con,$query);
 
     if($query_run)

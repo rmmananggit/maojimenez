@@ -26,7 +26,6 @@
                                             <th>ID</th>
                                             <th>Category Name</th>
                                             <th>Description</th>
-                                            <th>Status</th>
                                             <th class="text-center">Action</th>
                                         </tr>
                                     </thead>
@@ -47,7 +46,6 @@
                                     <td><?= $row['product_category_id']; ?></td>
                                         <td><?= $row['category_name']; ?></td>
                                         <td><?= $row['category_description']; ?></td>
-                                        <td><?= $row['category_status']; ?></td>
                                         <td class="text-center">    
                                         
 
