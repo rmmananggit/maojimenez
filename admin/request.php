@@ -22,8 +22,6 @@
                                             <th>Name</th>
                                             <th>Product Name</th>
                                             <th>Quantity</th>
-                                            <th>Description</th>
-                                            <th>Date Filed</th>
                                             <th>Status</th>
                                             <th>ACTION</th>
                                         </tr>
@@ -31,21 +29,31 @@
                                     <tbody>
                                     <?php
                             $query = "SELECT
-                            request.request_id,
-                            farmer.fname,
-                            farmer.mname,
+                            request.request_id, 
+                            farmer.fname, 
                             farmer.lname,
-                            product.product_name,
-                            request.request_quantity,
-                            request.description,
-                            request.request_date,
-                            request.request_status,
-                            request_status.request_name
-                            FROM
+                            farmer.mname, 
+                            product.product_name, 
+                            request.request_quantity, 
+                            request.request_date, 
+                            request_status.request_name, 
+                            request.request_status
+                        FROM
                             request
-                            INNER JOIN farmer ON request.id = farmer.user_id
-                            INNER JOIN product ON request.product_id = product.product_id
-                            INNER JOIN request_status ON request.request_status = request_status.request_id";
+                            INNER JOIN
+                            farmer
+                            ON 
+                                request.id = farmer.user_id
+                            INNER JOIN
+                            product
+                            ON 
+                                request.product_id = product.product_id
+                            INNER JOIN
+                            request_status
+                            ON 
+                                request.request_status = request_status.request_id
+                        WHERE
+                            request.request_status = 1";
                             $query_run = mysqli_query($con, $query);
                             if(mysqli_num_rows($query_run) > 0)
                             {
@@ -57,26 +65,10 @@
                                         <td><?= $row['fname']; ?> <?= $row['mname']; ?> <?= $row['lname']; ?></td>
                                         <td><?= $row['product_name']; ?></td>
                                         <td><?= $row['request_quantity']; ?></td>
-                                        <td><?= $row['description']; ?></td>
-                                        <td><?= $row['request_date']; ?></td>
                                         <td><?= $row['request_name']; ?></td>
                                         <td class="text-center">
-                                        
-                                        <input type="hidden" name="user_id" value="<?=$user['ann_id'];?>"> 
-                                        
-                                        <div class="dropdown ">
-  <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
- ACTIONS
-  </button>
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-  <form action="code.php" method="POST"> 
-    <button type="submit" name="req_approve" value="<?=$row['request_id']; ?>"  class="dropdown-item"> APPROVE
-    </button> 
-    <button type="submit" name="req_deny" value="" class="dropdown-item" href="#"> DENY
-    </button>  </form> 
-  </div>
-</div>         
-
+                                    
+                                        <a type="button" class="btn btn-secondary" href="request_view.php?id=<?=$row['request_id'];?>">View</a>
 
                                         </td>
                                     
@@ -88,7 +80,7 @@
                             {
                             ?>
                                 <tr>
-                                    <td colspan="7">No Record Found</td>
+                                    <td colspan="8">No Record Found</td>
                                 </tr>
                             <?php
                             }

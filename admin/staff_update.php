@@ -62,12 +62,19 @@
                                 <hr> <h5>Profile Picture</h5>  <hr>                                
                                 </div>
 
-                                <div class="col-md-12 text-center">
+                                <div class="col-md-6 text-center">
                                
                                 <label for="dp">Add Profile Picture</label>
                                 <input type="file" name="userprofile" id="dp" accept=".jpg, .jpeg, .png">
                                 </div>
 
+                                <div class="col-md-6 text-center">
+                                    <h5>Current Picture</h5>
+                                <?php 
+                                        echo '<img class="zoom img-fluid img-bordered-sm" src ="data:image;base64,'.base64_encode($user['picture']).'" 
+                                        alt="image" style="height: 170px; max-width: 310px; object-fit: cover;">';
+                                        ?>
+                                </div>
                                 </div>
                                 <div class="text-right">
                                 <a href="staff.php" class="btn btn-danger">Back</a>

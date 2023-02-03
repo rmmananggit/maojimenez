@@ -94,12 +94,18 @@
                                         
                                         <td>    
 
-                                        <a href="request_update.php?id=<?=$row['request_id'];?>" class="btn btn-warning btn-circle mr-1"> 
-                                        <i class="fas fa-pen"></i> </a>
-    
-                                        <a class="btn btn-danger btn-circle mr-1">
-                                        <i class="fas fa-trash"></i>
-                                    </a>
+                                        <div class="dropdown ">
+  <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+ ACTIONS
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <form action="code.php" method="POST">  
+    <button type="submit" name="ann_delete" value="<?=$row['ann_id']; ?>" class="dropdown-item" href="#"> DELETE
+    </button>  </form> 
+  </div>
+</div>         
+
+                
                                 </td>
                                     
                                     </tr>

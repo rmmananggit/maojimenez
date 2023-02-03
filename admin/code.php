@@ -17,6 +17,88 @@ if(isset($_POST['logout_btn']))
 
 
 <?php
+if(isset($_POST['req_deny']))
+{
+    $request_id = $_POST['request_id'];
+    $status = 3;
+
+    $query = "UPDATE `request` SET `request_status`= '$status' WHERE `request_id`= '$request_id'";
+    $query_run = mysqli_query($con, $query);
+    
+    if($query_run)
+    {
+      $_SESSION['status'] = "Request has been denied!";
+      $_SESSION['status_code'] = "success";
+        header('Location: request.php');
+        exit(0);
+    }
+    else
+    {
+        $_SESSION['message'] = "Something went wrong!";
+        header('Location: request.php');
+        exit(0);
+    }
+}
+?>
+
+<?php
+if(isset($_POST['approve_request']))
+{
+  $farmer_id = $_POST['farmer_id'];
+    $request_id = $_POST['user_id'];
+    $product_id = $_POST['product_id'];
+    $quantity = $_POST['quantity'];
+    $status = 2;
+
+
+    $query= "SELECT product_quantity FROM product WHERE product_id = '$product_id' ";
+    $query_run = $con->query($query);
+    $data = $query_run->fetch_assoc();
+    $qt = $data['product_quantity'];
+
+    if($qt > $quantity)
+    {
+
+      $newpq = $qt - $quantity;
+
+      $query1 = "UPDATE `product` SET `product_quantity`='$newpq' WHERE `product_id`='$product_id'";
+      $query1_run1 = mysqli_query($con, $query1);
+      
+      $query2 = "INSERT INTO `request_approve`(`id`, `request_qty`) VALUES ('$farmer_id','$quantity')";
+      $query_run2 = mysqli_query($con, $query2);
+
+      $query = "UPDATE `request` SET `request_status`='$status' WHERE `request_id`= '$request_id'";
+      $query_run = mysqli_query($con, $query);
+
+
+      
+      if($query_run)
+      {
+        $_SESSION['status'] = "Request has been approved!";
+        $_SESSION['status_code'] = "success";
+          header('Location: request.php');
+          exit(0);
+      }
+      else
+      {
+        $_SESSION['status'] = "Something went wrong";
+        $_SESSION['status_code'] = "error";
+          header('Location: request.php');
+          exit(0);
+      }
+    }
+    else{
+      $_SESSION['status'] = "Insufficient Stocks";
+      $_SESSION['status_code'] = "error";
+        header('Location: request.php');
+        exit(0);
+    }
+      
+}
+?>
+
+
+<?php
 //update staff 
 if(isset($_POST["update_staff"])){
   $userprofile = $_FILES['userprofile'];
@@ -72,58 +154,6 @@ if(isset($_POST["update_staff"])){
     $_SESSION['status_code'] = "error"; 
     header('Location: staff.php');
 }
-}
-?>
-
-<?php
-if(isset($_POST['req_approve']))
-{
-
-    $request_id = $_POST['request_id'];
-    $status = 2;
-
-    $query = "UPDATE `request` SET `request_status`= '$status' WHERE `request_id` = '$request_id'";
-    $query_run = mysqli_query($con, $query);
-    
-    if($query_run)
-    {
-      $_SESSION['status'] = "Request has been approved!";
-      $_SESSION['status_code'] = "success";
-        header('Location: request.php');
-        exit(0);
-    }
-    else
-    {
-        $_SESSION['message'] = "Something went wrong!";
-        header('Location: request.php');
-        exit(0);
-    }
-}
-?>
-
-
-<?php
-if(isset($_POST['req_deny']))
-{
-    $request_id = $_POST['request_id'];
-    $status = 3;
-
-    $query = "UPDATE `request` SET `request_status`= '$status' WHERE `request_id` = '$request_id'";
-    $query_run = mysqli_query($con, $query);
-    
-    if($query_run)
-    {
-      $_SESSION['status'] = "Request has been denied!";
-      $_SESSION['status_code'] = "error";
-        header('Location: request.php');
-        exit(0);
-    }
-    else
-    {
-        $_SESSION['message'] = "Something went wrong!";
-        header('Location: request.php');
-        exit(0);
-    }
 }
 ?>
 
