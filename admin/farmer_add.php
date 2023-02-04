@@ -18,7 +18,7 @@
 
                     
  
-                    <form action="code.php" method="post" autocomplete="off" enctype="multipart/form-data"> 
+                    <form action="code.php" method="POST" autocomplete="off" enctype="multipart/form-data"> 
                     <div class="row"> 
                                 <div class="col-md-4 mb-3">
                                     <label for="">Last Name</label>
@@ -50,14 +50,9 @@
                                 <hr>
                                 </div>
 
-                                <div class="col-md-6 mb-3">
+                                <div class="col-md-12 mb-3">
                                     <label for="">Email Address</label>
                                     <input required placeholder="Enter Email Address" type="email" name="email" class="form-control">
-                                </div>
-
-                                <div class="col-md-6 mb-3">
-                                    <label for="">Password</label>
-                                    <input required placeholder="Enter Password" type="password" name="password" class="form-control">
                                 </div>
 
 
@@ -99,7 +94,7 @@
 
                                 <div class="col-md-3 mb-3">
                                     <label for="">Mobile Number</label>
-                                    <input required placeholder="Enter Mobile Number" type="text" name="mobilenumber" class="form-control">
+                                    <input required placeholder="Enter Mobile Number" type="text" name="phone" class="form-control">
                                 </div>
 
                                 <div class="col-md-3 mb-3">
@@ -125,7 +120,7 @@
                                 <div class="col-md-6 mb-3">
                                 <label for="">Civil Status</label>
                                     <select name="civilstatus" required class="form-control">
-                                        <option value="None">--Select Civil Status--</option>
+                                        <option value="None" selected="true" disabled="disabled">--Select Civil Status--</option>
                                         <option value="Single">Single</option>
                                         <option value="Married">Married</option>
                                         <option value="Widowed">Widowed</option>
@@ -159,41 +154,41 @@
                                 <hr>
                                 </div>
 
-                                <div class="col-md-5 mb-3">
+                                <div class="col-md-4 mb-3">
                                 <label for="">Member of an <strong>Indigenous Group</strong>?</label>
                                 <br>
                                 <input required class="ml-2" type="radio" name="ig" value="Yes"> Yes
                                 <input required class="ml-2" type="radio" name="ig" value="No"> No
                                 </div>
 
-                                <div class="col-md-7 mb-3">
+                                <div class="col-md-8 mb-3">
                                     <label for="">If yes, specify:</label>
-                                    <input  placeholder="" type="text" name="igyes" class="form-control">
+                                    <input  placeholder="" type="text" name="igyes" class="form-control" value="<?php echo (isset($_POST['ig']) && $_POST['ig'] == 'No') ? 'N/A' : ''; ?>">
                                 </div>
 
-                                <div class="col-md-5 mb-3">
+                                <div class="col-md-4 mb-3">
                                 <label for="">With <strong>Government ID</strong>?</label>
                                 <br>
                                 <input required class="ml-2" type="radio" name="govid" value="Yes"> Yes
                                 <input required class="ml-2" type="radio" name="govid" value="No"> No
                                 </div>
 
-                                <div class="col-md-7 mb-3">
+                                <div class="col-md-8 mb-3">
                                     <label for="">If yes, specify:</label>
-                                    <input  placeholder="" type="text" name="yesgovid" class="form-control">
+                                    <input  placeholder="" type="text" name="govidyes" class="form-control" value="<?php echo (isset($_POST['govid']) && $_POST['govid'] == 'No') ? 'N/A' : ''; ?>">
                                 </div>
 
-                                <div class="col-md-5 mb-3">
+                                <div class="col-md-4 mb-3">
                                 <label for="">Member of any <strong>Farmers Association/Cooperative</strong>?</label>
                                 <br>
-                                <input required class="ml-2" type="radio" name="yesfac" value="Yes"> Yes
-                                <input required class="ml-2"  type="radio" name="yesfac" value="No"> No
+                                <input required class="ml-2" type="radio" name="fac" value="Yes"> Yes
+                                <input required class="ml-2"  type="radio" name="fac" value="No"> No
                                 </div>
 
                                 
-                                <div class="col-md-7 mb-3">
+                                <div class="col-md-8 mb-3">
                                     <label for="">If yes, specify:</label>
-                                    <input  placeholder="" type="text" name="yesgovid" class="form-control">
+                                    <input  placeholder="" type="text" name="facyes" class="form-control" value="<?php echo (isset($_POST['yesfac']) && $_POST['yesfac'] == 'No') ? 'N/A' : ''; ?>">
                                 </div>
 
                                 <!-- <div class="col-md-12 mb-3">
@@ -215,7 +210,7 @@
                                 </div>
 
 
-                                <div class="col-md-12 mb-3"  id="div1" style="display: none;">
+                                <!-- <div class="col-md-12 mb-3"  id="div1" style="display: none;">
                                  <h5 class="text-center mt-4"><b>FOR FARMER</b></h5>
                                  <h6 class="text-center mt-4"><u>Type of Farming Activity</u></strong></h6>
                                 
@@ -342,7 +337,7 @@
                                 <input required placeholder="" type="text" name="fisherfolkothers" class="form-control">
 
 
-                               </div>
+                               </div> -->
 
 
                                <div class="col-md-12 mb-3 text-center">                                   
@@ -351,7 +346,7 @@
 
                                <div class="col-md-6 mb-3 ml-4">                             
                                <label for="profilepicture">Upload 2x2 Picture </label> <br>
-                                <input type="file" name="profilepicture" id = "profilepicture" accept=".jpg, .jpeg, .png" value="">
+                                <input type="file" name="profilepicture" accept=".jpg, .jpeg, .png" value="">
                                </div>
 
                             

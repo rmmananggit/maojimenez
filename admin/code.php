@@ -1,4 +1,13 @@
-<?php include('authentication.php'); ?>
+<?php include('authentication.php'); 
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require './PHPMailer/src/Exception.php';
+require './PHPMailer/src/PHPMailer.php';
+require './PHPMailer/src/SMTP.php';
+?>
+
 
 <?php
 if(isset($_POST['logout_btn']))
@@ -12,6 +21,107 @@ if(isset($_POST['logout_btn']))
     $_SESSION['status_code'] = "success";
     header("Location: ../login/index.php");
     exit(0);
+}
+?>
+
+
+<?php
+//add farmer 
+if(isset($_POST["add_farmer"])){
+  $profilepicture = $_FILES['profilepicture'];
+
+  $fileName = $profilepicture['name'];
+  $fileTmpname = $profilepicture['tmp_name'];
+  $fileSize = $profilepicture['size'];
+  $fileError = $profilepicture['error'];
+
+  $fileExt = explode('.',$fileName);
+  $fileActExt = strtolower(end($fileExt));
+  $allowed = array('jpg','jpeg','png');
+
+
+  if(in_array($fileActExt, $allowed)){
+    if($fileError === 0){
+        if($fileSize < 50000000){
+          $lname = $_POST['lname'];
+          $mname = $_POST['mname'];
+          $fname = $_POST['fname'];
+          $gender = $_POST['gender'];
+          $email = $_POST['email'];
+          $purok = $_POST['purok'];
+          $street = $_POST['street'];
+          $barangay = $_POST['barangay'];
+          $municipality = "Jimenez";
+          $province = "Misamis Occidental";
+          $region = "10";
+          $phone = $_POST['phone'];
+          $religion = $_POST['religion'];
+          $dob = $_POST['dob'];
+          $placeofbirth = $_POST['placeofbirth'];
+          $civilstatus = $_POST['civilstatus'];
+          $pwd = $_POST['pwd'];
+          $fourps = $_POST['fourps'];
+          $ig = $_POST['ig'];
+          $igyes = $_POST['igyes'];
+          $govid = $_POST['govid'];
+          $govidyes = $_POST['govidyes'];
+          $fac = $_POST['fac'];
+          $facyes = $_POST['facyes'];
+          $livelihood = $_POST['livelihood'];
+          $qrcode = uniqid();
+          $profilepicture = addslashes(file_get_contents($_FILES["profilepicture"]['tmp_name']));
+          $user_type = 3;
+          $user_status = 1;
+
+          $query = "INSERT INTO `farmer`(`lname`, `mname`, `fname`, `gender`, `email`, `purok`, `street`, `barangay`, `municipality`, `province`, `region`, `phone`, `religion`, `birthday`, `birthplace`, `civil_status`, `pwd`, `4ps`, `ig`, `igspecify`, `govid`, `govspecify`, `farmersassoc`, `farmersassoc_specify`, `farmprofile`, `profile`, `qrcode`, `user_type`, `user_status`) VALUES ('$lname','$mname','$fname','$gender','$email','$purok','$street','$barangay','$municipality','$province','$region','$phone','$religion','$dob','$placeofbirth','$civilstatus','$pwd','$fourps','$ig','$igyes','$govid','$govidyes','$fac','$facyes','$livelihood','$profilepicture','$qrcode','$user_type','$user_status')";
+
+            $query_run = mysqli_query($con, $query);
+
+            if($query_run){
+              $name = htmlentities($_POST['lname']);
+              $email = htmlentities($_POST['email']);
+              $subject = htmlentities('Username and Password Credentials');
+              $message = htmlentities("Welcome to MAO System! \r\n To login your account use this email and the password is Password@123. Change the password immediately!");
+          
+              $mail = new PHPMailer(true);
+              $mail->isSMTP();
+              $mail->Host = 'smtp.gmail.com';
+              $mail->SMTPAuth = true;
+              $mail->Username = 'contactmaojimenez@gmail.com';
+              $mail->Password = 'kcexdtybjptxgizm';
+              $mail->Port = 465;
+              $mail->SMTPSecure = 'ssl';
+              $mail->isHTML(true);
+              $mail->setFrom($email, $name);
+              $mail->addAddress($_POST['email']);
+              $mail->Subject = ("$email ($subject)");
+              $mail->Body = $message;
+              $mail->send();
+
+              $_SESSION['status'] = "Farmer added, farmer credentials will be send in their email address";
+              $_SESSION['status_code'] = "success";
+              header('Location: farmer_account.php');
+              exit(0);
+            }else{
+
+            }
+
+        }else{
+            $_SESSION['status']="File is too large file must be 10mb";
+            $_SESSION['status_code'] = "error"; 
+            header('Location: farmer_account.php');
+        }
+    }else{
+        $_SESSION['status']="File Error";
+        $_SESSION['status_code'] = "error"; 
+        header('Location: farmer_account.php');
+    }
+}else{
+    $_SESSION['status']="File not allowed";
+    $_SESSION['status_code'] = "error"; 
+    header('Location: farmer_account.php');
+}
+
 }
 ?>
 
@@ -437,8 +547,9 @@ if(isset($_POST['add_announcement']))
     $body = $_POST['announcement_message'];
     $event_dt = $_POST['announcement_dt'];
     $sender = $_POST['announcement_sender'];
+    $ann_status = "Pending";
 
-    $query = "INSERT INTO `announcement`(`ann_title`, `ann_body`, `ann_publish`, `ann_date`) VALUES ('$title','$body','$sender','$event_dt')";
+    $query = "INSERT INTO `announcement`(`ann_title`, `ann_body`, `ann_publish`,`ann_status`, `ann_date`) VALUES ('$title','$body','$sender', '$ann_status','$event_dt')";
     $query_run = mysqli_query($con,$query);
 
     if($query_run)
@@ -479,6 +590,32 @@ if(isset($_POST['edit_category']))
         $_SESSION['status_code'] = "error";
         header('Location: product_category.php');
         exit(0);
+    }
+}
+?>
+
+
+<?php
+if(isset($_POST['ann_post']))
+{
+    $user_id= $_POST['ann_post'];
+    $status = "Posted";
+
+    $query = "UPDATE `announcement` SET `ann_status`='$status' WHERE ann_id ='$user_id'";
+    $query_run = mysqli_query($con, $query);
+    if($query_run)
+    {
+      $_SESSION['status'] = "The announcement has been successfully posted.";
+      $_SESSION['status_code'] = "success";
+      header('Location: announcement.php');
+      exit(0);
+    }
+    else
+    {
+      $_SESSION['status'] = "SOMETHING WENT WRONG!";
+      $_SESSION['status_code'] = "error";
+      header('Location: announcement.php');
+      exit(0);
     }
 }
 ?>
@@ -535,79 +672,5 @@ if(isset($_POST['edit_announcement']))
         header('Location: announcement.php');
         exit(0);
     }
-}
-?>
-
-<?php
-//add farmer 
-if(isset($_POST["add_farmer"])){
-  $profilepicture = $_FILES['profilepicture'];
-
-  $fileName = $profilepicture['name'];
-  $fileTmpname = $profilepicture['tmp_name'];
-  $fileSize = $profilepicture['size'];
-  $fileError = $profilepicture['error'];
-
-  $fileExt = explode('.',$fileName);
-  $fileActExt = strtolower(end($fileExt));
-  $allowed = array('jpg','jpeg','png');
-
-
-  if(in_array($fileActExt, $allowed)){
-    if($fileError === 0){
-        if($fileSize < 50000000){
-          $lname = $_POST['lname'];
-          $mname = $_POST['mname'];
-          $fname = $_POST['fname'];
-          $purok = $_POST['purok'];
-          $street = $_POST['street'];
-          $barangay = $_POST['barangay'];
-          $municipality = "Jimenez";
-          $province = "Misamis Occidental";
-          $region = "10";
-          $gender = $_POST['gender'];
-          $civilstatus = $_POST['civilstatus'];
-          $religion = $_POST['religion'];
-          $mobilenumber = $_POST['mobilenumber'];
-          $email = $_POST['email'];
-          $password = $_POST['password'];
-          $fourps = $_POST['fourps'];
-          $ig = $_POST['ig'];
-          $pwd = $_POST['pwd'];
-          $livelihood = $_POST['livelihood'];
-          $qrcode = uniqid();
-          $profilepicture = addslashes(file_get_contents($_FILES["profilepicture"]['tmp_name']));
-          $user_type = 3;
-          $user_status = 1;
-
-          $query = "INSERT INTO `farmer`(`fname`, `mname`, `lname`, `Purok`, `Street`, `Barangay`, `Municipality`, `Province`, `Region`, `gender`, `civil_status`, `religion`, `mobile_number`, `email`, `password`, `4ps`, `ig`, `pwd`, `livelihood`, `qrcode`, `profilepicture`, `user_type`, `user_status`) VALUES ('$fname','$mname,'$lname','$purok','$street','$barangay','$municipality','$province','$region','$gender','$civilstatus','$religion','$mobilenumber','$email','$password','$fourps','$ig','$pwd','$livelihood','$qrcode','$profilepicture','$user_type,'$user_status')";
-
-            $query_run = mysqli_query($con, $query);
-
-            if($query_run){
-              $_SESSION['status'] = "Farmer Added";
-              $_SESSION['status_code'] = "success";
-              header('Location: farmer_account.php');
-              exit(0);
-            }else{
-
-            }
-
-        }else{
-            $_SESSION['status']="File is too large file must be 10mb";
-            $_SESSION['status_code'] = "error"; 
-            header('Location: farmer_account.php');
-        }
-    }else{
-        $_SESSION['status']="File Error";
-        $_SESSION['status_code'] = "error"; 
-        header('Location: farmer_account.php');
-    }
-}else{
-    $_SESSION['status']="File not allowed";
-    $_SESSION['status_code'] = "error"; 
-    header('Location: farmer_account.php');
-}
-
 }
 ?>

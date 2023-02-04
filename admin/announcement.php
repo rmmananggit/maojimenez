@@ -27,6 +27,7 @@
                                             <th>Title</th>
                                             <th>Body</th>
                                             <th>Publish</th>
+                                            <th>Status</th>
                                             <th>Date Announced</th>
                                             <th>Action</th>
                                         </tr>
@@ -36,7 +37,8 @@
                             $query = "SELECT
                             announcement.*
                         FROM
-                            announcement";
+                            announcement
+                        WHERE ann_status = 'Pending'";
                             $query_run = mysqli_query($con, $query);
                             if(mysqli_num_rows($query_run) > 0)
                             {
@@ -48,6 +50,7 @@
                                         <td><?= $row['ann_title']; ?></td>
                                         <td><?= $row['ann_body']; ?></td>
                                         <td><?= $row['ann_publish']; ?></td>
+                                        <td><?= $row['ann_status']; ?></td>
                                         <td><?= $row['ann_date']; ?></td>
                                         
                                         <td class="text-center">    
@@ -57,11 +60,13 @@
  ACTIONS
   </button>
   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <a class="dropdown-item" href="announcement_edit.php?id=<?=$row['ann_id'];?>" > UPDATE
-    </a>
+    
     <form action="code.php" method="POST">  
+    <button type="submit" name="ann_post" value="<?=$row['ann_id']; ?>" class="dropdown-item" href="#"> POST
+    </button> 
     <button type="submit" name="ann_delete" value="<?=$row['ann_id']; ?>" class="dropdown-item" href="#"> DELETE
-    </button>  </form> 
+    </button>  
+</form> 
   </div>
 </div>         
                                 </td>
