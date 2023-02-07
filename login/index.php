@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="fonts/icomoon/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
   </head>
 
   <?php
@@ -66,6 +67,9 @@ if(isset($_SESSION['auth']))
               <div class="form-group last mb-3">
                 <label for="">Password</label>
                 <input required type="password" name="password" class="form-control" minlength="8" placeholder="Your Password" id="password">
+                <a href="javascript:void(0)"  style="position: absolute; top: 48%; right: 8%; cursor: pointer; color: lightgray;">
+								  <img alt="show password icon" src="images/eye-close.png" width="25rem" height="1%" id="togglePassword">
+							  </a>
               </div>
               
               <div class="d-flex mb-5 align-items-center">
@@ -124,5 +128,6 @@ if(isset($_SESSION['auth']))
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/showpass.js"></script>
   </body>
 </html>
