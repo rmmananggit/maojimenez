@@ -103,7 +103,7 @@ if(isset($_POST["add_report"])){
   
     if(in_array($fileActExt, $allowed) && in_array($fileActExt1, $allowed1)){
       if($fileError === 0){
-          if($fileSize < 50000000){
+          if($fileSize < 10485760){
 
             $date = new DateTime();
             $date->setTimezone(new DateTimeZone('UTC'));

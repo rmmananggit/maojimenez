@@ -42,7 +42,7 @@ if(isset($_POST["add_farmer"])){
 
   if(in_array($fileActExt, $allowed)){
     if($fileError === 0){
-        if($fileSize < 50000000){
+        if($fileSize < 10485760){
           $lname = $_POST['lname'];
           $mname = $_POST['mname'];
           $fname = $_POST['fname'];
@@ -225,7 +225,7 @@ if(isset($_POST["update_staff"])){
 
   if(in_array($fileActExt, $allowed)){
     if($fileError === 0){
-        if($fileSize < 50000000){
+        if($fileSize < 10485760){
           $user_id = $_POST['user_id'];
           $fname = $_POST['fname'];
           $mname = $_POST['mname'];
@@ -314,7 +314,7 @@ if(isset($_POST["add_staff"])){
 
   if(in_array($fileActExt, $allowed)){
     if($fileError === 0){
-        if($fileSize < 50000000){
+        if($fileSize < 10485760){
           $fname = $_POST['fname'];
           $mname = $_POST['mname'];
           $lname = $_POST['lname'];
@@ -375,7 +375,7 @@ if(isset($_POST["update_product"])){
 
   if(in_array($fileActExt, $allowed)){
     if($fileError === 0){
-        if($fileSize < 50000000){
+        if($fileSize < 10485760){
           $user_id = $_POST['product_id'];
           $name = $_POST['name'];
           $quantity = $_POST['quantity'];
@@ -438,7 +438,7 @@ if(isset($_POST["add_product"])){
 
   if(in_array($fileActExt, $allowed)){
     if($fileError === 0){
-        if($fileSize < 50000000){
+        if($fileSize < 10485760){
           $name = $_POST['name'];
           $quantity = $_POST['quantity'];
           $category = $_POST['category'];
