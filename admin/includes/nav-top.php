@@ -105,14 +105,15 @@
 <style>
     .nav-item.dropdown:hover .dropdown-menu{
       display:block;
+      margin-top: -10px;
     }
-      img#cimg{
+    img#cimg{
       text-align: center;
       height: 2.3rem;
       width: 2.3rem;
       object-fit: cover;
       border-radius: 100% 100%;
-      padding: 0.1rem;
+      margin-right: 0.5rem;
       background-color: #fff;
       max-width: 100%;
     }
