@@ -18,7 +18,7 @@
     <li class="nav-item">
         <a class="nav-link" href="index.php">
             <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Dashboard</span></a>
+            <strong>Dashboard</strong></a>
     </li>
 
     <!-- Divider -->
@@ -32,38 +32,38 @@
     <li class="nav-item">
                 <a class="nav-link" href="announcement.php">
                     <i class="fas fa-fw fa-table"></i>
-                    <span>View Announcement</span></a>
+                    <strong>View Announcement</strong></a>
     </li>
 
     <li class="nav-item">
                 <a class="nav-link" href="product.php">
                     <i class="fas fa-fw fa-box"></i>
-                    <span>View Product</span></a>
+                    <strong>View Product</strong></a>
     </li>
 
 
     <li class="nav-item">
                 <a class="nav-link" href="request.php">
                     <i class="fas fa-fw fa-poll-h"></i>
-                    <span>Request</span></a>
+                    <strong>Request</strong></a>
     </li>
 
     <li class="nav-item">
                 <a class="nav-link" href="report.php">
                     <i class="fas fa-fw fa-envelope-open-text"></i>
-                    <span>Report</span></a>
+                    <strong>Report</strong></a>
     </li>
 
     <li class="nav-item">
                 <a class="nav-link" href="concern.php">
                     <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Concern</span></a>
+                    <strong>Concern</strong></a>
     </li>
 
     <li class="nav-item">
                 <a class="nav-link" href="generate_qr.php">
                     <i class="fas fa-fw fa-qrcode"></i>
-                    <span>Generate QR Code</span></a>
+                    <strong>Generate QR Code</strong></a>
     </li>
     <!-- Divider -->
     <hr class="sidebar-divider">
