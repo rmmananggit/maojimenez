@@ -61,11 +61,11 @@ if(isset($_SESSION['auth']))
 
               <div class="form-group first">
                 <label for="">Email</label>
-                <input required type="email" name="email" class="form-control" placeholder="your-email@gmail.com" id="username">
+                <input required type="email" name="email" class="form-control" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" placeholder="your-email@gmail.com" id="username">
               </div>
               <div class="form-group last mb-3">
                 <label for="">Password</label>
-                <input required type="password" name="password" class="form-control" placeholder="Your Password" id="password">
+                <input required type="password" name="password" class="form-control" minlength="8" placeholder="Your Password" id="password">
               </div>
               
               <div class="d-flex mb-5 align-items-center">
