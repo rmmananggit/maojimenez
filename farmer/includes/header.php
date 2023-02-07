@@ -6,10 +6,17 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta content="A web-based Farmers monitoring management system" name="description">
+    <meta content="Monitoring, Management, System, Notification" name="keywords">
 
-    <title>MAO JIMENEZ</title>
+    <!-- Title Page -->
+    <title>Municipal Agriculture Office Jimenez | Farmer</title>
+
+    <!-- Favicons -->
+    <link rel="shortcut icon" href="../assets/img/favicon.png" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="120x120" href="../assets/img/favicon.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="../assets/img/favicon.png">
+
     <!-- Custom fonts for this template -->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link

@@ -4,8 +4,16 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="fonts/icomoon/style.css">
+    <meta content="A web-based Farmers monitoring management system" name="description">
+    <meta content="Monitoring, Management, System, Notification" name="keywords">
+
+    <!-- Title Page -->
+    <title>Municipal Agriculture Office Jimenez | Login</title>
+
+    <!-- Favicons -->
+    <link rel="shortcut icon" href="../assets/img/favicon.png" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="120x120" href="../assets/img/favicon.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="../assets/img/favicon.png">
 
     <link rel="stylesheet" href="css/owl.carousel.min.css">
 
@@ -14,8 +22,8 @@
     
     <!-- Style -->
     <link rel="stylesheet" href="css/style.css">
-
-    <title>MAO JIMENEZ</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="fonts/icomoon/style.css">
   </head>
 
   <?php
@@ -48,7 +56,7 @@ if(isset($_SESSION['auth']))
         <div class="row align-items-center justify-content-center">
           <div class="col-md-7">
             <h3>Login to <strong>MAO JIMENEZ</strong></h3>
-            <p class="mb-4">A system where churva churva</p>
+            <br>
             <form action="logincode.php" method="POST">
 
               <div class="form-group first">
@@ -70,7 +78,9 @@ if(isset($_SESSION['auth']))
                 
               </div>
 
-              <button type="submit" name="login_btn" class="btn btn-block btn-primary">Login</button>
+              <button type="submit" name="login_btn" class="btn btn-block btn-success">Login</button>
+              <br>
+              <span class="ml-auto"><a href="../index.php"><u>Click here to Homepage</u></a></span> 
             </form>
           </div>
         </div>

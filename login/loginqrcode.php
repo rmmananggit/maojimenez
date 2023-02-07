@@ -36,30 +36,30 @@ if(isset($_POST['qrcode_text']))
  
 		 if( $_SESSION['auth_role'] == '1')
 		 {
-			 $_SESSION['status'] = "Welcome Administrator!";
+			 $_SESSION['status'] = "Welcome $full_name!";
 			 $_SESSION['status_code'] = "success";
 			 header("Location: ../admin/index.php");
 			 exit(0);
 		 }
 		 elseif( $_SESSION['auth_role'] == '3')
 		 {
-			 $_SESSION['status'] = "Welcome Farmer!";
+			 $_SESSION['status'] = "Welcome $full_name!";
 			 $_SESSION['status_code'] = "success";
 			 header("Location: ../farmer/index.php");
 			 exit(0);
 		 }
 		 elseif( $_SESSION['auth_role'] == '2')
 		 {
-			 $_SESSION['status'] = "Welcome!";
+			 $_SESSION['status'] = "Welcome $full_name!";
 			 header("Location: ../staff/index.php");
 			 exit(0);
 		 }
 	 }
 	 else
 	 {
-		 $_SESSION['status'] = "Invalid Email or Password";
+		 $_SESSION['status'] = "Incorrect QR Code";
 		 $_SESSION['status_code'] = "error";
-		 header("Location: index.php");
+		 header("Location: ./loginqr.php");
 		 exit(0);
 	 }
 }else{
