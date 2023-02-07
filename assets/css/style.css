@@ -79,7 +79,7 @@ h6 {
 }
 
 #header .logo h1 {
-  font-size: 28px;
+  font-size: 15px;
   margin: 0;
   font-weight: 600;
   letter-spacing: 1px;
@@ -89,7 +89,7 @@ h6 {
 
 #header .logo h1 a,
 #header .logo h1 a:hover {
-  color: #384046;
+  color: #ffffff;
   text-decoration: none;
 }
 
@@ -157,7 +157,7 @@ h6 {
   font-family: "Poppins", sans-serif;
   font-size: 16px;
   font-weight: 500;
-  color: #4f5a62;
+  color: #ffffff;
   white-space: nowrap;
   transition: 0.3s;
 }
@@ -245,7 +245,7 @@ h6 {
 * Mobile Navigation 
 */
 .mobile-nav-toggle {
-  color: #384046;
+  color: #ffffff;
   font-size: 28px;
   cursor: pointer;
   display: none;
@@ -425,10 +425,24 @@ h6 {
     line-height: 36px;
   }
 
+  .mobile-nav-toggle {
+    display: block;
+  }
+
   #hero h2 {
     font-size: 18px;
     line-height: 24px;
     margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 530px){
+  [data-alttext] > b {
+    display: none;
+  }
+  
+  [data-alttext]::before {
+    content: attr(data-alttext);
   }
 }
 
