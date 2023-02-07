@@ -48,6 +48,17 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <?php
+                    $userID = $_SESSION['auth_user'] ['user_id'];
+                    $query = "SELECT user.picture FROM user where user_id = $userID";
+                    $query_run = mysqli_query($con, $query);
+                    $user = mysqli_num_rows($query_run) > 0;
+
+                    if($user){
+                        while($row = mysqli_fetch_assoc($query_run)){
+                ?>
+                    <img id="cimg" class="img-fluid card-img-top" src="data:image;base64,<?php echo base64_encode($row['picture']) ?>"  alt="user-avatar">
+                    <?php } } ?>
                     <span class="mr-2 d-none d-lg-inline text-gray-600 small"> <?= $_SESSION['auth_user'] ['user_name'];  ?></span>
                  
                 </a>
@@ -92,3 +103,19 @@
 
     <!-- Begin Page Content -->
     <div class="container-fluid">
+
+<style>
+    .nav-item.dropdown:hover .dropdown-menu{
+      display:block;
+    }
+      img#cimg{
+      text-align: center;
+      height: 2.3rem;
+      width: 2.3rem;
+      object-fit: cover;
+      border-radius: 100% 100%;
+      padding: 0.1rem;
+      background-color: #fff;
+      max-width: 100%;
+    }
+</style>
