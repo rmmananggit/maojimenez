@@ -181,7 +181,50 @@
 
                 </div>
                 <!-- /.container-fluid -->
+                <div
+                    id="myChart" style="width:100%; max-width:auto; height:800px;">
+                </div>
+                <script>
+                    google.charts.load('current', {'packages':['corechart']});
+                    google.charts.setOnLoadCallback(drawChart);
 
+                    function drawChart() {
+                    var data = google.visualization.arrayToDataTable([
+                    ['Barangay', 'Farmer',],
+                    ['Adorable',54.8],
+                    ['Butuay',48.6],
+                    ['Carmen',44.4],
+                    ['Corrales',23.9],
+                    ['Dicoloc',14.5],
+                    ['Gata',23.9],
+                    ['Guintomoyan',23.9],
+                    ['Malibacsan',23.9],
+                    ['Macabayao',23.9],
+                    ['Matugas Alto',23.9],
+                    ['Matugas Bajo',23.9],
+                    ['Mialem',23.9],
+                    ['Naga',23.9],
+                    ['Palilan',23.9],
+                    ['Nacional',23.9],
+                    ['Rizal',23.9],
+                    ['San Isidro',23.9],
+                    ['Santa Cruz',23.9],
+                    ['Sibaroc',23.9],
+                    ['Sinara Alto',23.9],
+                    ['Sinara Bajo',23.9],
+                    ['Seti',23.9],
+                    ['Tabo-o',23.9],
+                    ['Taraka',23.9],
+                    ]);
+
+                    var options = {
+                    title:'Total Farmer in Barangays'
+                    };
+
+                    var chart = new google.visualization.BarChart(document.getElementById('myChart'));
+                    chart.draw(data, options);
+                    }
+                </script>
             </div>
             <!-- End of Main Content -->
 <?php include('includes/footer.php');?>
