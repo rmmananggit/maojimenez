@@ -2,7 +2,10 @@
 <?php include('includes/header.php');?>
 
 <div class="col-lg-12 mb-3 mt-3">
- 
+<ol class="breadcrumb mb-4">    
+  <li class="breadcrumb-item">Dashboard</li>
+  <li class="breadcrumb-item">View Announcement</li>
+</ol>
 <h2 class="text-center">ANNOUNCEMENT</h2>
 <?php
 $query = "SELECT * FROM `announcement`";

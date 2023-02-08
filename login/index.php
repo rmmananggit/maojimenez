@@ -63,21 +63,20 @@ if(isset($_SESSION['auth']))
                 <label for="">Email</label>
                 <input required type="email" name="email" class="form-control" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" placeholder="your-email@gmail.com" id="username">
               </div>
-              <div class="form-group last mb-3">
+              <div class="form-group last mb-0">
                 <label for="">Password</label>
                 <input required type="password" name="password" class="form-control" minlength="8" placeholder="Your Password" id="password">
-                <a href="javascript:void(0)"  style="position: absolute; top: 48%; right: 8%; cursor: pointer; color: lightgray;">
+                <a href="javascript:void(0)"  style="position: relative; top: -2.5rem; left: 87%; cursor: pointer; color: lightgray;">
 								  <img alt="show password icon" src="images/eye-close.png" width="25rem" height="1%" id="togglePassword">
 							  </a>
               </div>
               
-              <div class="d-flex mb-5 align-items-center">
-                <label class="control control--checkbox mb-0"><span class="caption">Remember me</span>
-                  <input type="checkbox"/>
-                  <div class="control__indicator"></div>
+              <div class="d-flex mb-3 align-items-center">
+                <label class="control control mb-0">
+                  <a href="loginqr.php"><u>Forgot password</u></a>
                 </label>
 
-                <span class="ml-auto"><a href="loginqr.php"><u>Click here to login via QR</u></a></span> 
+                <span class="ml-auto"><a href="loginqr.php"><u>Login via QR</u></a></span>
                 
               </div>
 

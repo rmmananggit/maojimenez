@@ -122,36 +122,34 @@ if(isset($_POST["add_report"])){
               if($query_run){
                 $_SESSION['status'] = "Report Submitted!";
                 $_SESSION['status_code'] = "success";
-                header('Location: index.php');
+                header('Location: ./report.php');
                 exit(0);
               }else{
                 $_SESSION['status'] = "Something went wrong!";
                 $_SESSION['status_code'] = "error";
-                header('Location: index.php');
+                header('Location: ./report.php');
                 exit(0);
               }
   
           }else{
               $_SESSION['status']="File is too large file must be 10mb";
               $_SESSION['status_code'] = "error"; 
-              header('Location: index.php');
+              header('Location: ./report.php');
           }
       }else{
           $_SESSION['status']="File Error";
           $_SESSION['status_code'] = "error"; 
-          header('Location: index.php');
+          header('Location: ./report.php');
       }
-  }else{
-    $_SESSION['status']="File Error";
-    $_SESSION['status_code'] = "error"; 
-    header('Location: index.php');
-  }
-  
-  }
+    }else{
+        $_SESSION['status']="File Error";
+        $_SESSION['status_code'] = "error"; 
+        header('Location: index.php');
+    }
+}
 
 
-  if(isset($_POST['concern_update']))
-  {
+if(isset($_POST['concern_update'])){
     $date = new DateTime();
     $date->setTimezone(new DateTimeZone('UTC'));
     $concern_update = $date->format('Y-m-d H:i:s');

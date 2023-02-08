@@ -2,7 +2,10 @@
 <?php include('includes/header.php');?>
 
 <div class="container">
-
+<ol class="breadcrumb mb-4">    
+  <li class="breadcrumb-item">Dashboard</li>
+  <li class="breadcrumb-item">View Product</li>
+</ol>
 <h2 class="text-center mb-3">PRODUCT</h2>
 
             <div class="row"> 
