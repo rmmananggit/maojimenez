@@ -22,7 +22,7 @@ include('includes/header.php'); ?>
 </div>
 
 <div class="col-md-4 mb-3 text-center">
-<a href="generatemyconcern.php" class="btn btn-info">Generate My Concern</a>
+<a href="generatemyconcern.php" class="btn btn-success">Generate My Concern</a>
 </div>
 
 </div>
