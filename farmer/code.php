@@ -1,6 +1,6 @@
-<?php include('authentication.php'); ?>
+<?php include('authentication.php'); 
 
-<?php
+
 if(isset($_POST['logout_btn']))
 {
     // session_destroy();
@@ -28,7 +28,7 @@ if(isset($_POST['add_request']))
     $product_id = $_POST['product'];
     $description = $_POST['description'];
     $request = $_POST['quantity'];
-    $status = "1";
+    $status = 1;
 
     $query = "INSERT INTO `request`(`id`, `product_id`, `request_quantity`, `description`, `request_date`, `request_status`) VALUES ('$user_id', '$product_id','$quantity','$description','$request_date', '$status')";
     $query_run = mysqli_query($con,$query);
@@ -37,7 +37,7 @@ if(isset($_POST['add_request']))
     {
         $_SESSION['status'] = "Your Request has been submitted!";
         $_SESSION['status_code'] = "success";
-        header('Location: request_view.php');
+        header('Location: request.php');
         exit(0);
     }
     else{
@@ -175,6 +175,31 @@ if(isset($_POST['concern_update'])){
       }
   }
 
+
+  
+if(isset($_POST['delete_request'])){
+
+
+    $id = $_POST['delete_request'];
+
+  
+      $query = "DELETE FROM `request` WHERE request_id = '$id'";
+      $query_run = mysqli_query($con,$query);
+  
+      if($query_run)
+      {
+          $_SESSION['status'] = "Request Deleted Successfully";
+          $_SESSION['status_code'] = "success";
+          header('Location: request.php');
+          exit(0);
+      }
+      else{
+          $_SESSION['status'] = "SOMETHING WENT WRONG!";
+          $_SESSION['status_code'] = "error";
+          header('Location: request.php');
+          exit(0);
+      }
+  }
 
 
 
