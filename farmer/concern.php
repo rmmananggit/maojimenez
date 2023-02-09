@@ -24,6 +24,7 @@
                         <tr>
                             <th>Id</th>
                             <th>Message</th>
+                            <th>Image</th>
                             <th>Date Submitted</th>
                             <th>Action</th>
                         </tr>
@@ -34,7 +35,7 @@
 
                             if(isset($_SESSION['auth_user'])) 
                             $currentUSER = $_SESSION['auth_user']['user_id'];
-                            $query = "SELECT `concern_id`, `user_id`, `concern_message`, `date_created` FROM `concern` WHERE user_id= $currentUSER";
+                            $query = "SELECT * FROM `concern` WHERE user_id= $currentUSER";
                             $query_run = mysqli_query($con, $query);
                                 if(mysqli_num_rows($query_run) > 0){
                                     foreach($query_run as $row){
@@ -42,6 +43,19 @@
                                 <tr>
                                     <td><?= $row['concern_id']; ?></td>
                                         <td><?= $row['concern_message']; ?></td>
+                                        <td class="text-center">
+
+<?php 
+echo '<img class="img-fluid img-bordered-sm" src = "data:image;base64,'.base64_encode($row['pic1']).'" 
+alt="image" style="height: 170px; max-width: 310px; object-fit: cover;">';
+?>
+
+<?php 
+echo '<img class="img-fluid img-bordered-sm" src = "data:image;base64,'.base64_encode($row['pic2']).'" 
+alt="image" style="height: 170px; max-width: 310px; object-fit: cover;">';
+?>
+
+</td>
                                         <td><?= $row['date_created']; ?></td>
                                     <td>
                                     <div class="btn-group">

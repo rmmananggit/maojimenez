@@ -58,8 +58,10 @@ if(isset($_POST['concern_add']))
 
     $user_id = $_POST['user_id'];
     $concern = $_POST['concern_message'];
+    $pic1 = addslashes(file_get_contents($_FILES["pic1"]['tmp_name']));
+    $pic2 = addslashes(file_get_contents($_FILES["pic2"]['tmp_name']));
 
-    $query = "INSERT INTO `concern`(`user_id`, `concern_message`, `date_created`) VALUES ('$user_id','$concern','$concern_date')";
+    $query = "INSERT INTO `concern`(`user_id`, `concern_message`,`pic1`,`pic2`, `date_created`) VALUES ('$user_id','$concern','$pic1','$pic2','$concern_date')";
     $query_run = mysqli_query($con,$query);
 
     if($query_run)

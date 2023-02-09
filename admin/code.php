@@ -48,6 +48,7 @@ if(isset($_POST["add_farmer"])){
           $fname = $_POST['fname'];
           $gender = $_POST['gender'];
           $email = $_POST['email'];
+          $password = uniqid();
           $purok = $_POST['purok'];
           $street = $_POST['street'];
           $barangay = $_POST['barangay'];
@@ -73,7 +74,7 @@ if(isset($_POST["add_farmer"])){
           $user_type = 3;
           $user_status = 1;
 
-          $query = "INSERT INTO `farmer`(`lname`, `mname`, `fname`, `gender`, `email`, `purok`, `street`, `barangay`, `municipality`, `province`, `region`, `phone`, `religion`, `birthday`, `birthplace`, `civil_status`, `pwd`, `4ps`, `ig`, `igspecify`, `govid`, `govspecify`, `farmersassoc`, `farmersassoc_specify`, `farmprofile`, `profile`, `qrcode`, `user_type`, `user_status`) VALUES ('$lname','$mname','$fname','$gender','$email','$purok','$street','$barangay','$municipality','$province','$region','$phone','$religion','$dob','$placeofbirth','$civilstatus','$pwd','$fourps','$ig','$igyes','$govid','$govidyes','$fac','$facyes','$livelihood','$profilepicture','$qrcode','$user_type','$user_status')";
+          $query = "INSERT INTO `farmer`(`lname`, `mname`, `fname`, `gender`, `email`,`password`,`purok`, `street`, `barangay`, `municipality`, `province`, `region`, `phone`, `religion`, `birthday`, `birthplace`, `civil_status`, `pwd`, `4ps`, `ig`, `igspecify`, `govid`, `govspecify`, `farmersassoc`, `farmersassoc_specify`, `farmprofile`, `profile`, `qrcode`, `user_type`, `user_status`) VALUES ('$lname','$mname','$fname','$gender','$email','$password','$purok','$street','$barangay','$municipality','$province','$region','$phone','$religion','$dob','$placeofbirth','$civilstatus','$pwd','$fourps','$ig','$igyes','$govid','$govidyes','$fac','$facyes','$livelihood','$profilepicture','$qrcode','$user_type','$user_status')";
 
             $query_run = mysqli_query($con, $query);
 
@@ -81,7 +82,7 @@ if(isset($_POST["add_farmer"])){
               $name = htmlentities($_POST['lname']);
               $email = htmlentities($_POST['email']);
               $subject = htmlentities('Username and Password Credentials');
-              $message = htmlentities("Welcome to MAO System! \r\n To login your account use this email and the password is Password@123. Change the password immediately!");
+              $message = nl2br("Hi, Farmer! \r\n Welcome to MAO System! \r\n To login, use this email and password below \r\n Email: $email \r\n Password: $password");
           
               $mail = new PHPMailer(true);
               $mail->isSMTP();
@@ -319,7 +320,7 @@ if(isset($_POST["add_staff"])){
           $mname = $_POST['mname'];
           $lname = $_POST['lname'];
           $email = $_POST['email'];
-          $password = $_POST['password'];
+          $password = uniqid();
           $user_type = '2';
           $user_status = '1';
           $userprofile = addslashes(file_get_contents($_FILES["userprofile"]['tmp_name']));
@@ -329,7 +330,28 @@ if(isset($_POST["add_staff"])){
             $query_run = mysqli_query($con, $query);
 
             if($query_run){
-              $_SESSION['status'] = "User Added Successfully!";
+
+              $name = htmlentities($_POST['lname']);
+              $email = htmlentities($_POST['email']);
+              $subject = htmlentities('Username and Password Credentials');
+              $message = nl2br("Welcome to MAO System! \r\n \r\n Email: $email \r\n Password: $password \r\n \r\n Please change your password immediately.");
+          
+              $mail = new PHPMailer(true);
+              $mail->isSMTP();
+              $mail->Host = 'smtp.gmail.com';
+              $mail->SMTPAuth = true;
+              $mail->Username = 'contactmaojimenez@gmail.com';
+              $mail->Password = 'kcexdtybjptxgizm';
+              $mail->Port = 465;
+              $mail->SMTPSecure = 'ssl';
+              $mail->isHTML(true);
+              $mail->setFrom($email, $name);
+              $mail->addAddress($_POST['email']);
+              $mail->Subject = ("$email ($subject)");
+              $mail->Body = $message;
+              $mail->send();
+
+              $_SESSION['status'] = "User Added Successfully, Credentials was sent to their email!";
               $_SESSION['status_code'] = "success";
               header('Location: staff.php');
               exit(0);

@@ -27,6 +27,15 @@
                                 <label for="" hidden="true">user_id</label>
                                     <input required type="text" hidden name="user_id" value="<?=  $_SESSION['auth_user']['user_id']; ?>" class="form-control">
                                
+                                    <div class="col-md-6 mt-4">
+                                <label for="image">Image:</label>
+                                <input type="file" name="pic1" id="image" accept=".jpg, .jpeg, .png" value="">
+                                </div>
+
+                                <div class="col-md-6 mt-4">
+                                <label for="image">Image: </label>
+                                <input type="file" name="pic2" id="image" accept=".jpg, .jpeg, .png" value="">
+                                </div>
 
                                 </div>
 

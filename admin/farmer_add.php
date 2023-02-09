@@ -72,8 +72,34 @@
                                 </div>
                                 <!-- done -->
                                 <div class="col-md-4 mb-3">
-                                    <label for="">Barangay</label>
-                                    <input required placeholder="Enter Barangay" type="text" name="barangay" class="form-control">
+                                <div class="form-group">
+                                            <label for="address">Municipality</label>
+                                            <select class="form-control" name="barangay" id="barangay">
+                                              <option value="Adorable">Adorable</option>    
+                                              <option value="Butuay">Butuay</option> 
+                                              <option value="Carmen">Carmen</option> 
+                                              <option value="Corrales">Corrales</option> 
+                                              <option value="Corrales">Corrales</option> 
+                                              <option value="Gata">Gata</option> 
+                                              <option value="Guintomoyan">Guintomoyan</option> 
+                                              <option value="Malibacsan">Malibacsan</option> 
+                                              <option value="Macabayao">Macabayao</option> 
+                                              <option value="Matugas Alto">Matugas Alto</option> 
+                                              <option value="Matugas Bajo">Matugas Bajo</option> 
+                                              <option value="Mialem">Mialem</option> 
+                                              <option value="Naga">Naga</option> 
+                                              <option value="Palilan">Palilan</option> 
+                                              <option value="Nacional">Nacional</option> 
+                                              <option value="Rizal">Rizal</option> 
+                                              <option value="Santa Cruz">Santa Cruz</option>
+                                              <option value="Sibaroc">Sibaroc</option>
+                                              <option value="Sinara Alto">Sinara Alto</option>
+                                              <option value="Sinara Bajo">Sinara Bajo</option>
+                                              <option value="Seti">Seti</option>
+                                              <option value="Tabo-o">Tabo-o</option>
+                                              <option value="Taraka">Taraka</option>
+                                            </select>
+                                        </div>
                                 </div>
                                 <div class="col-md-4 mb-3">
                                     <label for="">Municipality/City</label>

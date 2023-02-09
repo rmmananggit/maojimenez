@@ -67,9 +67,19 @@
                                         <td><?= $row['request_quantity']; ?></td>
                                         <td><?= $row['request_name']; ?></td>
                                         <td class="text-center">
-                                    
-                                        <a type="button" class="btn btn-secondary" href="request_view.php?id=<?=$row['request_id'];?>">View</a>
 
+                                        <div class="dropdown show">
+                                        <a class="btn btn-success dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Action
+                                        </a>
+
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                        <a class="dropdown-item" href="request_view.php?id=<?=$row['request_id'];?>">View</a>
+                                       <form action="code.php" method="post">
+                                        <a class="dropdown-item" name="deny_request" value="">Deny</a>
+                                        </form>
+                                        </div>
+                                        </div>
                                         </td>
                                     
                                     </tr>

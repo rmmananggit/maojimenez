@@ -44,8 +44,7 @@
 
                                 
                                 <div class="col-md-6 mb-3">
-                                    <label for="">Password</label>
-                                    <input required placeholder="Enter Password" type="password" name="password" class="form-control">
+                                  
                                 </div>
 
                                 <div class="col-md-12 mb-3 text-center">                                   

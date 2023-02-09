@@ -54,34 +54,34 @@
                              ?>
             
                     <form action="code.php" method="POST">  
-                    <input  name="user_id" value="<?=$user['request_id'];?>">
-                    <input  name="product_id" value="<?=$user['product_id'];?>">
-                    <input  name="farmer_id" value="<?=$user['id'];?>">
+                    <input hidden name="user_id" value="<?=$user['request_id'];?>">
+                    <input hidden name="product_id" value="<?=$user['product_id'];?>">
+                    <input hidden name="farmer_id" value="<?=$user['id'];?>">
                     <div class="row"> 
                                 <div class="col-md-4 mb-3">
                                 <label for="">Name</label>
-                                    <input class="form-control" type="text" value="<?= $user['fname']; ?> <?= $user['mname']; ?> <?= $user['lname']; ?>" readonly>
+                                    <input class="form-control-plaintext" type="text" value="<?= $user['fname']; ?> <?= $user['mname']; ?> <?= $user['lname']; ?>" readonly>
                                 </div>
 
                                 <div class="col-md-4 mb-3">
                                     <label for="">Request Product</label>
-                                    <input class="form-control" type="text" value="<?= $user['product_name']; ?>" readonly>
+                                    <input class="form-control-plaintext" type="text" value="<?= $user['product_name']; ?>" readonly>
                                 </div>
 
                                 <div class="col-md-4 mb-3">
                                     <label for="">Request Quantity</label>
-                                    <input class="form-control"  name="quantity"  value="<?=$user['request_quantity']; ?>" readonly>
+                                    <input class="form-control-plaintext"  name="quantity"  value="<?=$user['request_quantity']; ?>" readonly>
                                 </div>
 
 
                                 <div class="col-md-12 mb-3">
                                 <label for="Description">Description</label>
-                                <textarea placeholder="Enter Description" name="editdescription" required   class="form-control-plaintext" rows="5"> <?= $user['description']; ?></textarea>
+                                <textarea placeholder="Enter Description" name="editdescription" required   class="form-control-plaintext" readonly rows="5"> <?= $user['description']; ?></textarea>
                                 </div>
 
                                 <div class="col-md-4 mb-3">
                                     <label for="">Request Date</label>
-                                    <input type="datetime" class="form-control" type="text" value="<?= $user['request_date']; ?>" readonly>
+                                    <input type="datetime" class="form-control-plaintext" type="text" value="<?= $user['request_date']; ?>" readonly>
                                 </div>
 
 
@@ -89,7 +89,7 @@
 
                                 <div class="text-right">
                                 <a href="request.php" class="btn btn-danger">Back</a>
-                                <button type="subamit" name="approve_request" class="btn btn-primary">Save</button>
+                                <button type="subamit" name="approve_request" class="btn btn-primary">Approve</button>
                                 </div>
                                
                             </form>

@@ -73,8 +73,8 @@ if(mysqli_num_rows($query_run) > 0)
         <td><?= $row['request_id']; ?></td>
             <td><?= $row['product_name']; ?></td>
             <td> <?php 
-            echo '<img class="img-fluid" style="object-fit: cover;" src ="data:image;base64,'.base64_encode($row['product_image']).'" 
-            alt="image" style="height: 20px;">';
+              echo '<img class="img-fluid img-bordered-sm" src = "data:image;base64,'.base64_encode($row['product_image']).'" 
+              alt="image" style="height: 200px; object-fit: cover;">';
             ?></td>
             <td class="text-center"><?= $row['request_quantity']; ?></td>
             <td><?= $row['description'];?></td>
