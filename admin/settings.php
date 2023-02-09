@@ -2,70 +2,80 @@
 <?php include('includes/header.php');?>
 
 
-        <ol class="breadcrumb">    
+        <ol class="breadcrumb mb-4">    
             <li class="breadcrumb-item">Dashboard</li>
-            <li class="breadcrumb-item">Profile</li>
-            <li class="breadcrumb-item">Edit Profile</li>
+            <li class="breadcrumb-item">Account</li>
+            <li class="breadcrumb-item">Edit Account</li>
         </ol>
         <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-12">
-                <div class="card mt-2">
+                <div class="card">
                     <div class="card-header">
-                    <h5>My Account</h5>
+                    <h5>My Account Information</h5>
                     </div>
                     <div class="card-body">
-                    <h2><?php echo $_SESSION['auth_user']['user_id']; ?></h2>
-                    
+                    <h2 hidden><?php echo $_SESSION['auth_user']['user_id']; ?></h2>
+
                     <?php
-                    $id = $_SESSION['auth_user']['user_id'];
-                        if(isset($_GET['id']))
-                        {
-                            $id = $_GET['id'];
-                            $users = "SELECT * FROM user WHERE user_id='$id' ";
-                            $users_run = mysqli_query($con, $users);
+                 
+$user_id = $_SESSION['auth_user']['user_id'];
+$users = "SELECT * FROM `user` WHERE user_id=$user_id";
+$users_run = mysqli_query($con, $users);
+        ?>
+        <?php
+        if(mysqli_num_rows($users_run) > 0)
+        {
+            foreach($users_run as $user)
+            {
+         ?>
 
-                            if(mysqli_num_rows($users_run) > 0)
-                            {
-                                foreach($users_run as $user)
-                                {
-                             ?>
-
-<form action="code.php" method="POST" enctype="multipart/form-data" >  
-
-<input type="hidden" name="user_id" value="<?=$user['user_id'];?>">
+                    <form action="code.php" method="POST" enctype="multipart/form-data" >  
                     <div class="row"> 
-                    <div class="col-md-3 mb-3">
+                    <input type="hidden" name="user_id" value="<?=$user['user_id'];?>">
+                    <div class="col-md-4 mb-3">
                                     <label for="">First Name</label>
-                                    <input required  type="text" name="fname" value="<?=$user['fname'];?>" class="form-control">
+                                    <input placeholder="Enter First Name" name="fname" value="<?=$user['fname'];?>" class="form-control">
                                 </div> 
                             
 
-                                <div class="col-md-3 mb-3">
+                                <div class="col-md-4 mb-3">
                                     <label for="">Middle Name</label>
-                                    <input required  type="text" name="mname"   value="<?=$user['mname'];?>"class="form-control">
+                                    <input \ placeholder="Enter Middle Name" name="mname" value="<?=$user['mname'];?>" class="form-control">
                                 </div>
 
 
-                                <div class="col-md-3 mb-3">
+                                <div class="col-md-4 mb-3">
                                     <label for="">Last Name</label>
-                                    <input required  type="text" name="lname" value="<?=$user['lname'];?>" class="form-control">
+                                    <input placeholder="Enter Last Name" name="lname" value="<?=$user['lname'];?>" class="form-control">
                                 </div>
 
-                                <div class="col-md-3 mb-3">
-                                    <label for="">Email</label>
-                                    <input required type="email" name="email" value="<?=$user['email'];?>" class="form-control">
+                                <div class="col-md-6 mb-3">
+                                    <label for="">Email</label> 
+                                    <input placeholder="Enter Email Address" type="email" name="email" value="<?=$user['email'];?>" class="form-control">
                                 </div>
 
-                              
+                                
+                                <div class="col-md-6 mb-3">
+                                  
+                                </div>
 
                                 <div class="col-md-12 mb-3 text-center">                                   
-                                <hr> <h5>Profile Picture</h5>  <hr>                                
+                                <hr> <h5>DOCUMENT</h5>  <hr>                                
                                 </div>
-
-                                <div class="col-md-12 text-center">
+                                
+                                <div class="col-md-6 text-center">
+                                <label for="dp">Current Profile:</label>
+                                <br>
+                                <?php 
+                                        echo '<img class="img-fluid img-bordered-sm" src = "data:image;base64,'.base64_encode($user['picture']).'" 
+                                        alt="image" style="height: 200px; max-width: 310px; object-fit: cover;">';
+                                        ?>
+                                </div>
                                
-                                <label for="dp">Add Profile Picture</label>
+                                <div class="col-md-6">
+                                <label for="dp">Profile:</label>
+                                <br>
                                 <input type="file" name="userprofile" id="dp" accept=".jpg, .jpeg, .png">
                                 </div>
 
@@ -73,12 +83,13 @@
                                 <div class="text-right">
                                 <a href="staff.php" class="btn btn-danger">Back</a>
 
-                                <button type="submit" name="update_staff" class="btn btn-primary">Save</button>
+                                <button type="submit" name="add_staff" class="btn btn-primary">Save</button>
                                 </div>
                                
 
-                          
-                                <?php
+                            </form>
+
+                            <?php
                                 }
                             }
                             else
@@ -87,10 +98,8 @@
                                 <h4>No Record Found!</h4>
                                 <?php
                             }
-                        }
+                        
                         ?>
-
-</form>
                     </div>
                     </div>
                 </div>

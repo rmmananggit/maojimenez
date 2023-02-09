@@ -48,6 +48,7 @@ if(isset($_POST['login_btn']))
         elseif( $_SESSION['auth_role'] == '2')
         {
             $_SESSION['status'] = "Welcome $full_name!";
+            $_SESSION['status_code'] = "success";
             header("Location: ../staff/index.php");
             exit(0);
         }

@@ -8,7 +8,7 @@
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
         <div class="sidebar-brand-icon rotate-n-15">
         </div>
-        <div class="sidebar-brand-text mx-3" style="font-size: larger;">ADMIN</div>
+        <div class="sidebar-brand-text mx-3" style="font-size: larger;">STAFF</div>
     </a>
 
     <!-- Divider -->
