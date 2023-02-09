@@ -8,21 +8,21 @@ include('includes/header.php'); ?>
   <li class="breadcrumb-item">Dashboard</li>
   <li class="breadcrumb-item">Generate Report</li>
 </ol>
-
-<h2><center>GENERATE REPORT</center></h2>
-
+<div class="row justify-content-center align-items-center">
+  <h2>GENERATE REPORT</h2>
+</div>
 
 <div class="row justify-content-center mt-4">
 <div class="col-md-4 mb-3 text-center">
-<a href="generatemyrequest.php" class="btn btn-primary" role="button">Generate My Request</a>
+<a href="generatemyrequest.php" target="_blank" class="btn btn-primary" role="button">Generate My Request</a>
 </div>
 
 <div class="col-md-4 mb-3 text-center">
-<a href="generatemyreport.php" class="btn btn-info">Generate My Report</a>
+<a href="generatemyreport.php" target="_blank" class="btn btn-info">Generate My Report</a>
 </div>
 
 <div class="col-md-4 mb-3 text-center">
-<a href="generatemyconcern.php" class="btn btn-success">Generate My Concern</a>
+<a href="generatemyconcern.php" target="_blank" class="btn btn-success">Generate My Concern</a>
 </div>
 
 </div>
