@@ -203,5 +203,70 @@ if(isset($_POST['delete_request'])){
 
 
 
+  if(isset($_POST['update_request'])){
+
+    $request_id = $_POST['request_id'];
+    $product = $_POST['product'];
+    $quantity = $_POST['quantity'];
+    $description = $_POST['description'];
+
+  
+      $query = "UPDATE `request` SET `product_id`='$product',`request_quantity`='$quantity',`description`='$description' WHERE `request_id`='$request_id'";
+      $query_run = mysqli_query($con,$query);
+  
+      if($query_run)
+      {
+          $_SESSION['status'] = "Request Updated Successfully";
+          $_SESSION['status_code'] = "success";
+          header('Location: request.php');
+          exit(0);
+      }
+      else{
+          $_SESSION['status'] = "SOMETHING WENT WRONG!";
+          $_SESSION['status_code'] = "error";
+          header('Location: request.php');
+          exit(0);
+      }
+  }
+
+  if(isset($_POST['delete_concern'])){
+
+    $id = $_POST['delete_concern'];
+
+  
+      $query = "DELETE FROM `concern` WHERE concern_id = '$id'";
+      $query_run = mysqli_query($con,$query);
+  
+      if($query_run)
+      {
+          $_SESSION['status'] = "Concern Deleted Successfully";
+          $_SESSION['status_code'] = "success";
+          header('Location: concern.php');
+          exit(0);
+      }
+      else{
+          $_SESSION['status'] = "SOMETHING WENT WRONG!";
+          $_SESSION['status_code'] = "error";
+          header('Location: concern.php');
+          exit(0);
+      }
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ?>

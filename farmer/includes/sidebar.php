@@ -65,6 +65,12 @@
                     <i class="fas fa-fw fa-qrcode"></i>
                     <strong>Generate QR Code</strong></a>
     </li>
+
+    <li class="nav-item">
+                <a class="nav-link" href="generate_report.php">
+                    <i class="fas fa-fw fa-qrcode"></i>
+                    <strong>Generate Report</strong></a>
+    </li>
     <!-- Divider -->
     <hr class="sidebar-divider">
 

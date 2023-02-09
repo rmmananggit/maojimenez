@@ -44,12 +44,17 @@
                                         <td><?= $row['concern_message']; ?></td>
                                         <td><?= $row['date_created']; ?></td>
                                     <td>
-                                        <a href="concern_update.php?id=<?=$row['concern_id'];?>" class="btn btn-warning btn-circle mr-1">
-                                            <i class="fas fa-pen"></i>
-                                        </a>
-                                        <a class="btn btn-danger btn-circle mr-1">
-                                            <i class="fas fa-trash"></i>
-                                        </a>
+                                    <div class="btn-group">
+  <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Action
+  </button>
+  <div class="dropdown-menu">
+    <a class="dropdown-item" href="concern_update.php?id=<?=$row['concern_id'];?>">UPDATE</a>
+    <form action="code.php" method="post"> 
+    <button class="dropdown-item" type="submit" name="delete_concern" value="<?= $row['concern_id']; ?>" >DELETE</button>
+    </form> 
+  </div>
+</div>
                                     </td>
                                 </tr>
                             <?php } } else{ ?>
