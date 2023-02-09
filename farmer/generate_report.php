@@ -8,12 +8,13 @@ include('includes/header.php'); ?>
   <li class="breadcrumb-item">Dashboard</li>
   <li class="breadcrumb-item">Generate Report</li>
 </ol>
-
-<h2><center>GENERATE REPORT</center></h2>
-
+<div class="row justify-content-center align-items-center">
+  <h2>GENERATE REPORT</h2>
+</div>
 
 <div class="row justify-content-center mt-4">
 <div class="col-md-4 mb-3 text-center">
+<<<<<<< HEAD
 <a href="generatemyrequest.php"  target="_blank" class="btn btn-primary" role="button">Generate My Request</a>
 </div>
 
@@ -23,6 +24,17 @@ include('includes/header.php'); ?>
 
 <div class="col-md-4 mb-3 text-center">
 <a href="generatemyconcern.php" target="_blank"  class="btn btn-success">Generate My Concern</a>
+=======
+<a href="generatemyrequest.php" target="_blank" class="btn btn-primary" role="button">Generate My Request</a>
+</div>
+
+<div class="col-md-4 mb-3 text-center">
+<a href="generatemyreport.php" target="_blank" class="btn btn-info">Generate My Report</a>
+</div>
+
+<div class="col-md-4 mb-3 text-center">
+<a href="generatemyconcern.php" target="_blank" class="btn btn-success">Generate My Concern</a>
+>>>>>>> 8752e4f1719c0753d0400d7e3a682105eee52d07
 </div>
 
 </div>

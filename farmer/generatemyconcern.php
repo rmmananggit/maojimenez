@@ -11,7 +11,7 @@
     <meta content="Monitoring, Management, System, Notification" name="keywords">
 
     <!-- Title Page -->
-    <title>Municipal Agriculture Office Jimenez | Farmer</title>
+    <title>Municipal Agriculture Office Jimenez | Generate Report</title>
 
     <!-- Favicons -->
     <link rel="shortcut icon" href="../assets/img/favicon.png" type="image/x-icon">
@@ -32,18 +32,27 @@
     <!-- Custom styles for this page -->
     <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
-<style type="text/css" media="print">
- @media print{
-    .noprint, .noprint *{
-        display: none;
-    }
- }
-
-</style>
-
-
-
-    </head>
+    <style type="text/css" media="print">
+        @media print{
+                .noprint, .noprint *{
+                display: none;
+            }
+        }
+        @page { size: auto;  margin: 0mm; }
+    </style>
+    <style>
+        img#cimg{
+        text-align: center;
+        height: 2.3rem;
+        width: 2.3rem;
+        object-fit: cover;
+        border-radius: 100% 100%;
+        margin-right: 0.5rem;
+        background-color: #fff;
+        max-width: 100%;
+        }
+    </style>
+</head>
    
     <body onload="print()">
         <div class="container">
@@ -90,3 +99,8 @@
             </div>
         </div>
     </div>
+
+<script type="text/javascript">
+    window.onafterprint = window.close;
+    window.print();
+</script>
