@@ -50,7 +50,7 @@
                                         
 
                                         <div class="dropdown ">
-  <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
  ACTIONS
   </button>
   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -58,7 +58,8 @@
     </a>
     <form action="code.php" method="POST">  
     <button type="submit" name="category_delete" value="<?=$row['product_category_id']; ?>" class="dropdown-item" href="#"> DELETE
-    </button>  </form> 
+    </button> 
+    </form> 
   </div>
 </div>        
                                 </td>

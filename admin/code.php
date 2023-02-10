@@ -6,10 +6,72 @@ use PHPMailer\PHPMailer\Exception;
 require './PHPMailer/src/Exception.php';
 require './PHPMailer/src/PHPMailer.php';
 require './PHPMailer/src/SMTP.php';
-?>
+
+if(isset($_POST['logout_btn']))
+{
+    // session_destroy();
+    unset( $_SESSION['auth']);
+    unset( $_SESSION['auth_role']);
+    unset( $_SESSION['auth_user']);
+
+    $_SESSION['status'] = "You have successfully disconnected from your account.";
+    $_SESSION['status_code'] = "success";
+    header("Location: ../login/index.php");
+    exit(0);
+}
 
 
-<?php
+if(isset($_POST['del_product']))
+{
+
+    $user_id= $_POST['del_product'];
+
+
+    $query = "DELETE FROM `product` WHERE product_id = $user_id ";
+    $query_run = mysqli_query($con, $query);
+
+    if($query_run)
+    {
+      $_SESSION['status'] = "The Category has been successfully deleted.";
+      $_SESSION['status_code'] = "success";
+      header('Location: manage_product.php');
+      exit(0);
+    }
+   else{
+    $_SESSION['status'] = "Something is wrong!";
+    $_SESSION['status_code'] = "error";
+    header('Location: manage_product.php');
+    exit(0);
+  } 
+}
+
+if(isset($_POST['staff_delete']))
+{
+
+    $user_id= $_POST['staff_delete'];
+
+
+    $query = "DELETE FROM `user` WHERE user_id = $user_id ";
+    $query_run = mysqli_query($con, $query);
+
+    if($query_run)
+    {
+      $_SESSION['status'] = "The Staff has been successfully deleted.";
+      $_SESSION['status_code'] = "success";
+      header('Location: staff.php');
+      exit(0);
+    }
+   else{
+    $_SESSION['status'] = "Something is wrong!";
+    $_SESSION['status_code'] = "error";
+    header('Location: staff.php');
+    exit(0);
+  } 
+}
+
+
+
+
 if(isset($_POST['del_product']))
 {
     $user_id = $_POST['del_product'];
@@ -31,26 +93,9 @@ if(isset($_POST['del_product']))
         exit(0);
     }
 }
-?>
 
 
-<?php
-if(isset($_POST['logout_btn']))
-{
-    // session_destroy();
-    unset( $_SESSION['auth']);
-    unset( $_SESSION['auth_role']);
-    unset( $_SESSION['auth_user']);
 
-    $_SESSION['status'] = "You have successfully disconnected from your account.";
-    $_SESSION['status_code'] = "success";
-    header("Location: ../login/index.php");
-    exit(0);
-}
-?>
-
-
-<?php
 //add farmer 
 if(isset($_POST["add_farmer"])){
   $profilepicture = $_FILES['profilepicture'];
@@ -149,10 +194,8 @@ if(isset($_POST["add_farmer"])){
 }
 
 }
-?>
 
 
-<?php
 if(isset($_POST['req_deny']))
 {
     $req_deny = $_POST['req_deny'];
@@ -175,9 +218,8 @@ if(isset($_POST['req_deny']))
         exit(0);
     }
 }
-?>
 
-<?php
+
 if(isset($_POST['approve_request']))
 {
   $farmer_id = $_POST['farmer_id'];
@@ -231,10 +273,8 @@ if(isset($_POST['approve_request']))
     }
       
 }
-?>
 
 
-<?php
 //update staff 
 if(isset($_POST["update_staff"])){
   $userprofile = $_FILES['userprofile'];
@@ -291,11 +331,8 @@ if(isset($_POST["update_staff"])){
     header('Location: staff.php');
 }
 }
-?>
 
 
-
-<?php
 //addstaff
 if(isset($_POST["add_staff"])){
 
@@ -375,10 +412,7 @@ if(isset($_POST["add_staff"])){
 }
 }
 
-?>
 
-
-<?php
 //update product 
 if(isset($_POST["update_product"])){
   $product_image = $_FILES['product_image'];
@@ -435,13 +469,8 @@ if(isset($_POST["update_product"])){
     header('Location: manage_product.php');
 }
 }
-?>
 
 
-
-
-
-<?php
 //register product 
 if(isset($_POST["add_product"])){
   $product_image = $_FILES['product_image'];
@@ -499,9 +528,8 @@ if(isset($_POST["add_product"])){
 }
 
 }
-?>
 
-<?php
+
 if(isset($_POST['category_delete']))
 {
 
@@ -523,17 +551,11 @@ if(isset($_POST['category_delete']))
     $_SESSION['status_code'] = "error";
     header('Location: product_category.php');
     exit(0);
-  }
-   
- 
-    
-    
-    
+  } 
 }
-?>
 
 
-<?php
+
 if(isset($_POST['add_category']))
 {
     $name = $_POST['name'];
@@ -556,10 +578,8 @@ if(isset($_POST['add_category']))
         exit(0);
     }
 }
-?>
 
 
-<?php
 if(isset($_POST['add_announcement']))
 {
     $title = $_POST['announcement_title'];
@@ -585,9 +605,8 @@ if(isset($_POST['add_announcement']))
         exit(0);
     }
 }
-?>
 
-<?php
+
 if(isset($_POST['edit_category']))
 {
     $user_id = $_POST['user_id'];
@@ -611,10 +630,8 @@ if(isset($_POST['edit_category']))
         exit(0);
     }
 }
-?>
 
 
-<?php
 if(isset($_POST['ann_post']))
 {
     $user_id= $_POST['ann_post'];
@@ -637,12 +654,7 @@ if(isset($_POST['ann_post']))
       exit(0);
     }
 }
-?>
 
-
-
-
-<?php
 if(isset($_POST['ann_delete']))
 {
     $user_id= $_POST['ann_delete'];
@@ -664,9 +676,7 @@ if(isset($_POST['ann_delete']))
       exit(0);
     }
 }
-?>
 
-<?php
 if(isset($_POST['edit_announcement']))
 {
     $user_id = $_POST['user_id'];
@@ -692,10 +702,7 @@ if(isset($_POST['edit_announcement']))
         exit(0);
     }
 }
-?>
 
-
-<?php
 
 
 

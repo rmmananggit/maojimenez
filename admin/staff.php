@@ -74,7 +74,7 @@
                                         <td class="text-center"> 
 
                                         <div class="dropdown">
-  <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
  ACTIONS
   </button>
   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -82,8 +82,11 @@
     </a>
     <a class="dropdown-item" href="staff_update.php?id=<?=$row['user_id'];?>" > UPDATE
     </a>
-    <a class="dropdown-item" href="#"> DELETE
-    </a>
+
+    <form action="code.php" method="POST">  
+    <button type="submit" name="staff_delete" value="<?=$row['user_id']; ?>" class="dropdown-item" href="#"> DELETE
+    </button> 
+    </form> 
   </div>
 </div>
                                     </tr>

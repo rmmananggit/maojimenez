@@ -30,7 +30,7 @@ $users_run = mysqli_query($con, $users);
             {
          ?>
 
-                    <form action="code.php" method="POST" enctype="multipart/form-data" >  
+            <form action="code.php" method="POST" enctype="multipart/form-data">  
                     <div class="row"> 
                     <input type="hidden" name="user_id" value="<?=$user['user_id'];?>">
                     <div class="col-md-4 mb-3">

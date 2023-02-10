@@ -23,7 +23,7 @@
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                         
+                                         <td>Id</td>
                                             <th>Product Name</th>
                                             <th>Image</th>
                                             <th>Quantity</th>
@@ -56,7 +56,7 @@
                                 {
                                     ?>
                                     <tr>
-                
+                                    <td><?= $row['product_id']; ?></td>
                                         <td><?= $row['product_name']; ?></td>
                                         <td> <?php 
                                         echo '<img class="img-fluid img-bordered-sm" src = "data:image;base64,'.base64_encode($row['product_image']).'" 

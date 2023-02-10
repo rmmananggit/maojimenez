@@ -66,7 +66,8 @@
 
   <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
     <a class="dropdown-item" href="farmer_view.php?id=<?=$row['user_id'];?>">View</a>
-    <a class="dropdown-item" href="#">Update</a>
+    <a class="dropdown-item" href="farmer_update.php?id=<?=$row['user_id'];?>">Update</a>
+    
     <a class="dropdown-item" href="#">Delete</a>
   </div>
 </div>
