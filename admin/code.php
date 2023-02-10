@@ -711,7 +711,6 @@ if(isset($_POST['update_account']))
 
     $user_id= $_POST['user_id'];
     $fname= $_POST['fname'];
-    $password= $_POST['password'];
     $mname= $_POST['mname'];
     $lname= $_POST['lname'];
     $email= $_POST['email'];
@@ -720,19 +719,20 @@ if(isset($_POST['update_account']))
     $acc_type = 2;
     $acc_stats = 1;
 
-    $query = "UPDATE `user` SET `fname`='$fname',`mname`='$mname',`lname`='$lname',`email`='$email',`password`='$password',`picture`='$picture,`user_type`='$acc_type',`user_status`='$acc_stats' WHERE `user_id`='$user_id'";
+    $query = "UPDATE `user` SET `fname`='$fname',`mname`='$mname',`lname`='$lname',`email`='$email',`password`='$password',`picture`='$picture',`user_type`='$acc_type',`user_status`='$acc_stats' WHERE `user_id`='$user_id'";
     $query_run = mysqli_query($con, $query);
     
     if($query_run)
     {
+      $_SESSION['status'] = "Account Updated";
         $_SESSION['status_code'] = "success";
-        header('Location: settings.php');
+        header('Location: index.php');
         exit(0);
     }
     else
     {
         $_SESSION['status_code'] = "error";
-        header('Location: settings.php');
+        header('Location: index.php');
         exit(0);
     }
 }
