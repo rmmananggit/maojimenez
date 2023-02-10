@@ -55,6 +55,13 @@ $users_run = mysqli_query($con, $users);
                                     <input placeholder="Enter Email Address" type="email" name="email" value="<?=$user['email'];?>" class="form-control">
                                 </div>
 
+
+                                
+                                <div class="col-md-6 mb-3">
+                                    <label for="">Email</label> 
+                                    <input placeholder="Enter Password" type="password" name="password" value="<?=$user['password'];?>" class="form-control">
+                                </div>
+
                                 
                                 <div class="col-md-6 mb-3">
                                   
@@ -83,24 +90,26 @@ $users_run = mysqli_query($con, $users);
                                 <div class="text-right">
                                 <a href="staff.php" class="btn btn-danger">Back</a>
 
-                                <button type="submit" name="add_staff" class="btn btn-primary">Save</button>
+                                <button type="submit" name="update_account" class="btn btn-primary">Save</button>
                                 </div>
                                
 
-                            </form>
-
-                            <?php
-                                }
-                            }
-                            else
-                            {
-                                ?>
-                                <h4>No Record Found!</h4>
-                                <?php
-                            }
-                        
-                        ?>
+                         
                     </div>
+
+                    </form>
+
+<?php
+    }
+}
+else
+{
+    ?>
+    <h4>No Record Found!</h4>
+    <?php
+}
+
+?>
                     </div>
                 </div>
             </div>
