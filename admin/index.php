@@ -175,9 +175,25 @@
 
                     <div class="row">
 
-   
-
                 </div>
+
+                <?php
+                                            $adorable = "SELECT
+                                            farmer.barangay
+                                        FROM
+                                            farmer
+                                        WHERE
+                                            farmer.barangay = 'Adorable'";
+                                            $adorable_run = mysqli_query($con, $adorable);
+
+                                            if($total_adorable = mysqli_num_rows($adorable_run))
+                                            {
+                                                    $total_adorable;
+                                            }
+                                         
+
+                 ?>
+
                 <!-- /.container-fluid -->
                 <div
                     id="myChart" style="width:100%; max-width:auto; height:800px;">
@@ -189,30 +205,30 @@
                     function drawChart() {
                     var data = google.visualization.arrayToDataTable([
                     ['Barangay', 'Farmer',],
-                    ['Adorable',54.8],
-                    ['Butuay',48.6],
-                    ['Carmen',44.4],
-                    ['Corrales',23.9],
-                    ['Dicoloc',14.5],
-                    ['Gata',23.9],
-                    ['Guintomoyan',23.9],
-                    ['Malibacsan',23.9],
-                    ['Macabayao',23.9],
-                    ['Matugas Alto',23.9],
-                    ['Matugas Bajo',23.9],
-                    ['Mialem',23.9],
-                    ['Naga',23.9],
-                    ['Palilan',23.9],
-                    ['Nacional',23.9],
-                    ['Rizal',23.9],
-                    ['San Isidro',23.9],
-                    ['Santa Cruz',23.9],
-                    ['Sibaroc',23.9],
-                    ['Sinara Alto',23.9],
-                    ['Sinara Bajo',23.9],
-                    ['Seti',23.9],
-                    ['Tabo-o',23.9],
-                    ['Taraka',23.9],
+                    ['Adorable', 2],
+                    ['Butuay',0],
+                    ['Carmen',0],
+                    ['Corrales',0],
+                    ['Dicoloc',0],
+                    ['Gata',0],
+                    ['Guintomoyan',0],
+                    ['Malibacsan',0],
+                    ['Macabayao',0],
+                    ['Matugas Alto',0],
+                    ['Matugas Bajo',0],
+                    ['Mialem',0],
+                    ['Naga',0],
+                    ['Palilan',0],
+                    ['Nacional',0],
+                    ['Rizal',0],
+                    ['San Isidro',0],
+                    ['Santa Cruz',0],
+                    ['Sibaroc',0],
+                    ['Sinara Alto',0],
+                    ['Sinara Bajo',0],
+                    ['Seti',0],
+                    ['Tabo-o',0],
+                    ['Taraka',0],
                     ]);
 
                     var options = {
