@@ -74,7 +74,7 @@
                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                         <a class="dropdown-item" href="request_view.php?id=<?=$row['request_id'];?>">View</a>
                                        <form action="code.php" method="post">
-                                        <a class="dropdown-item" name="deny_request" value="">Deny</a>
+                                        <button type="submit" class="dropdown-item"  name="req_deny" value="<?=$row['request_id'];?>">Deny</button>
                                         </form>
                                         </div>
                                         </div>

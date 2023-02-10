@@ -89,7 +89,7 @@
 
                                 <div class="text-right">
                                 <a href="request.php" class="btn btn-danger">Back</a>
-                                <button type="subamit" name="approve_request" class="btn btn-primary">Approve</button>
+                                <button type="submit" name="approve_request" class="btn btn-primary">Approve</button>
                                 </div>
                                
                             </form>

@@ -130,10 +130,10 @@ if(isset($_POST["add_farmer"])){
 <?php
 if(isset($_POST['req_deny']))
 {
-    $request_id = $_POST['request_id'];
+    $req_deny = $_POST['req_deny'];
     $status = 3;
 
-    $query = "UPDATE `request` SET `request_status`= '$status' WHERE `request_id`= '$request_id'";
+    $query = "UPDATE `request` SET `request_status`= '$status' WHERE `request_id`= '$req_deny'";
     $query_run = mysqli_query($con, $query);
     
     if($query_run)
