@@ -61,7 +61,7 @@ if(isset($_SESSION['auth']))
 
               <div class="form-group first">
                 <label for="">Email</label>
-                <input required type="email" name="email" class="form-control" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" placeholder="your-email@gmail.com" id="username">
+                <input required type="email" name="email" class="form-control" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" placeholder="your-email@gmail.com">
               </div>
 
               <button type="submit" name="forgot_btn" class="btn btn-block btn-success">Login</button>
