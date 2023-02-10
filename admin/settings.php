@@ -34,32 +34,33 @@ $users_run = mysqli_query($con, $users);
                     <div class="row"> 
                     <input type="hidden" name="user_id" value="<?=$user['user_id'];?>">
                     <div class="col-md-4 mb-3">
-                                    <label for="">First Name</label>
-                                    <input placeholder="Enter First Name" name="fname" value="<?=$user['fname'];?>" class="form-control">
+                                    <label for="" class="required">First Name</label>
+                                    <input placeholder="Enter First Name" name="fname" value="<?=$user['fname'];?>" class="form-control" required>
                                 </div> 
                             
 
                                 <div class="col-md-4 mb-3">
                                     <label for="">Middle Name</label>
-                                    <input \ placeholder="Enter Middle Name" name="mname" value="<?=$user['mname'];?>" class="form-control">
+                                    <input placeholder="Enter Middle Name" name="mname" value="<?=$user['mname'];?>" class="form-control">
                                 </div>
 
 
                                 <div class="col-md-4 mb-3">
-                                    <label for="">Last Name</label>
-                                    <input placeholder="Enter Last Name" name="lname" value="<?=$user['lname'];?>" class="form-control">
+                                    <label for="" class="required">Last Name</label>
+                                    <input placeholder="Enter Last Name" name="lname" value="<?=$user['lname'];?>" class="form-control" required>
                                 </div>
 
                                 <div class="col-md-6 mb-3">
-                                    <label for="">Email</label> 
-                                    <input placeholder="Enter Email Address" type="email" name="email" value="<?=$user['email'];?>" class="form-control">
+                                    <label for="" class="required">Email</label> 
+                                    <input placeholder="Enter Email Address" type="email" name="email" value="<?=$user['email'];?>" class="form-control" required>
                                 </div>
 
 
                                 
                                 <div class="col-md-6 mb-3">
-                                    <label for="">Password</label> 
-                                    <input placeholder="Enter Password" type="password" name="password" value="<?=$user['password'];?>" class="form-control">
+                                    <label for="" class="required">Password</label> 
+                                    <input placeholder="Enter Password" type="password" name="password" value="<?=$user['password'];?>" class="form-control" required>
+                                    <span><i>leave this if you dont wanna change password.</i></span>
                                 </div>
 
                                 
@@ -88,9 +89,9 @@ $users_run = mysqli_query($con, $users);
 
                                 </div>
                                 <div class="text-right">
-                                <a href="staff.php" class="btn btn-danger">Back</a>
+                                <a href="javascript:history.back()" class="btn btn-danger">Back</a>
 
-                                <button type="submit" name="update_account" class="btn btn-primary">Save</button>
+                                <button type="submit" name="update_account" class="btn btn-primary">Update</button>
                                 </div>
                                
 

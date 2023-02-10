@@ -20,17 +20,17 @@
                     <form action="code.php" method="post" autocomplete="off" enctype="multipart/form-data">  
                     <div class="row"> 
                                 <div class="col-md-6 mb-3">
-                                    <label for="">Name</label>
+                                    <label for="" class="required">Name</label>
                                     <input required type="text" name="name" class="form-control">
                                 </div>
 
                                 <div class="col-md-6 mb-3">
-                                    <label for="">Quantity</label>
-                                    <input required type="text" name="quantity" class="form-control">
+                                    <label for="" class="required">Quantity</label>
+                                    <input required type="number" name="quantity" class="form-control">
                                 </div>
 
                                 <div class="col-md-6">
-                                <label for="image">Image : </label>
+                                <label for="image" class="required">Image </label>
                                 <input type="file" name="product_image" id="image" accept=".jpg, .jpeg, .png" value="">
                                 </div>
 
@@ -40,7 +40,7 @@
                                     $sql = "SELECT * FROM `product_category`";
                                     $all_categories = mysqli_query($con,$sql);
                                 ?>
-                                 <label for="">Category:</label>
+                                 <label for="" class="required">Category</label>
                                 <select name="category">
                                     <?php
                                         // use a while loop to fetch data
@@ -64,12 +64,12 @@
                                 </div>
 
                                 <div class="col-md-6 mb-3">
-                                <label for="">Expiration Date</label>
-                                <input type="date" name="exp_date" class="form-control">
+                                <label for="" class="required">Expiration Date</label>
+                                <input type="date" required name="exp_date" class="form-control">
                                 </div>
 
                                 <div class="col-md-6 mb-3">
-                                <label for="">Status</label>
+                                <label for="" class="required">Status</label>
                                     <select name="status" required class="form-control">
                                         <option value="">--Select Status--</option>
                                         <option value="Available">Available</option>
@@ -81,7 +81,7 @@
 
                                 <div class="text-right">
                                 <a href="manage_product.php" class="btn btn-danger">Back</a>
-                                <button type="submit" name="add_product" class="btn btn-primary">Save</button>
+                                <button type="submit" name="add_product" class="btn btn-primary">Add</button>
                                 </div>
                                
 
