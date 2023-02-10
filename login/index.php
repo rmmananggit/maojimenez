@@ -73,7 +73,7 @@ if(isset($_SESSION['auth']))
               
               <div class="d-flex mb-3 align-items-center">
                 <label class="control control mb-0">
-                  <a href="loginqr.php"><u>Forgot password</u></a>
+                  <a href="forgotpassword.php"><u>Forgot password</u></a>
                 </label>
 
                 <span class="ml-auto"><a href="loginqr.php"><u>Login via QR</u></a></span>
