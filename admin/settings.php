@@ -58,7 +58,7 @@ $users_run = mysqli_query($con, $users);
 
                                 
                                 <div class="col-md-6 mb-3">
-                                    <label for="">Email</label> 
+                                    <label for="">Password</label> 
                                     <input placeholder="Enter Password" type="password" name="password" value="<?=$user['password'];?>" class="form-control">
                                 </div>
 
