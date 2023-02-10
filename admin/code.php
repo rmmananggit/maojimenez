@@ -10,6 +10,31 @@ require './PHPMailer/src/SMTP.php';
 
 
 <?php
+if(isset($_POST['del_product']))
+{
+    $user_id = $_POST['del_product'];
+
+    $query = "DELETE FROM product WHERE product_id='$user_id'";
+    $query_run = mysqli_query($con, $query);
+    
+    if($query_run)
+    {
+      $_SESSION['status'] = "The product has been successfully deleted.";
+      $_SESSION['status_code'] = "success";
+        header('Location: manage_product.php');
+        exit(0);
+    }
+    else
+    {
+        $_SESSION['message'] = "Something went wrong!";
+        header('Location: manage_product.php');
+        exit(0);
+    }
+}
+?>
+
+
+<?php
 if(isset($_POST['logout_btn']))
 {
     // session_destroy();
@@ -271,33 +296,6 @@ if(isset($_POST["update_staff"])){
 
 
 <?php
-if(isset($_POST['id']))
-{
-    $id = $_POST['id'];
-
-    $query = "DELETE FROM product WHERE product_id='$id'";
-    $query_run = mysqli_query($con, $query);
-    
-    if($query_run)
-    {
-      $_SESSION['status'] = "The product has been successfully removed.";
-      $_SESSION['status_code'] = "success";
-        header('Location: manage_product.php');
-        exit(0);
-    }
-    else
-    {
-        $_SESSION['message'] = "Something went wrong!";
-        header('Location: manage_product.php');
-        exit(0);
-    }
-}
-?>
-
-
-
-
-<?php
 //addstaff
 if(isset($_POST["add_staff"])){
 
@@ -410,7 +408,7 @@ if(isset($_POST["update_product"])){
             $query_run = mysqli_query($con, $query);
 
             if($query_run){
-              $_SESSION['status'] = "Product Added!";
+              $_SESSION['status'] = "Product Updated!";
               $_SESSION['status_code'] = "success";
               header('Location: manage_product.php');
               exit(0);
@@ -506,13 +504,12 @@ if(isset($_POST["add_product"])){
 <?php
 if(isset($_POST['category_delete']))
 {
-  try{
+
     $user_id= $_POST['category_delete'];
 
 
     $query = "DELETE FROM product_category WHERE product_category_id ='$user_id' ";
     $query_run = mysqli_query($con, $query);
-    var_dump($query_run);
 
     if($query_run)
     {
@@ -521,7 +518,7 @@ if(isset($_POST['category_delete']))
       header('Location: product_category.php');
       exit(0);
     }
-  } catch (Exception $e){
+   else{
     $_SESSION['status'] = "There is a product under this category. Please delete the product first before deleting this category!";
     $_SESSION['status_code'] = "error";
     header('Location: product_category.php');

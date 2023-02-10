@@ -23,7 +23,7 @@
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>ID</th>
+                                         
                                             <th>Product Name</th>
                                             <th>Image</th>
                                             <th>Quantity</th>
@@ -56,7 +56,7 @@
                                 {
                                     ?>
                                     <tr>
-                                    <td><?= $row['product_id']; ?></td>
+                
                                         <td><?= $row['product_name']; ?></td>
                                         <td> <?php 
                                         echo '<img class="img-fluid img-bordered-sm" src = "data:image;base64,'.base64_encode($row['product_image']).'" 
@@ -67,14 +67,21 @@
                                         <td><?= $row['product_status']; ?></td>
                                         <td><?= $row['exp_date']; ?></td>
                                         
-                                        <td>    
-                                        
-                                        <a href="manage_product_update.php?id=<?=$row['product_id'];?>" class="btn btn-warning btn-circle mr-1">
-                                        <i class="fas fa-pen"></i>
-    
-                                        <a class="btn btn-danger btn-circle mr-1">
-                                        <i class="fas fa-trash"></i>
-                                    </a>
+                                        <td> 
+                                            
+                                        <div class="dropdown show">
+  <a class="btn btn-success dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    ACTION
+  </a>
+
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+    <a class="dropdown-item" href="manage_product_update.php?id=<?=$row['product_id'];?>">Update</a>
+    <form action="code.php" method="post">
+<button type="submit" class="dropdown-item" name="del_product" value="<?=$row['product_id'];?>">Delete</button>
+</form>
+  </div>
+</div>
+
                                 </td>
                                     
                                     </tr>
