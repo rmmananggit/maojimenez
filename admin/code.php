@@ -593,16 +593,51 @@ if(isset($_POST['add_announcement']))
 
     if($query_run)
     {
-        $_SESSION['status'] = "Announcement Added";
+      $sql = "SELECT email FROM farmer";
+      $result = mysqli_query($con, $sql);
+
+
+      if (mysqli_num_rows($result) > 0) {
+        // Create a new PHPMailer object
+        $mail = new PHPMailer(true);
+    
+        try {
+          $mail->SMTPDebug = 0;                                
+          $mail->isSMTP();                                    
+          $mail->Host = 'smtp.gmail.com';            
+          $mail->SMTPAuth = true;                        
+          $mail->Username = 'contactmaojimenez@gmail.com';     
+          $mail->Password = 'kcexdtybjptxgizm';                      
+          $mail->Port = 465;
+          $mail->SMTPSecure = 'ssl';
+
+           // Recipients
+        $mail->setFrom('contactmaojimenez@gmail.com', 'MAO JIMENEZ');
+        $mail->addReplyTo('reply-to@example.com', 'DO NO REPLY!');
+
+        // Add all email addresses from the database as BCC recipients
+        while($row = mysqli_fetch_assoc($result)) {
+            $mail->addBCC($row['email']);
+        }
+
+        
+        $mail->isHTML(true);                                 
+        $mail->Subject = "$title";
+        $mail->Body    = "$body";
+        $mail->AltBody = "$sender";
+
+        $mail->send();
+        $_SESSION['status'] = "Announcement";
         $_SESSION['status_code'] = "success";
         header('Location: announcement.php');
         exit(0);
+    } catch (Exception $e) {
+        echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
     }
-    else{
-        $_SESSION['status'] = "Error! SOMETHING WENT WRONG!";
-        $_SESSION['status_code'] = "error";
-        header('Location: announcement.php');
-        exit(0);
+} else {
+    echo "No email addresses found in the database.";
+}
+         
     }
 }
 
@@ -734,5 +769,90 @@ if(isset($_POST['update_account']))
         exit(0);
     }
 }
+
+
+
+
+//update farmer 
+if(isset($_POST["update_farmer"])){
+  $profilepicture = $_FILES['profilepicture'];
+
+  $fileName = $profilepicture['name'];
+  $fileTmpname = $profilepicture['tmp_name'];
+  $fileSize = $profilepicture['size'];
+  $fileError = $profilepicture['error'];
+
+  $fileExt = explode('.',$fileName);
+  $fileActExt = strtolower(end($fileExt));
+  $allowed = array('jpg','jpeg','png');
+
+
+  if(in_array($fileActExt, $allowed)){
+    if($fileError === 0){
+        if($fileSize < 10485760){
+          $lname = $_POST['lname'];
+          $mname = $_POST['mname'];
+          $fname = $_POST['fname'];
+          $gender = $_POST['gender'];
+          $email = $_POST['email'];
+          $password = uniqid();
+          $purok = $_POST['purok'];
+          $street = $_POST['street'];
+          $barangay = $_POST['barangay'];
+          $municipality = "Jimenez";
+          $province = "Misamis Occidental";
+          $region = "10";
+          $phone = $_POST['phone'];
+          $religion = $_POST['religion'];
+          $dob = $_POST['dob'];
+          $placeofbirth = $_POST['placeofbirth'];
+          $civilstatus = $_POST['civilstatus'];
+          $pwd = $_POST['pwd'];
+          $fourps = $_POST['fourps'];
+          $ig = $_POST['ig'];
+          $igyes = $_POST['igyes'];
+          $govid = $_POST['govid'];
+          $govidyes = $_POST['govidyes'];
+          $fac = $_POST['fac'];
+          $facyes = $_POST['facyes'];
+          $livelihood = $_POST['livelihood'];
+          $qrcode = uniqid();
+          $profilepicture = addslashes(file_get_contents($_FILES["profilepicture"]['tmp_name']));
+          $user_type = 3;
+          $user_status = 1;
+
+          $query = "UPDATE `farmer` SET `lname`='$lname',`mname`='$mname',`fname`='$fname',`gender`='$gender',`email`='$email',`purok`='$purok',`street`='$street',`barangay`='$barangay',`phone`='$phone',`religion`='$religion',`birthday`='$dob',`birthplace`='$placeofbirth',`civil_status`='$civilstatus',`pwd`='$pwd',`4ps`='$fourps',`ig`='$ig',`igspecify`='$igyes',`govid`='$govid',`govspecify`='$govidyes',`farmersassoc`='$fac',`farmersassoc_specify`='$facyes',`farmprofile`='$livehood',`profile`='$profilepicture' WHERE `user_id`='$user_id'";
+
+            $query_run = mysqli_query($con, $query);
+
+            if($query_run){
+           
+
+              $_SESSION['status'] = "Farmer has been update!";
+              $_SESSION['status_code'] = "success";
+              header('Location: farmer_account.php');
+              exit(0);
+            }else{
+
+            }
+
+        }else{
+            $_SESSION['status']="File is too large file must be 10mb";
+            $_SESSION['status_code'] = "error"; 
+            header('Location: farmer_account.php');
+        }
+    }else{
+        $_SESSION['status']="File Error";
+        $_SESSION['status_code'] = "error"; 
+        header('Location: farmer_account.php');
+    }
+}else{
+    $_SESSION['status']="File not allowed";
+    $_SESSION['status_code'] = "error"; 
+    header('Location: farmer_account.php');
+}
+
+}
+
 
 ?>
