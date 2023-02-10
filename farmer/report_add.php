@@ -31,14 +31,14 @@
                                 <hr> <h5>ADD PICTURE</h5>  <hr>                                
                                 </div>
 
-                                <div class="col-md-12">
+                                <div class="col-md-6">
                                 <label for="image">Image : </label>
                                 <input type="file" name="photo" id="image" accept=".jpg, .jpeg, .png" value="">
                                 </div>
 
                                 
 
-                                <div class="col-md-12 mt-4">
+                                <div class="col-md-6">
                                 <label for="image">Image : </label>
                                 <input type="file" name="photo1" id="image" accept=".jpg, .jpeg, .png" value="">
                                 </div>

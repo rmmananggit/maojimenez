@@ -26,6 +26,7 @@
                             <th>Message</th>
                             <th>Photo #1</th>
                             <th>Photo #2</th>
+                            <th>Status</th>
                             <th>Date Reported</th>
                         </tr>
                     </thead>
@@ -38,6 +39,7 @@
                             report.message, 
                             report.photo, 
                             report.photo1, 
+                            report.status,
                             report.date_created
                             FROM
                             report
@@ -61,6 +63,19 @@
                                         echo '<img class="img-fluid img-bordered-sm" src = "data:image;base64,'.base64_encode($row['photo1']).'" 
                                         alt="image" style="height: 170px; max-width: 310px; object-fit: cover;">'; ?>
                                         </td>
+                                        <td>
+                                        <?php 
+                                                          if($row['status']=="Pending"){
+                                                              ?>
+                                                               <p><span style="color: red;">Pending</span></p>
+                                                              <?php
+                                                          }else{
+                                                              ?>
+                                                                 <p><span style="color: green;">Approved</span></p>
+                                                              <?php
+                                                          }
+                                                        ?>
+                                    </td>
                                         <td><?= $row['date_created']; ?></td>
                                     
                                     </tr>

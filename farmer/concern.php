@@ -25,6 +25,7 @@
                             <th>Id</th>
                             <th>Message</th>
                             <th>Image</th>
+                            <th>Status</th>
                             <th>Date Submitted</th>
                             <th>Action</th>
                         </tr>
@@ -56,10 +57,24 @@ alt="image" style="height: 170px; max-width: 310px; object-fit: cover;">';
 ?>
 
 </td>
+
+<td>
+<?php 
+                                                          if($row['status']=="Pending"){
+                                                              ?>
+                                                               <p><span style="color: red;">Pending</span></p>
+                                                              <?php
+                                                          }else{
+                                                              ?>
+                                                                 <p><span style="color: green;">Approved</span></p>
+                                                              <?php
+                                                          }
+                                                        ?>
+</td>
                                         <td><?= $row['date_created']; ?></td>
                                     <td>
                                     <div class="btn-group">
-  <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <button type="button" class="btn btn-success dropdown-toggle" <?php if ($row['status'] == 'Approved') echo 'disabled'; ?> data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Action
   </button>
   <div class="dropdown-menu">

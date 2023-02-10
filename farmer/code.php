@@ -60,8 +60,9 @@ if(isset($_POST['concern_add']))
     $concern = $_POST['concern_message'];
     $pic1 = addslashes(file_get_contents($_FILES["pic1"]['tmp_name']));
     $pic2 = addslashes(file_get_contents($_FILES["pic2"]['tmp_name']));
+    $status = "Pending";
 
-    $query = "INSERT INTO `concern`(`user_id`, `concern_message`,`pic1`,`pic2`, `date_created`) VALUES ('$user_id','$concern','$pic1','$pic2','$concern_date')";
+    $query = "INSERT INTO `concern`(`user_id`, `concern_message`,`pic1`,`pic2`, `date_created`,`status`) VALUES ('$user_id','$concern','$pic1','$pic2','$concern_date','$status')";
     $query_run = mysqli_query($con,$query);
 
     if($query_run)
@@ -113,11 +114,12 @@ if(isset($_POST["add_report"])){
 
             $user_id = $_POST['user_id'];
             $message = $_POST['message'];
+            $status = "Pending";
 
             $photo = addslashes(file_get_contents($_FILES["photo"]['tmp_name']));
             $photo1 = addslashes(file_get_contents($_FILES["photo1"]['tmp_name']));
 
-            $query = "INSERT INTO `report`(`user_id`, `message`, `photo`, `photo1`, `date_created`) VALUES ('$user_id','$message','$photo','$photo1','$report_date')";
+            $query = "INSERT INTO `report`(`user_id`, `message`, `photo`, `photo1`, `date_created`,`status`) VALUES ('$user_id','$message','$photo','$photo1','$report_date','$status')";
   
               $query_run = mysqli_query($con, $query);
   
