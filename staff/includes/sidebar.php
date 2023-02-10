@@ -86,12 +86,6 @@
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">
 
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="#">
-        <i class="fas fa-newspaper"></i>
-            <strong>Generate Report</strong>
-        </a>
-    </li>
 
 
     <!-- Sidebar Toggler (Sidebar) -->
