@@ -256,6 +256,46 @@ if(isset($_POST['delete_request'])){
       }
   }
 
+  
+if(isset($_POST['update_farmer_account']))
+{
+    $user_id= $_POST['user_id'];
+    $firstpassword= $_POST['password'];
+    $secondpassword= $_POST['cpassword'];
+    $picture = addslashes(file_get_contents($_FILES["userprofile"]['tmp_name']));
+
+    if($firstpassword == $secondpassword)
+    {
+        $query = "UPDATE `farmer` SET `password`='$password',`farmprofile`='$picture' WHERE `user_id`='$user_id'";
+        $query_run = mysqli_query($con, $query);
+        
+        if($query_run)
+        {
+          $_SESSION['status'] = "Account Updated";
+            $_SESSION['status_code'] = "success";
+            header('Location: index.php');
+            exit(0);
+        }
+        else
+        {
+            $_SESSION['status'] = "Error";
+            $_SESSION['status_code'] = "error";
+            header('Location: settings.php');
+            exit(0);
+        }
+    }else{
+        $_SESSION['status'] = "Password and Confirm Password does not match";
+        $_SESSION['status_code'] = "error";
+        header('Location: settings.php');
+        exit(0);
+    }
+}
+
+
+   
+    
+
+
 
 
 

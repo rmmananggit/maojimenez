@@ -716,10 +716,8 @@ if(isset($_POST['update_account']))
     $email= $_POST['email'];
     $password= $_POST['password'];
     $picture = addslashes(file_get_contents($_FILES["userprofile"]['tmp_name']));
-    $acc_type = 2;
-    $acc_stats = 1;
 
-    $query = "UPDATE `user` SET `fname`='$fname',`mname`='$mname',`lname`='$lname',`email`='$email',`password`='$password',`picture`='$picture',`user_type`='$acc_type',`user_status`='$acc_stats' WHERE `user_id`='$user_id'";
+    $query = "UPDATE `user` SET `fname`='$fname',`mname`='$mname',`lname`='$lname',`email`='$email',`password`='$password',`picture`='$picture' WHERE `user_id`='$user_id'";
     $query_run = mysqli_query($con, $query);
     
     if($query_run)

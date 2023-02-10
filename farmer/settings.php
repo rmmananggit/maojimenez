@@ -5,7 +5,7 @@
         <ol class="breadcrumb mb-4">    
             <li class="breadcrumb-item">Dashboard</li>
             <li class="breadcrumb-item">Account</li>
-            <li class="breadcrumb-item">Edit Account</li>
+            <li class="breadcrumb-item">Update Account</li>
         </ol>
         <div class="container">
         <div class="row justify-content-center">
@@ -20,7 +20,7 @@
                     <?php
                  
 $user_id = $_SESSION['auth_user']['user_id'];
-$users = "SELECT * FROM `user` WHERE user_id=$user_id";
+$users = "SELECT * FROM `farmer` WHERE user_id=$user_id";
 $users_run = mysqli_query($con, $users);
         ?>
         <?php
@@ -33,33 +33,15 @@ $users_run = mysqli_query($con, $users);
             <form action="code.php" method="POST" enctype="multipart/form-data">  
                     <div class="row"> 
                     <input type="hidden" name="user_id" value="<?=$user['user_id'];?>">
-                    <div class="col-md-4 mb-3">
-                                    <label for="">First Name</label>
-                                    <input placeholder="Enter First Name" name="fname" value="<?=$user['fname'];?>" class="form-control">
-                                </div> 
-                            
 
-                                <div class="col-md-4 mb-3">
-                                    <label for="">Middle Name</label>
-                                    <input \ placeholder="Enter Middle Name" name="mname" value="<?=$user['mname'];?>" class="form-control">
-                                </div>
-
-
-                                <div class="col-md-4 mb-3">
-                                    <label for="">Last Name</label>
-                                    <input placeholder="Enter Last Name" name="lname" value="<?=$user['lname'];?>" class="form-control">
+                                <div class="col-md-6 mb-3">
+                                    <label for="">New Password</label> 
+                                    <input placeholder="Enter Password" type="password" name="password"  class="form-control">
                                 </div>
 
                                 <div class="col-md-6 mb-3">
-                                    <label for="">Email</label> 
-                                    <input placeholder="Enter Email Address" type="email" name="email" value="<?=$user['email'];?>" class="form-control">
-                                </div>
-
-
-                                
-                                <div class="col-md-6 mb-3">
-                                    <label for="">Email</label> 
-                                    <input placeholder="Enter Password" type="password" name="password" value="<?=$user['password'];?>" class="form-control">
+                                    <label for="">Confirm New Password</label> 
+                                    <input placeholder="Confirm Password" type="password" name="cpassword"  class="form-control">
                                 </div>
 
                                 
@@ -75,8 +57,8 @@ $users_run = mysqli_query($con, $users);
                                 <label for="dp">Current Profile:</label>
                                 <br>
                                 <?php 
-                                        echo '<img class="img-fluid img-bordered-sm" src = "data:image;base64,'.base64_encode($user['picture']).'" 
-                                        alt="image" style="height: 200px; max-width: 310px; object-fit: cover;">';
+                                        echo '<img class="img-fluid img-bordered-sm" src = "data:image;base64,'.base64_encode($user['profile']).'" 
+                                        alt="image" style="height: 200px; width: 300px; object-fit: cover;">';
                                         ?>
                                 </div>
                                
@@ -88,9 +70,9 @@ $users_run = mysqli_query($con, $users);
 
                                 </div>
                                 <div class="text-right">
-                                <a href="staff.php" class="btn btn-danger">Back</a>
+                                <a href="index.php" class="btn btn-danger">Back</a>
 
-                                <button type="submit" name="update_account" class="btn btn-primary">Save</button>
+                                <button type="submit" name="update_farmer_account" class="btn btn-primary">Save</button>
                                 </div>
                                
 
