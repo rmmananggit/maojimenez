@@ -36,12 +36,13 @@ $users_run = mysqli_query($con, $users);
 
                                 <div class="col-md-6 mb-3">
                                     <label for="">New Password</label> 
-                                    <input placeholder="Enter Password" type="password" name="password"  class="form-control">
+                                    <input placeholder="Enter Password" minlength="8" type="password" name="password"  class="form-control">
+                                    <span><i>leave this if you dont wanna change password.</i></span>
                                 </div>
 
                                 <div class="col-md-6 mb-3">
                                     <label for="">Confirm New Password</label> 
-                                    <input placeholder="Confirm Password" type="password" name="cpassword"  class="form-control">
+                                    <input placeholder="Confirm Password" minlength="8" type="password" name="cpassword"  class="form-control">
                                 </div>
 
                                 
@@ -70,9 +71,9 @@ $users_run = mysqli_query($con, $users);
 
                                 </div>
                                 <div class="text-right">
-                                <a href="index.php" class="btn btn-danger">Back</a>
+                                <a href="javascript:history.back()" class="btn btn-danger">Back</a>
 
-                                <button type="submit" name="update_farmer_account" class="btn btn-primary">Save</button>
+                                <button type="submit" name="update_farmer_account" class="btn btn-primary">Update</button>
                                 </div>
                                
 

@@ -38,7 +38,7 @@
                             
 
                                 <div class="col-md-4 mb-3">
-                                    <label for="">Middle Name (Type N/A if not available)</label>
+                                    <label for="">Middle Name</label>
                                     <p class="form-control-plaintext"><?=$user['mname'];?></p>
                                 </div>
 

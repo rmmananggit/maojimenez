@@ -21,25 +21,25 @@
                     <form action="code.php" method="POST" autocomplete="off" enctype="multipart/form-data"> 
                     <div class="row"> 
                                 <div class="col-md-4 mb-3">
-                                    <label for="">Last Name</label>
+                                    <label for="" class="required">Last Name</label>
                                     <input required placeholder="Enter First Name" type="text" name="lname" class="form-control">
                                 </div> 
                             
 
                                 <div class="col-md-4 mb-3">
-                                    <label for="">Middle Name (Type N/A if not available)</label>
-                                    <input required placeholder="Enter Middle Name" type="text" name="mname" class="form-control">
+                                    <label for="">Middle Name</label>
+                                    <input placeholder="Enter Middle Name" type="text" name="mname" class="form-control">
                                 </div>
 
 
                                 <div class="col-md-4 mb-3">
-                                    <label for="">First Name</label>
+                                    <label for="" class="required">First Name</label>
                                     <input required placeholder="Enter First Name" type="text" name="fname" class="form-control">
                                 </div>
                                 
 
                                 <div class="col-md-3 mb-3">
-                                    <label for="">Gender</label>
+                                    <label for="" class="required">Gender</label>
                                     <br>
                                     <input required class="ml-2" type="radio" name="gender" value="Male"> Male
                                     <input required class="ml-2"  type="radio" name="gender" value="Female"> Female
@@ -51,7 +51,7 @@
                                 </div>
 
                                 <div class="col-md-12 mb-3">
-                                    <label for="">Email Address</label>
+                                    <label for="" class="required">Email Address</label>
                                     <input required placeholder="Enter Email Address" type="email" name="email" class="form-control">
                                 </div>
 
@@ -61,20 +61,20 @@
                                 </div>
 
                                 <div class="col-md-4 mb-3">   
-                                    <label for="">Purok</label>
+                                    <label for="" class="required">Purok</label>
                                     <input required placeholder="Enter Purok No." type="text" name="purok" class="form-control">
                                 </div>
                                  <!-- done  -->
 
                                 <div class="col-md-4 mb-3">
-                                    <label for="">Street/Sitio</label>
-                                    <input required placeholder="Enter Street/Sitio" type="text" name="street" class="form-control">
+                                    <label for="" class="required">Street</label>
+                                    <input required placeholder="Enter Street" type="text" name="street" class="form-control">
                                 </div>
                                 <!-- done -->
                                 <div class="col-md-4 mb-3">
                                 <div class="form-group">
-                                            <label for="address">Municipality</label>
-                                            <select class="form-control" name="barangay" id="barangay">
+                                            <label for="address" class="required">Municipality</label>
+                                            <select class="form-control" name="barangay" id="barangay" required>
                                               <option value="Adorable">Adorable</option>    
                                               <option value="Butuay">Butuay</option> 
                                               <option value="Carmen">Carmen</option> 
@@ -119,22 +119,22 @@
                                 </div>
 
                                 <div class="col-md-3 mb-3">
-                                    <label for="">Mobile Number</label>
-                                    <input required placeholder="Enter Mobile Number" type="text" name="phone" class="form-control">
+                                    <label for="" class="required">Mobile Number</label>
+                                    <input required placeholder="Enter Mobile Number" type="number" name="phone" class="form-control">
                                 </div>
 
                                 <div class="col-md-3 mb-3">
-                                    <label for="">Religion</label>
+                                    <label for="" class="required">Religion</label>
                                     <input required placeholder="Enter Religion" type="text" name="religion" class="form-control">
                                 </div>
 
                                 <div class="col-md-3 mb-3">
-                                <label class="control-label" for="date">Date of Birth</label>
-                                 <input class="form-control" id="date" name="dob" placeholder="MM/DD/YYY" type="date"/>
+                                <label class="control-label" for="date" class="required">Date of Birth</label>
+                                 <input required class="form-control" id="date" name="dob" placeholder="MM/DD/YYY" type="date"/>
                                 </div>
 
                                 <div class="col-md-3 mb-3">
-                                    <label for="">Place of Birth</label>
+                                    <label for="" class="required">Place of Birth</label>
                                     <input required placeholder="Enter Place of Birth" type="text" name="placeofbirth" class="form-control">
                                 </div>
 
@@ -144,7 +144,7 @@
                                 </div> 
 
                                 <div class="col-md-6 mb-3">
-                                <label for="">Civil Status</label>
+                                <label for="" class="required">Civil Status</label>
                                     <select name="civilstatus" required class="form-control">
                                         <option value="None" selected="true" disabled="disabled">--Select Civil Status--</option>
                                         <option value="Single">Single</option>
@@ -160,14 +160,14 @@
                                 </div>
 
                                 <div class="col-md-4 mb-3">
-                                <label for="">Person with Disability (PWD)</label>
+                                <label for="" class="required">Person with Disability (PWD)</label>
                                 <br>
                                 <input required class="ml-2" type="radio" name="pwd" value="Yes"> Yes
                                 <input required class="ml-2" type="radio" name="pwd" value="No"> No
                                 </div>
 
                                 <div class="col-md-4 mb-3">
-                                <label for="">4P's Beneficiary?</label>
+                                <label for="" class="required">4P's Beneficiary?</label>
                                 <br>
                                 <input required class="ml-2" type="radio" name="fourps" value="Yes"> Yes
                                 <input required class="ml-2" type="radio" name="fourps" value="No"> No
@@ -181,7 +181,7 @@
                                 </div>
 
                                 <div class="col-md-4 mb-3">
-                                <label for="">Member of an <strong>Indigenous Group</strong>?</label>
+                                <label for="" class="required">Member of an <strong>Indigenous Group</strong>?</label>
                                 <br>
                                 <input required class="ml-2" type="radio" name="ig" value="Yes"> Yes
                                 <input required class="ml-2" type="radio" name="ig" value="No"> No
@@ -193,7 +193,7 @@
                                 </div>
 
                                 <div class="col-md-4 mb-3">
-                                <label for="">With <strong>Government ID</strong>?</label>
+                                <label for="" class="required">With <strong>Government ID</strong>?</label>
                                 <br>
                                 <input required class="ml-2" type="radio" name="govid" value="Yes"> Yes
                                 <input required class="ml-2" type="radio" name="govid" value="No"> No
@@ -205,7 +205,7 @@
                                 </div>
 
                                 <div class="col-md-4 mb-3">
-                                <label for="">Member of any <strong>Farmers Association/Cooperative</strong>?</label>
+                                <label for="" class="required">Member of any <strong>Farmers Association/Cooperative</strong>?</label>
                                 <br>
                                 <input required class="ml-2" type="radio" name="fac" value="Yes"> Yes
                                 <input required class="ml-2"  type="radio" name="fac" value="No"> No
@@ -227,7 +227,7 @@
                                 </div>
                                 
                                 <div class="col-md-12 mb-3">
-                                <label for=""><strong>Main Livelihood</strong></label>
+                                <label for="" class="required"><strong>Main Livelihood</strong></label>
                                 <br>
                                 <input required class="ml-4" type="radio" name="livelihood" value="Farmer" id="option1" onclick="showDiv('div1')"> Farmer
                                 <input required  class="ml-4" type="radio" name="livelihood" value="Farmworker" id="option2" onclick="showDiv('div2')"> Farmworker/Laborer
@@ -371,15 +371,15 @@
                                 </div>
 
                                <div class="col-md-6 mb-3 ml-4">                             
-                               <label for="profilepicture">Upload 2x2 Picture </label> <br>
-                                <input type="file" name="profilepicture" accept=".jpg, .jpeg, .png" value="">
+                               <label for="profilepicture" class="required">Upload 2x2 Picture </label> <br>
+                                <input type="file" name="profilepicture" accept=".jpg, .jpeg, .png" value="" required>
                                </div>
 
                             
                                 </div>
                                 <div class="text-right">
                                 <a href="farmer_account.php" class="btn btn-danger">Back</a>
-                                <button type="submit" name="add_farmer" class="btn btn-primary">Save</button>
+                                <button type="submit" name="add_farmer" class="btn btn-primary">Add</button>
                                 </div>
                                
 

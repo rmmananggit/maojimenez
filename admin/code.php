@@ -412,6 +412,86 @@ if(isset($_POST["add_staff"])){
 }
 }
 
+//adduser
+if(isset($_POST["add_user"])){
+
+  $userprofile = $_FILES['userprofile'];
+
+  $fileName = $userprofile['name'];
+  $fileTmpname = $userprofile['tmp_name'];
+  $fileSize = $userprofile['size'];
+  $fileError = $userprofile['error'];
+
+  $fileExt = explode('.',$fileName);
+  $fileActExt = strtolower(end($fileExt));
+  $allowed = array('jpg','jpeg','png');
+
+
+  if(in_array($fileActExt, $allowed)){
+    if($fileError === 0){
+        if($fileSize < 10485760){
+          $fname = $_POST['fname'];
+          $mname = $_POST['mname'];
+          $lname = $_POST['lname'];
+          $email = $_POST['email'];
+          $role_as = $_POST['role'];
+          $password = uniqid();
+          $user_type = $role_as;
+          $user_status = '1';
+          $userprofile = addslashes(file_get_contents($_FILES["userprofile"]['tmp_name']));
+
+          $query = "INSERT INTO `user`(`fname`, `mname`, `lname`, `email`, `password`, `picture`, `user_type`, `user_status`) VALUES ('$fname','$mname','$lname','$email','$password','$userprofile','$user_type','$user_status')";
+
+            $query_run = mysqli_query($con, $query);
+
+            if($query_run){
+
+              $name = htmlentities($_POST['lname']);
+              $email = htmlentities($_POST['email']);
+              $subject = htmlentities('Username and Password Credentials');
+              $message = nl2br("Welcome to MAO System! \r\n \r\n Email: $email \r\n Password: $password \r\n \r\n Please change your password immediately.");
+          
+              $mail = new PHPMailer(true);
+              $mail->isSMTP();
+              $mail->Host = 'smtp.gmail.com';
+              $mail->SMTPAuth = true;
+              $mail->Username = 'contactmaojimenez@gmail.com';
+              $mail->Password = 'kcexdtybjptxgizm';
+              $mail->Port = 465;
+              $mail->SMTPSecure = 'ssl';
+              $mail->isHTML(true);
+              $mail->setFrom($email, $name);
+              $mail->addAddress($_POST['email']);
+              $mail->Subject = ("$email ($subject)");
+              $mail->Body = $message;
+              $mail->send();
+
+              $_SESSION['status'] = "User Added Successfully, Credentials was sent to their email!";
+              $_SESSION['status_code'] = "success";
+              header('Location: user.php');
+              exit(0);
+            }else{
+              $_SESSION['status'] = "User was not added";
+              $_SESSION['status_code'] = "error";
+              header('Location: user_add.php');
+              exit(0);
+            }
+
+        }else{
+            $_SESSION['status']="File is too large file must be 10mb";
+            $_SESSION['status_code'] = "error"; 
+            header('Location: user_add.php');
+        }
+    }else{
+        $_SESSION['status']="File Error";
+        $_SESSION['status_code'] = "error"; 
+        header('Location: user_add.php');
+    }
+}else{
+   
+}
+}
+
 
 //update product 
 if(isset($_POST["update_product"])){

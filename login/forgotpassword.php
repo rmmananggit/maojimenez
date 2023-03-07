@@ -8,7 +8,7 @@
     <meta content="Monitoring, Management, System, Notification" name="keywords">
 
     <!-- Title Page -->
-    <title>Municipal Agriculture Office Jimenez | Login</title>
+    <title>Municipal Agriculture Office Jimenez | Forgot Password</title>
 
     <!-- Favicons -->
     <link rel="shortcut icon" href="../assets/img/favicon.png" type="image/x-icon">
@@ -64,7 +64,7 @@ if(isset($_SESSION['auth']))
                 <input required type="email" name="email" class="form-control" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" placeholder="your-email@gmail.com">
               </div>
 
-              <button type="submit" name="forgot_btn" class="btn btn-block btn-success">Login</button>
+              <button type="submit" name="forgot_btn" class="btn btn-block btn-success">Reset Password</button>
               <br>
               <span class="ml-auto"><a href="../index.php"><u>Click here to Homepage</u></a></span> 
             </form>
