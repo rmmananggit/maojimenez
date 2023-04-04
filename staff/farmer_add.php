@@ -27,7 +27,7 @@
                             
 
                                 <div class="col-md-4 mb-3">
-                                    <label for="">Middle Name (Type N/A if not available)</label>
+                                    <label for="">Middle Name</label>
                                     <input required placeholder="Enter Middle Name" type="text" name="mname" class="form-control">
                                 </div>
 
@@ -120,7 +120,7 @@
 
                                 <div class="col-md-3 mb-3">
                                     <label for="">Mobile Number</label>
-                                    <input required placeholder="Enter Mobile Number" type="text" name="phone" class="form-control">
+                                    <input required placeholder="Enter Mobile Number" type="number" name="phone" class="form-control">
                                 </div>
 
                                 <div class="col-md-3 mb-3">
@@ -379,7 +379,7 @@
                                 </div>
                                 <div class="text-right">
                                 <a href="farmer_account.php" class="btn btn-danger">Back</a>
-                                <button type="submit" name="add_farmer" class="btn btn-primary">Save</button>
+                                <button type="submit" name="add_farmer" class="btn btn-primary">Add</button>
                                 </div>
                                
 

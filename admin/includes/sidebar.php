@@ -39,7 +39,7 @@
         <div id="account" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Manage:</h6>
-                <a class="collapse-item" href="staff.php">STAFF</a>
+                <a class="collapse-item" href="user.php">Users</a>
             </div>
         </div>
     </li>
@@ -95,6 +95,19 @@
         </div>
     </li>
 
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseMaintainence"
+            aria-expanded="true" aria-controls="collapseMaintainence">
+            <i class="fas fa-cog"></i>
+            <strong>Maintenance</strong>
+        </a>
+        <div id="collapseMaintainence" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Manage:</h6>
+                <a class="collapse-item" href="database.php">Database</a>
+            </div>
+        </div>
+    </li>
 
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">

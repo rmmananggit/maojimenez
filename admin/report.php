@@ -23,6 +23,7 @@
                                             <th>Photo #1</th>
                                             <th>Photo #2</th>
                                             <th>Date</th>
+                                            <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -35,7 +36,8 @@
                             report.message,
                             report.photo,
                             report.photo1,
-                            report.date_created
+                            report.date_created,
+                            report.status
                             FROM
                             farmer
                             INNER JOIN report ON report.user_id = farmer.user_id
@@ -59,7 +61,21 @@
                                         alt="image" style="height: 170px; max-width: 310px; object-fit: cover;">';
                                         ?></td>
                                         <td><?= $row['date_created']; ?></td>
-                                      
+                                        <td class="text-center">
+
+                                        <div class="dropdown show">
+                                        <a class="btn btn-success dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Action
+                                        </a>
+
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                        <a class="dropdown-item" href="request_view.php?id=<?=$row['request_id'];?>">View</a>
+                                       <form action="code.php" method="post">
+                                        <button type="submit" class="dropdown-item"  name="req_deny" value="<?=$row['request_id'];?>">Approve</button>
+                                        </form>
+                                        </div>
+                                        </div>
+                                        </td>
                                     
                                     </tr>
                                     <?php

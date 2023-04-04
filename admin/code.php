@@ -113,9 +113,11 @@ if(isset($_POST["add_farmer"])){
   if(in_array($fileActExt, $allowed)){
     if($fileError === 0){
         if($fileSize < 10485760){
+          $reference_number = $_POST['reference_number'];
           $lname = $_POST['lname'];
           $mname = $_POST['mname'];
           $fname = $_POST['fname'];
+          $suffix = $_POST['suffix'];
           $gender = $_POST['gender'];
           $email = $_POST['email'];
           $password = uniqid();
@@ -139,12 +141,107 @@ if(isset($_POST["add_farmer"])){
           $fac = $_POST['fac'];
           $facyes = $_POST['facyes'];
           $livelihood = $_POST['livelihood'];
-          $qrcode = uniqid();
-          $profilepicture = addslashes(file_get_contents($_FILES["profilepicture"]['tmp_name']));
+          // Selection for Farmer
+          if(isset($_POST['rice'])) {
+            $rice = $_POST['rice'];
+          } else {
+            $rice = NULL;
+          }
+          if(isset($_POST['corn'])) {
+            $corn = $_POST['corn'];
+          } else {
+            $corn = NULL;
+          }
+          if(isset($_POST['other_crops_specify'])) {
+            $other_crops_specify = $_POST['other_crops_specify'];
+          } else {
+            $other_crops_specify = NULL;
+          }
+          if(isset($_POST['livestock'])) {
+            $livestock = $_POST['livestock'];
+          } else {
+            $livestock = NULL;
+          }
+          if(isset($_POST['livestock_specify'])) {
+            $livestock_specify = $_POST['livestock_specify'];
+          } else {
+            $livestock_specify = NULL;
+          }
+          if(isset($_POST['poultry'])) {
+            $poultry = $_POST['poultry'];
+          } else {
+            $poultry = NULL;
+          }
+          if(isset($_POST['poultry_specify'])) {
+            $poultry_specify = $_POST['poultry_specify'];
+          } else {
+            $poultry_specify = NULL;
+          }
+          // Selection for Farmworker/Laborer
+          if(isset($_POST['owner'])) {
+            $owner = $_POST['owner'];
+          } else {
+            $owner = NULL;
+          }
+          if(isset($_POST['land'])) {
+            $land = $_POST['land'];
+          } else {
+            $land = NULL;
+          }
+          if(isset($_POST['cultivation'])) {
+            $cultivation = $_POST['cultivation'];
+          } else {
+            $cultivation = NULL;
+          }
+          if(isset($_POST['planting'])) {
+            $planting = $_POST['planting'];
+          } else {
+            $planting = NULL;
+          }
+          if(isset($_POST['harvesting'])) {
+            $harvesting = $_POST['harvesting'];
+          } else {
+            $harvesting = NULL;
+          }
+          if(isset($_POST['othersfarmworker'])) {
+            $other_farmworker_specify = $_POST['othersfarmworker'];
+          } else {
+            $other_farmworker_specify = NULL;
+          }
+          // Selection for Agri Youth
+          if(isset($_POST['part_of_farming'])) {
+            $part_of_farming = $_POST['part_of_farming'];
+          } else {
+            $part_of_farming = NULL;
+          }
+          if(isset($_POST['attending_formal'])) {
+            $attending_formal = $_POST['attending_formal'];
+          } else {
+            $attending_formal = NULL;
+          }
+          if(isset($_POST['attending_nonformal'])) {
+            $attending_nonformal = $_POST['attending_nonformal'];
+          } else {
+            $attending_nonformal = NULL;
+          }
+          if(isset($_POST['participated'])) {
+            $participated = $_POST['participated'];
+          } else {
+            $participated = NULL;
+          }
+          if(isset($_POST['other_agri_youth_specify'])) {
+            $other_agri_youth_specify = $_POST['other_agri_youth_specify'];
+          } else {
+            $other_agri_youth_specify = NULL;
+          }
+          // Farmer Document Section
+          $picture = addslashes(file_get_contents($_FILES["profilepicture"]['tmp_name']));
+          //$qrcode = uniqid();
+          $qrcode = $_POST['qrcode_text'];
           $user_type = 3;
           $user_status = 1;
 
-          $query = "INSERT INTO `farmer`(`lname`, `mname`, `fname`, `gender`, `email`,`password`,`purok`, `street`, `barangay`, `municipality`, `province`, `region`, `phone`, `religion`, `birthday`, `birthplace`, `civil_status`, `pwd`, `4ps`, `ig`, `igspecify`, `govid`, `govspecify`, `farmersassoc`, `farmersassoc_specify`, `farmprofile`, `profile`, `qrcode`, `user_type`, `user_status`) VALUES ('$lname','$mname','$fname','$gender','$email','$password','$purok','$street','$barangay','$municipality','$province','$region','$phone','$religion','$dob','$placeofbirth','$civilstatus','$pwd','$fourps','$ig','$igyes','$govid','$govidyes','$fac','$facyes','$livelihood','$profilepicture','$qrcode','$user_type','$user_status')";
+          $query = "INSERT INTO `user`(`fname`, `mname`, `lname`, `suffix`, `gender`, `email`, `password`, `qrcode`, `reference_number`, `picture`, `purok`, `street`, `barangay`, `municipality`, `province`, `region`, `phone`, `religion`, `birthday`, `birthplace`, `civil_status`, `pwd`, `4ps`, `ig`, `ig_specify`, `govid`, `govid_specify`, `farmersassoc`, `farmersassoc_specify`, `livelihood`, `rice`, `corn`, `other_crops_specify`, `livestock`, `livestock_specify`, `poultry`, `poultry_specify`, `owner`, `land`, `planting`, `cultivation`, `harvesting`, `other_farmworker_specify`, `part_of_farming`, `attending_formal`, `attending_nonformal`, `participated`, `other_agri_youth_specify`, `user_type`, `user_status`) VALUES ('$fname','$mname','$lname','$suffix','$gender','$email','$password','$qrcode','$reference_number','$picture','$purok','$street','$barangay','$municipality','$province','$region','$phone', '$religion','$dob','$placeofbirth','$civilstatus','$pwd','$fourps','$ig','$igyes','$govid','$govidyes','$fac','$facyes','$livelihood','$rice','$corn','$other_crops_specify','$livestock','$livestock_specify','$poultry','$poultry_specify', '$owner','$land','$planting','$cultivation','$harvesting','$other_farmworker_specify','$part_of_farming','$attending_formal','$attending_nonformal','$participated','$other_agri_youth_specify','$user_type','$user_status')";
 
             $query_run = mysqli_query($con, $query);
 
@@ -406,6 +503,86 @@ if(isset($_POST["add_staff"])){
         $_SESSION['status']="File Error";
         $_SESSION['status_code'] = "error"; 
         header('Location: staff_add.php');
+    }
+}else{
+   
+}
+}
+
+//adduser
+if(isset($_POST["add_user"])){
+
+  $userprofile = $_FILES['userprofile'];
+
+  $fileName = $userprofile['name'];
+  $fileTmpname = $userprofile['tmp_name'];
+  $fileSize = $userprofile['size'];
+  $fileError = $userprofile['error'];
+
+  $fileExt = explode('.',$fileName);
+  $fileActExt = strtolower(end($fileExt));
+  $allowed = array('jpg','jpeg','png');
+
+
+  if(in_array($fileActExt, $allowed)){
+    if($fileError === 0){
+        if($fileSize < 10485760){
+          $fname = $_POST['fname'];
+          $mname = $_POST['mname'];
+          $lname = $_POST['lname'];
+          $email = $_POST['email'];
+          $role_as = $_POST['role'];
+          $password = uniqid();
+          $user_type = $role_as;
+          $user_status = '1';
+          $userprofile = addslashes(file_get_contents($_FILES["userprofile"]['tmp_name']));
+
+          $query = "INSERT INTO `user`(`fname`, `mname`, `lname`, `email`, `password`, `picture`, `user_type`, `user_status`) VALUES ('$fname','$mname','$lname','$email','$password','$userprofile','$user_type','$user_status')";
+
+            $query_run = mysqli_query($con, $query);
+
+            if($query_run){
+
+              $name = htmlentities($_POST['lname']);
+              $email = htmlentities($_POST['email']);
+              $subject = htmlentities('Username and Password Credentials');
+              $message = nl2br("Welcome to MAO System! \r\n \r\n Email: $email \r\n Password: $password \r\n \r\n Please change your password immediately.");
+          
+              $mail = new PHPMailer(true);
+              $mail->isSMTP();
+              $mail->Host = 'smtp.gmail.com';
+              $mail->SMTPAuth = true;
+              $mail->Username = 'contactmaojimenez@gmail.com';
+              $mail->Password = 'kcexdtybjptxgizm';
+              $mail->Port = 465;
+              $mail->SMTPSecure = 'ssl';
+              $mail->isHTML(true);
+              $mail->setFrom($email, $name);
+              $mail->addAddress($_POST['email']);
+              $mail->Subject = ("$email ($subject)");
+              $mail->Body = $message;
+              $mail->send();
+
+              $_SESSION['status'] = "User Added Successfully, Credentials was sent to their email!";
+              $_SESSION['status_code'] = "success";
+              header('Location: user.php');
+              exit(0);
+            }else{
+              $_SESSION['status'] = "User was not added";
+              $_SESSION['status_code'] = "error";
+              header('Location: user_add.php');
+              exit(0);
+            }
+
+        }else{
+            $_SESSION['status']="File is too large file must be 10mb";
+            $_SESSION['status_code'] = "error"; 
+            header('Location: user_add.php');
+        }
+    }else{
+        $_SESSION['status']="File Error";
+        $_SESSION['status_code'] = "error"; 
+        header('Location: user_add.php');
     }
 }else{
    

@@ -14,7 +14,7 @@ if(isset($_POST['qrcode_text']))
 
 	 $qrcode_text = validate($_POST['qrcode_text']);
 
-	 $qr_login_query = "SELECT * FROM farmer WHERE qrcode='$qrcode_text'";
+	 $qr_login_query = "SELECT * FROM user WHERE qrcode='$qrcode_text'";
 	 $qr_login_query_run = mysqli_query($con, $qr_login_query);
 
 	 if(mysqli_num_rows($qr_login_query_run) > 0)

@@ -18,7 +18,7 @@
 
 
                                 <div class="col-md-12 mb-3">
-                                <label for="Description">Message</label>
+                                <label for="Description" class="required">Message</label>
                                 <textarea placeholder="Enter Message" name="message" required type="text" class="form-control" rows="3"></textarea>
                                 </div>
 
@@ -32,21 +32,21 @@
                                 </div>
 
                                 <div class="col-md-6">
-                                <label for="image">Image : </label>
-                                <input type="file" name="photo" id="image" accept=".jpg, .jpeg, .png" value="">
+                                <label for="image" class="required">Image</label>
+                                <input type="file" name="photo" id="image" accept=".jpg, .jpeg, .png" value="" required>
                                 </div>
 
                                 
 
                                 <div class="col-md-6">
-                                <label for="image">Image : </label>
-                                <input type="file" name="photo1" id="image" accept=".jpg, .jpeg, .png" value="">
+                                <label for="image" class="required">Image</label>
+                                <input type="file" name="photo1" id="image" accept=".jpg, .jpeg, .png" value="" required>
                                 </div>
                                 </div>
 
                                 <div class="text-right">
                                 <a href="report.php" class="btn btn-danger">Back</a>
-                                <button type="submit" name="add_report" class="btn btn-primary">Save</button>
+                                <button type="submit" name="add_report" class="btn btn-primary">Add</button>
                                 </div>
                             
 
