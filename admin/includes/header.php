@@ -33,13 +33,10 @@
 
     <!-- Charts -->
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    
-
 
 </head>
 
-<body>
-    
+<body id="page-top">
 <?php include('includes/sidebar.php');?>
 
 <?php include('includes/nav-top.php');?>
