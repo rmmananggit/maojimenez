@@ -431,9 +431,11 @@
             // If "Yes" radio button is selected, make the text input field required
             if (this.value == 'Yes') {
                 igYesField.required = true;
+                igYesField.disabled = false;
             } else {
                 // If "No" radio button is selected, make the text input field not required
                 igYesField.required = false;
+                igYesField.disabled = true;
             }
         });
     }
@@ -448,9 +450,11 @@
             // If "Yes" radio button is selected, make the text input field required
             if (this.value == 'Yes') {
                 govidYesField.required = true;
+                govidYesField.disabled = false;
             } else {
                 // If "No" radio button is selected, make the text input field not required
                 govidYesField.required = false;
+                govidYesField.disabled = true;
             }
         });
     }
@@ -465,9 +469,11 @@
             // If "Yes" radio button is selected, make the text input field required
             if (this.value == 'Yes') {
                 facYesField.required = true;
+                facYesField.disabled = false;
             } else {
                 // If "No" radio button is selected, make the text input field not required
                 facYesField.required = false;
+                facYesField.disabled = true;
             }
         });
     }
