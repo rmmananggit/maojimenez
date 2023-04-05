@@ -264,20 +264,20 @@
                                 <input placeholder="" type="text" name="other_crops_specify" class="form-control">
 
                                 <div class="form-check mt-2">
-                                    <input class="form-check-input" type="checkbox" value="Livestock" name="livestock">
+                                    <input class="form-check-input" type="checkbox" value="Livestock" id="livestock" name="livestock">
                                     <label class="form-check-label" for="livestock">Livestock</label>
                                 </div>
 
                                 <label for="">Specify:</label>
-                                <input placeholder="" type="text" name="livestock_specify" class="form-control">
+                                <input placeholder="" type="text" id="livestock_specify" name="livestock_specify" class="form-control" disabled>
 
                                 <div class="form-check mt-2">
-                                    <input class="form-check-input" type="checkbox" value="Poultry" name="poultry">
+                                    <input class="form-check-input" type="checkbox" value="Poultry" id="poultry" name="poultry">
                                     <label class="form-check-label" for="poultry">Poultry</label>
                                 </div>
                                 
                                 <label for="">Specify:</label>
-                                <input placeholder="" type="text" name="poultry_specify" class="form-control">
+                                <input placeholder="" type="text" id="poultry_specify" name="poultry_specify" class="form-control" disabled>
                             </div>
 
                             <div class="col-md-12 mb-3" id="div2" style="display: none;">
@@ -419,6 +419,42 @@
             $(".col-md-3.mb-3.qrcode").hide();
             $(".col-md-3.mb-3.succqrcode").show();
         });
+    });
+
+    // script for Livestock if checked will required specify
+    var livestockCheckbox = document.getElementById("livestock");
+    var livestockCheckboxField = document.getElementById("livestock_specify");
+
+    // Add event listener to the checkbox
+    livestockCheckbox.addEventListener('change', function() {
+        // If checkbox is checked, make the text input field required
+        if (this.checked) {
+            livestockCheckboxField.required = true;
+            livestockCheckboxField.disabled = false;
+        } else {
+            // If checkbox is unchecked, make the text input field not required and disable it
+            livestockCheckboxField.required = false;
+            livestockCheckboxField.disabled = true;
+            livestockCheckboxField.value = ''; // clear the input field
+        }
+    });
+
+    // script for Livestock if checked will required specify
+    var poultryCheckbox = document.getElementById("poultry");
+    var poultryCheckboxField = document.getElementById("poultry_specify");
+
+    // Add event listener to the checkbox
+    poultryCheckbox.addEventListener('change', function() {
+        // If checkbox is checked, make the text input field required
+        if (this.checked) {
+            poultryCheckboxField.required = true;
+            poultryCheckboxField.disabled = false;
+        } else {
+            // If checkbox is unchecked, make the text input field not required and disable it
+            poultryCheckboxField.required = false;
+            poultryCheckboxField.disabled = true;
+            poultryCheckboxField.value = ''; // clear the input field
+        }
     });
 
     // script for If selected YES will required Member of Indigenous group specify
