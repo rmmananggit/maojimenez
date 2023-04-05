@@ -27,7 +27,7 @@
                         <div class="row">
                             <div class="col-md-12 mb-3">
                                 <label for="" class="required">Reference Number</label>
-                                <input required placeholder="Enter Reference Number" type="text" name="reference_number" pattern="\d*" maxlength="15" class="form-control">
+                                <input required placeholder="Enter Reference Number" type="text" name="reference_number" pattern="\d*" minlength="15" maxlength="15" class="form-control">
                             </div>
                             <div class="col-md-3 mb-3">
                                 <label for="" class="required">Last Name</label>
@@ -269,7 +269,7 @@
                                 </div>
 
                                 <label for="">Specify:</label>
-                                <input required placeholder="" type="text" name="livestock_specify" class="form-control">
+                                <input placeholder="" type="text" name="livestock_specify" class="form-control">
 
                                 <div class="form-check mt-2">
                                     <input class="form-check-input" type="checkbox" value="Poultry" name="poultry">
@@ -277,7 +277,7 @@
                                 </div>
                                 
                                 <label for="">Specify:</label>
-                                <input required placeholder="" type="text" name="poultry_specify" class="form-control">
+                                <input placeholder="" type="text" name="poultry_specify" class="form-control">
                             </div>
 
                             <div class="col-md-12 mb-3" id="div2" style="display: none;">
@@ -354,7 +354,8 @@
                         <div class="row">
                             <div class="col-md-6 mb-3 ml-4">                             
                                 <label for="profilepicture" class="required">Upload 2x2 Picture </label> <br>
-                                <input type="file" name="profilepicture" accept=".jpg, .jpeg, .png" value="" required>
+                                <input type="file" class="input-large btn btn-secondary" name="profilepicture" accept=".jpg, .jpeg, .png" value="" onchange="preview()" required>
+                                <img class="mt-2" id="frame" src="../assets/img/no-image.png" alt="Profile Picture" width="240px" height="180px"/>
                             </div>
 
                             <div class="col-md-3 mb-3 qrcode"> 
@@ -362,7 +363,7 @@
                                     SCAN QR CODE HERE
                                     <input required type="text" name="qrcode_text" id="qrscan" readonyy="" style="opacity:1%; margin:-6.2rem;">
                                 </label>
-                                <video id="preview" width="100%"></video>
+                                <video id="preview" width="150%"></video>
                             </div>
 
                             <div class="col-md-3 mb-3 succqrcode" style="display:none"> 
@@ -386,6 +387,19 @@
 
 <?php include('includes/footer.php');?>
 <script>
+    // File upload image preview
+    function preview() {
+        let image = document.getElementById("frame");
+        let fileInput = document.getElementsByName("profilepicture")[0];
+        
+        if (fileInput.files.length > 0) {
+            let file = fileInput.files[0];
+            image.src = URL.createObjectURL(file);
+        } else {
+            image.src = "../assets/img/no-image.png";
+        }
+    }
+    // Camera scan for QR Code
     let scanner = new Instascan.Scanner({ video: document.getElementById('preview')});
     Instascan.Camera.getCameras().then(function(cameras){
         if(cameras.length > 0 ){
@@ -406,4 +420,55 @@
             $(".col-md-3.mb-3.succqrcode").show();
         });
     });
+
+    // script for If selected YES will required Member of Indigenous group specify
+    var igRadio = document.getElementsByName("ig");
+    var igYesField = document.getElementsByName("igyes")[0];
+
+    // Add event listener to the radio buttons
+    for (var i = 0; i < igRadio.length; i++) {
+        igRadio[i].addEventListener('change', function() {
+            // If "Yes" radio button is selected, make the text input field required
+            if (this.value == 'Yes') {
+                igYesField.required = true;
+            } else {
+                // If "No" radio button is selected, make the text input field not required
+                igYesField.required = false;
+            }
+        });
+    }
+
+    // script for If selected YES will required GovID specify
+    var govidRadio = document.getElementsByName("govid");
+    var govidYesField = document.getElementsByName("govidyes")[0];
+
+    // Add event listener to the radio buttons
+    for (var i = 0; i < govidRadio.length; i++) {
+        govidRadio[i].addEventListener('change', function() {
+            // If "Yes" radio button is selected, make the text input field required
+            if (this.value == 'Yes') {
+                govidYesField.required = true;
+            } else {
+                // If "No" radio button is selected, make the text input field not required
+                govidYesField.required = false;
+            }
+        });
+    }
+
+    // script for If selected YES will required Farmers Assoc specify
+    var facRadio = document.getElementsByName("fac");
+    var facYesField = document.getElementsByName("facyes")[0];
+
+    // Add event listener to the radio buttons
+    for (var i = 0; i < facRadio.length; i++) {
+        facRadio[i].addEventListener('change', function() {
+            // If "Yes" radio button is selected, make the text input field required
+            if (this.value == 'Yes') {
+                facYesField.required = true;
+            } else {
+                // If "No" radio button is selected, make the text input field not required
+                facYesField.required = false;
+            }
+        });
+    }
 </script>
