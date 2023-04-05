@@ -89,9 +89,9 @@
 
                             <div class="col-md-4 mb-3">
                                 <div class="form-group">
-                                    <label for="address" class="required">Municipality</label>
+                                    <label for="address" class="required">Barangay</label>
                                     <select class="form-control" name="barangay" id="barangay" required>
-                                        <option value="" selected="true" disabled="disabled">Select Municipality</option>
+                                        <option value="" selected="true" disabled="disabled">Select Barangay</option>
                                         <option value="Adorable">Adorable</option>    
                                         <option value="Butuay">Butuay</option> 
                                         <option value="Carmen">Carmen</option> 
@@ -156,7 +156,7 @@
 
                             <div class="col-md-9 mb-3">
                                 <label for="" class="required">Place of Birth</label>
-                                <input required placeholder="Enter Place of Birth" type="text" name="placeofbirth" class="form-control">
+                                <textarea required placeholder="Enter Place of Birth" type="text" name="placeofbirth" class="form-control"></textarea>
                             </div> 
 
                             <div class="col-md-3 mb-3">
@@ -358,17 +358,19 @@
                                 <img class="mt-2" id="frame" src="../assets/img/no-image.png" alt="Profile Picture" width="240px" height="180px"/>
                             </div>
 
-                            <div class="col-md-3 mb-3 qrcode"> 
-                                <label class="required">
-                                    SCAN QR CODE HERE
-                                    <input required type="text" name="qrcode_text" id="qrscan" readonyy="" style="opacity:1%; margin:-6.2rem;">
-                                </label>
-                                <video id="preview" width="150%"></video>
-                            </div>
-
-                            <div class="col-md-3 mb-3 succqrcode" style="display:none"> 
-                                <div class="alert alert-success" role="alert">
-                                    QR Scan Success!
+                            <div class="col-md-5 mb-3">
+                                <div class="qrcode">
+                                    <label class="required">
+                                        SCAN QR CODE HERE
+                                        <input required type="text" name="qrcode_text" id="qrscan" readonyy="" style="opacity:1%; margin:-6.2rem;">
+                                    </label>
+                                    <video id="preview" width="100%"></video>
+                                </div>
+                                <div class="succqrcode" style="display:none;">
+                                    <div class="alert alert-success" role="alert">
+                                        QR Scan Success!
+                                    </div>
+                                    <button type="button" id="rescan-btn" class="btn btn-warning"><i class="fa fa-qrcode"></i> Rescan QR Code</button>
                                 </div>
                             </div>
                         </div>
@@ -416,9 +418,16 @@
         document.getElementById('qrscan').value=c;
         //document.forms[0].submit();
         $(document).ready(function() {
-            $(".col-md-3.mb-3.qrcode").hide();
-            $(".col-md-3.mb-3.succqrcode").show();
+            $(".qrcode").hide();
+            $(".succqrcode").show();
         });
+    });
+    
+    document.getElementById('rescan-btn').addEventListener('click', function() {
+        scanner.start();
+        document.getElementById('qrscan').value = '';
+        $(".qrcode").show();
+        $(".succqrcode").hide();
     });
 
     // script for Livestock if checked will required specify

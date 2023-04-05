@@ -45,10 +45,10 @@ if(isset($_POST['del_product']))
   } 
 }
 
-if(isset($_POST['staff_delete']))
+if(isset($_POST['user_delete']))
 {
 
-    $user_id= $_POST['staff_delete'];
+    $user_id= $_POST['user_delete'];
 
 
     $query = "DELETE FROM `user` WHERE user_id = $user_id ";
@@ -56,21 +56,42 @@ if(isset($_POST['staff_delete']))
 
     if($query_run)
     {
-      $_SESSION['status'] = "The Staff has been successfully deleted.";
+      $_SESSION['status'] = "The user has been successfully deleted.";
       $_SESSION['status_code'] = "success";
-      header('Location: staff.php');
+      header('Location: user.php');
       exit(0);
     }
    else{
     $_SESSION['status'] = "Something is wrong!";
     $_SESSION['status_code'] = "error";
-    header('Location: staff.php');
+    header('Location: user.php');
     exit(0);
   } 
 }
 
+if(isset($_POST['farmer_delete']))
+{
+
+    $user_id= $_POST['farmer_delete'];
 
 
+    $query = "DELETE FROM `user` WHERE user_id = $user_id ";
+    $query_run = mysqli_query($con, $query);
+
+    if($query_run)
+    {
+      $_SESSION['status'] = "The farmer has been successfully deleted.";
+      $_SESSION['status_code'] = "success";
+      header('Location: farmer_account.php');
+      exit(0);
+    }
+   else{
+    $_SESSION['status'] = "Something is wrong!";
+    $_SESSION['status_code'] = "error";
+    header('Location: farmer_account.php');
+    exit(0);
+  } 
+}
 
 if(isset($_POST['del_product']))
 {
@@ -129,7 +150,7 @@ if(isset($_POST["add_farmer"])){
           $region = "10";
           $phone = $_POST['phone'];
           $religion = $_POST['religion'];
-          $dob = $_POST['dob'];
+          $birthday = $_POST['dob'];
           $placeofbirth = $_POST['placeofbirth'];
           $civilstatus = $_POST['civilstatus'];
           $pwd = $_POST['pwd'];
@@ -241,7 +262,7 @@ if(isset($_POST["add_farmer"])){
           $user_type = 3;
           $user_status = 1;
 
-          $query = "INSERT INTO `user`(`fname`, `mname`, `lname`, `suffix`, `gender`, `email`, `password`, `qrcode`, `reference_number`, `picture`, `purok`, `street`, `barangay`, `municipality`, `province`, `region`, `phone`, `religion`, `birthday`, `birthplace`, `civil_status`, `pwd`, `4ps`, `ig`, `ig_specify`, `govid`, `govid_specify`, `farmersassoc`, `farmersassoc_specify`, `livelihood`, `rice`, `corn`, `other_crops_specify`, `livestock`, `livestock_specify`, `poultry`, `poultry_specify`, `owner`, `land`, `planting`, `cultivation`, `harvesting`, `other_farmworker_specify`, `part_of_farming`, `attending_formal`, `attending_nonformal`, `participated`, `other_agri_youth_specify`, `user_type`, `user_status`) VALUES ('$fname','$mname','$lname','$suffix','$gender','$email','$password','$qrcode','$reference_number','$picture','$purok','$street','$barangay','$municipality','$province','$region','$phone', '$religion','$dob','$placeofbirth','$civilstatus','$pwd','$fourps','$ig','$igyes','$govid','$govidyes','$fac','$facyes','$livelihood','$rice','$corn','$other_crops_specify','$livestock','$livestock_specify','$poultry','$poultry_specify', '$owner','$land','$planting','$cultivation','$harvesting','$other_farmworker_specify','$part_of_farming','$attending_formal','$attending_nonformal','$participated','$other_agri_youth_specify','$user_type','$user_status')";
+          $query = "INSERT INTO `user`(`fname`, `mname`, `lname`, `suffix`, `gender`, `email`, `password`, `qrcode`, `reference_number`, `picture`, `purok`, `street`, `barangay`, `municipality`, `province`, `region`, `phone`, `religion`, `birthday`, `birthplace`, `civil_status`, `pwd`, `4ps`, `ig`, `ig_specify`, `govid`, `govid_specify`, `farmersassoc`, `farmersassoc_specify`, `livelihood`, `rice`, `corn`, `other_crops_specify`, `livestock`, `livestock_specify`, `poultry`, `poultry_specify`, `owner`, `land`, `planting`, `cultivation`, `harvesting`, `other_farmworker_specify`, `part_of_farming`, `attending_formal`, `attending_nonformal`, `participated`, `other_agri_youth_specify`, `user_type`, `user_status`) VALUES ('$fname','$mname','$lname','$suffix','$gender','$email','$password','$qrcode','$reference_number','$picture','$purok','$street','$barangay','$municipality','$province','$region','$phone', '$religion','$birthday','$placeofbirth','$civilstatus','$pwd','$fourps','$ig','$igyes','$govid','$govidyes','$fac','$facyes','$livelihood','$rice','$corn','$other_crops_specify','$livestock','$livestock_specify','$poultry','$poultry_specify', '$owner','$land','$planting','$cultivation','$harvesting','$other_farmworker_specify','$part_of_farming','$attending_formal','$attending_nonformal','$participated','$other_agri_youth_specify','$user_type','$user_status')";
 
             $query_run = mysqli_query($con, $query);
 
@@ -372,61 +393,52 @@ if(isset($_POST['approve_request']))
 }
 
 
-//update staff 
-if(isset($_POST["update_staff"])){
-  $userprofile = $_FILES['userprofile'];
+//update user
+if(isset($_POST["update_user"])){
 
-  $fileName = $userprofile['name'];
-  $fileTmpname = $userprofile['tmp_name'];
-  $fileSize = $userprofile['size'];
-  $fileError = $userprofile['error'];
+  $user_id = $_POST['user_id'];
+  $fname = $_POST['fname'];
+  $mname = $_POST['mname'];
+  $lname = $_POST['lname'];
+  $suffix = $_POST['suffix'];
+  $gender = $_POST['gender'];
+  $religion = $_POST['religion'];
+  $birthday = $_POST['dob'];
+  $placeofbirth = $_POST['placeofbirth'];
+  $civilstatus = $_POST['civilstatus'];
+  $email = $_POST['email'];
+  $phone = $_POST['phone'];
+  $role_as = $_POST['role'];
+  $user_type = $role_as;
 
-  $fileExt = explode('.',$fileName);
-  $fileActExt = strtolower(end($fileExt));
-  $allowed = array('jpg','jpeg','png');
+  $query = "UPDATE `user` SET 
+  `fname`='$fname',
+  `mname`='$mname',
+  `lname`='$lname',
+  `suffix`='$suffix',
+  `gender`='$gender',
+  `religion`='$religion',
+  `birthday`='$birthday',
+  `birthplace`='$placeofbirth',
+  `civil_status`='$civilstatus',
+  `email`='$email',
+  `phone`='$phone',
+  `user_type`='$user_type'
+  WHERE `user_id`='$user_id'";
 
+  $query_run = mysqli_query($con, $query);
 
-  if(in_array($fileActExt, $allowed)){
-    if($fileError === 0){
-        if($fileSize < 10485760){
-          $user_id = $_POST['user_id'];
-          $fname = $_POST['fname'];
-          $mname = $_POST['mname'];
-          $lname = $_POST['lname'];
-          $email = $_POST['email'];
-          $product_image = addslashes(file_get_contents($_FILES["userprofile"]['tmp_name']));
-
-          $query = "UPDATE `user` SET `fname`='$fname',`mname`='$mname',`lname`='$lname',`email`='$email',`picture`='$product_image' WHERE `user_id`='$user_id'";
-
-            $query_run = mysqli_query($con, $query);
-
-            if($query_run){
-              $_SESSION['status'] = "User Update Successfully";
-              $_SESSION['status_code'] = "success";
-              header('Location: staff.php');
-              exit(0);
-            }else{
-              $_SESSION['status'] = "Something is wrong!";
-              $_SESSION['status_code'] = "error";
-              header('Location: staff.php');
-              exit(0);
-            }
-
-        }else{
-            $_SESSION['status']="File is too large file must be 10mb";
-            $_SESSION['status_code'] = "error"; 
-            header('Location: staff.php');
-        }
-    }else{
-        $_SESSION['status']="File Error";
-        $_SESSION['status_code'] = "error"; 
-        header('Location: staff.php');
-    }
-}else{
-    $_SESSION['status']="File not allowed";
-    $_SESSION['status_code'] = "error"; 
-    header('Location: staff.php');
-}
+  if($query_run){
+    $_SESSION['status'] = "User Update Successfully";
+    $_SESSION['status_code'] = "success";
+    header('Location: user.php');
+    exit(0);
+  } else{
+    $_SESSION['status'] = "Something is wrong!";
+    $_SESSION['status_code'] = "error";
+    header('Location: user.php');
+    exit(0);
+  }
 }
 
 
@@ -530,14 +542,21 @@ if(isset($_POST["add_user"])){
           $fname = $_POST['fname'];
           $mname = $_POST['mname'];
           $lname = $_POST['lname'];
+          $suffix = $_POST['suffix'];
+          $gender = $_POST['gender'];
+          $religion = $_POST['religion'];
+          $birthday = $_POST['dob'];
+          $placeofbirth = $_POST['placeofbirth'];
+          $civilstatus = $_POST['civilstatus'];
           $email = $_POST['email'];
+          $phone = $_POST['phone'];
           $role_as = $_POST['role'];
           $password = uniqid();
           $user_type = $role_as;
           $user_status = '1';
           $userprofile = addslashes(file_get_contents($_FILES["userprofile"]['tmp_name']));
 
-          $query = "INSERT INTO `user`(`fname`, `mname`, `lname`, `email`, `password`, `picture`, `user_type`, `user_status`) VALUES ('$fname','$mname','$lname','$email','$password','$userprofile','$user_type','$user_status')";
+          $query = "INSERT INTO `user`(`fname`, `mname`, `lname`, `suffix`, `gender`, `religion`, `birthday`, `birthplace`, `civil_status`, `email`, `phone`, `password`, `picture`, `user_type`, `user_status`) VALUES ('$fname','$mname','$lname','$suffix','$gender','$religion','$birthday','$placeofbirth','$civilstatus','$email','$phone','$password','$userprofile','$user_type','$user_status')";
 
             $query_run = mysqli_query($con, $query);
 

@@ -56,7 +56,7 @@
                             ON 
                                 `user`.user_status = user_status.user_status_id
                         WHERE
-                            `user`.user_status = 1";
+                            `user`.user_status = 1 && `user`.user_type != 3";
                             $query_run = mysqli_query($con, $query);
                             if(mysqli_num_rows($query_run) > 0)
                             {
@@ -74,22 +74,31 @@
                                         <td><?= $row['user_name']; ?></td>
                                         <td class="text-center"> 
 
-                                        <div class="dropdown">
-  <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
- ACTIONS
-  </button>
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <a class="dropdown-item" href="user_view.php?id=<?=$row['user_id'];?>"> VIEW
-    </a>
-    <a class="dropdown-item" href="user_update.php?id=<?=$row['user_id'];?>" > UPDATE
-    </a>
+                                        <div class="row d-flex justify-content-center">
+                                            <div class="col-md-12 mb-1" style="zoom:95%">
+                                                <a href="user_view.php?id=<?=$row['user_id'];?>" class="btn btn-info btn-icon-split"> 
+                                                    <span class="icon text-white-50"><i class="fas fa-eye"></i></span>
+                                                    <span class="text ml-2 mr-2">View</span>
+                                                </a>
+                                            </div>
+                                            <div class="col-md-12 mb-1">
+                                                <a href="user_update.php?id=<?=$row['user_id'];?>" class="btn btn-success btn-icon-split"> 
+                                                    <span class="icon text-white-50"><i class="fas fa-save"></i></span>
+                                                    <span class="text">Update</span>
+                                                </a>
+                                            </div>
+                                            <div class="col-md-12 mb-1">
+                                                <form action="code.php" method="POST" style="zoom:105%;">  
+                                                    <button type="submit" name="user_delete" value="<?=$row['user_id']; ?>" class="btn btn-danger btn-icon-split" href="#">
+                                                        <span class="icon text-white-50">
+                                                            <i class="fas fa-trash"></i>
+                                                        </span>
+                                                        <span class="text">Delete</span>
+                                                    </button> 
+                                                </form>
+                                            </div>
+                                        </div>
 
-    <form action="code.php" method="POST">  
-    <button type="submit" name="staff_delete" value="<?=$row['user_id']; ?>" class="dropdown-item" href="#"> DELETE
-    </button> 
-    </form> 
-  </div>
-</div>
                                     </tr>
                                     <?php
                                 }
