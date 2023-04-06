@@ -185,7 +185,7 @@
                 <br>
                 <div class="card mt-1">
                     <div class="card-header">
-                        <h5>PART II: FARM PROFILE</h5>
+                        <h5>PART II: Farm Profile</h5>
                     </div>
                     <div class="card-body"> 
                         <div class="row">
@@ -308,7 +308,7 @@
                 <br>
                 <div class="card mt-1">
                     <div class="card-header">
-                        <h5>PART III: FARM DOCUMENT</h5>
+                        <h5>PART III: Farm Document</h5>
                     </div>
                     <div class="col-md-5 text-center">
                         <br>

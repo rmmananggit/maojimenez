@@ -30,40 +30,40 @@
         Interface
     </div>
 
-    <li class="nav-item <?php if (strpos($_SERVER['PHP_SELF'], '/admin/user.php') !== false)  { echo 'active'; } ?>">
-        <a class="nav-link <?php if (strpos($_SERVER['PHP_SELF'], '/admin/user.php') !== false)  { echo 'show'; } else { echo 'collapsed'; } ?>" href="#" data-toggle="collapse" data-target="#account"
+    <li class="nav-item <?php if (strpos($_SERVER['PHP_SELF'], '/admin/user.php') !== false || strpos($_SERVER['PHP_SELF'], '/admin/user_add.php') !== false || strpos($_SERVER['PHP_SELF'], '/admin/user_view.php') !== false || strpos($_SERVER['PHP_SELF'], '/admin/user_update.php') !== false)  { echo 'active'; } ?>">
+        <a class="nav-link <?php if (strpos($_SERVER['PHP_SELF'], '/admin/user.php') !== false || strpos($_SERVER['PHP_SELF'], '/admin/user_add.php') !== false || strpos($_SERVER['PHP_SELF'], '/admin/user_view.php') !== false || strpos($_SERVER['PHP_SELF'], '/admin/user_update.php') !== false)  { echo 'show'; } else { echo 'collapsed'; } ?>" href="#" data-toggle="collapse" data-target="#account"
             aria-expanded="true" aria-controls="account">
             <i class="fas fa-user-circle"></i>
             <span>Accounts</span>
         </a>
-        <div id="account" class="collapse <?php if (strpos($_SERVER['PHP_SELF'], '/admin/user.php') !== false)  { echo 'show'; } else { } ?>" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div id="account" class="collapse <?php if (strpos($_SERVER['PHP_SELF'], '/admin/user.php') !== false || strpos($_SERVER['PHP_SELF'], '/admin/user_add.php') !== false || strpos($_SERVER['PHP_SELF'], '/admin/user_view.php') !== false || strpos($_SERVER['PHP_SELF'], '/admin/user_update.php') !== false)  { echo 'show'; } else { } ?>" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Manage:</h6>
                 <!-- <a class="collapse-item" href="farmer_account.php">Farmer</a> -->
-                <a class="collapse-item <?php if (strpos($_SERVER['PHP_SELF'], '/admin/user.php') !== false) { echo 'active'; } ?>" href="user.php">Users</a>
+                <a class="collapse-item <?php if (strpos($_SERVER['PHP_SELF'], '/admin/user.php') !== false || strpos($_SERVER['PHP_SELF'], '/admin/user_add.php') !== false || strpos($_SERVER['PHP_SELF'], '/admin/user_view.php') !== false || strpos($_SERVER['PHP_SELF'], '/admin/user_update.php') !== false) { echo 'active'; } ?>" href="user.php">Users</a>
             </div>
         </div>
     </li>
 
     <!-- Nav Item - Utilities Collapse Menu -->
-    <li class="nav-item <?php if (strpos($_SERVER['PHP_SELF'], '/admin/manage_product.php') !== false || strpos($_SERVER['PHP_SELF'], '/admin/product_category.php') !== false)  { echo 'active'; } ?>">
-        <a class="nav-link <?php if (strpos($_SERVER['PHP_SELF'], '/admin/manage_product.php') !== false || strpos($_SERVER['PHP_SELF'], '/admin/product_category.php') !== false)  { echo 'show'; } else { echo 'collapsed'; } ?>" href="#" data-toggle="collapse" data-target="#collapseUtilities"
+    <li class="nav-item <?php if (strpos($_SERVER['PHP_SELF'], '/admin/manage_product.php') !== false || strpos($_SERVER['PHP_SELF'], '/admin/manage_product_add.php') !== false || strpos($_SERVER['PHP_SELF'], '/admin/manage_product_update.php') !== false || strpos($_SERVER['PHP_SELF'], '/admin/manage_product_view.php') !== false || strpos($_SERVER['PHP_SELF'], '/admin/product_category.php') !== false || strpos($_SERVER['PHP_SELF'], '/admin/product_category_add.php') !== false || strpos($_SERVER['PHP_SELF'], '/admin/product_category_edit.php') !== false || strpos($_SERVER['PHP_SELF'], '/admin/product_category_view.php') !== false)  { echo 'active'; } ?>">
+        <a class="nav-link <?php if (strpos($_SERVER['PHP_SELF'], '/admin/manage_product.php') !== false || strpos($_SERVER['PHP_SELF'], '/admin/manage_product_add.php') !== false || strpos($_SERVER['PHP_SELF'], '/admin/manage_product_update.php') !== false || strpos($_SERVER['PHP_SELF'], '/admin/manage_product_view.php') !== false || strpos($_SERVER['PHP_SELF'], '/admin/product_category.php') !== false || strpos($_SERVER['PHP_SELF'], '/admin/product_category_add.php') !== false || strpos($_SERVER['PHP_SELF'], '/admin/product_category_edit.php') !== false || strpos($_SERVER['PHP_SELF'], '/admin/product_category_view.php') !== false)  { echo 'show'; } else { echo 'collapsed'; } ?>" href="#" data-toggle="collapse" data-target="#collapseUtilities"
             aria-expanded="true" aria-controls="collapseUtilities">
             <i class="fas fa-shopping-cart"></i>
             <span>Product</span>
         </a>
-        <div id="collapseUtilities" class="collapse <?php if (strpos($_SERVER['PHP_SELF'], '/admin/manage_product.php') !== false || strpos($_SERVER['PHP_SELF'], '/admin/product_category.php') !== false)  { echo 'show'; } else { } ?>" aria-labelledby="headingUtilities"
+        <div id="collapseUtilities" class="collapse <?php if (strpos($_SERVER['PHP_SELF'], '/admin/manage_product.php') !== false || strpos($_SERVER['PHP_SELF'], '/admin/manage_product_add.php') !== false || strpos($_SERVER['PHP_SELF'], '/admin/manage_product_update.php') !== false || strpos($_SERVER['PHP_SELF'], '/admin/manage_product_view.php') !== false || strpos($_SERVER['PHP_SELF'], '/admin/product_category.php') !== false || strpos($_SERVER['PHP_SELF'], '/admin/product_category_add.php') !== false || strpos($_SERVER['PHP_SELF'], '/admin/product_category_edit.php') !== false || strpos($_SERVER['PHP_SELF'], '/admin/product_category_view.php') !== false)  { echo 'show'; } else { } ?>" aria-labelledby="headingUtilities"
             data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Manage:</h6>
-                <a class="collapse-item <?php if (strpos($_SERVER['PHP_SELF'], '/admin/manage_product.php') !== false)  { echo 'active'; } ?>" href="manage_product.php">Manage Products</a>
-                <a class="collapse-item <?php if (strpos($_SERVER['PHP_SELF'], '/admin/product_category.php') !== false)  { echo 'active'; } ?>" href="product_category.php">Product Category</a>
+                <a class="collapse-item <?php if (strpos($_SERVER['PHP_SELF'], '/admin/manage_product.php') !== false || strpos($_SERVER['PHP_SELF'], '/admin/manage_product_add.php') !== false || strpos($_SERVER['PHP_SELF'], '/admin/manage_product_update.php') !== false || strpos($_SERVER['PHP_SELF'], '/admin/manage_product_view.php') !== false)  { echo 'active'; } ?>" href="manage_product.php">Manage Products</a>
+                <a class="collapse-item <?php if (strpos($_SERVER['PHP_SELF'], '/admin/product_category.php') !== false || strpos($_SERVER['PHP_SELF'], '/admin/product_category_add.php') !== false || strpos($_SERVER['PHP_SELF'], '/admin/product_category_edit.php') !== false || strpos($_SERVER['PHP_SELF'], '/admin/product_category_view.php') !== false)  { echo 'active'; } ?>" href="product_category.php">Product Category</a>
             </div>
         </div>
     </li>
 
 
-    <li class="nav-item <?php if (strpos($_SERVER['PHP_SELF'], '/admin/farmer_account.php') !== false)  { echo 'active'; } ?>">
+    <li class="nav-item <?php if (strpos($_SERVER['PHP_SELF'], '/admin/farmer_account.php') !== false || strpos($_SERVER['PHP_SELF'], '/admin/farmer_add.php') !== false || strpos($_SERVER['PHP_SELF'], '/admin/farmer_view.php') !== false || strpos($_SERVER['PHP_SELF'], '/admin/farmer_update.php') !== false)  { echo 'active'; } ?>">
         <a class="nav-link collapsed" href="farmer_account.php">
         <i class="fas fa-newspaper"></i>
             <span>Farmer Profile</span>
@@ -79,19 +79,19 @@
     </div>
 
     <!-- Nav Item - Pages Collapse Menu -->
-    <li class="nav-item <?php if (strpos($_SERVER['PHP_SELF'], '/admin/announcement.php') !== false || strpos($_SERVER['PHP_SELF'], '/admin/request.php') !== false || strpos($_SERVER['PHP_SELF'], '/admin/report.php') !== false || strpos($_SERVER['PHP_SELF'], '/admin/concern.php') !== false)  { echo 'active'; } ?>">
-        <a class="nav-link <?php if (strpos($_SERVER['PHP_SELF'], '/admin/announcement.php') !== false || strpos($_SERVER['PHP_SELF'], '/admin/request.php') !== false || strpos($_SERVER['PHP_SELF'], '/admin/report.php') !== false || strpos($_SERVER['PHP_SELF'], '/admin/concern.php') !== false)  { echo 'show'; } else { echo 'collapsed'; } ?>" href="#" data-toggle="collapse" data-target="#collapsePages"
+    <li class="nav-item <?php if (strpos($_SERVER['PHP_SELF'], '/admin/announcement.php') !== false || strpos($_SERVER['PHP_SELF'], '/admin/announcement_add.php') !== false || strpos($_SERVER['PHP_SELF'], '/admin/request.php') !== false || strpos($_SERVER['PHP_SELF'], '/admin/request_view.php') !== false || strpos($_SERVER['PHP_SELF'], '/admin/report.php') !== false || strpos($_SERVER['PHP_SELF'], '/admin/report_view.php') !== false || strpos($_SERVER['PHP_SELF'], '/admin/concern.php') !== false || strpos($_SERVER['PHP_SELF'], '/admin/concern_view.php') !== false)  { echo 'active'; } ?>">
+        <a class="nav-link <?php if (strpos($_SERVER['PHP_SELF'], '/admin/announcement.php') !== false || strpos($_SERVER['PHP_SELF'], '/admin/announcement_add.php') !== false || strpos($_SERVER['PHP_SELF'], '/admin/request.php') !== false || strpos($_SERVER['PHP_SELF'], '/admin/request_view.php') !== false || strpos($_SERVER['PHP_SELF'], '/admin/report.php') !== false || strpos($_SERVER['PHP_SELF'], '/admin/report_view.php') !== false || strpos($_SERVER['PHP_SELF'], '/admin/concern.php') !== false || strpos($_SERVER['PHP_SELF'], '/admin/concern_view.php') !== false)  { echo 'show'; } else { echo 'collapsed'; } ?>" href="#" data-toggle="collapse" data-target="#collapsePages"
             aria-expanded="true" aria-controls="collapsePages">
             <i class="fas fa-cog"></i>
             <span>Other</span>
         </a>
-        <div id="collapsePages" class="collapse <?php if (strpos($_SERVER['PHP_SELF'], '/admin/announcement.php') !== false || strpos($_SERVER['PHP_SELF'], '/admin/request.php') !== false || strpos($_SERVER['PHP_SELF'], '/admin/report.php') !== false || strpos($_SERVER['PHP_SELF'], '/admin/concern.php') !== false)  { echo 'show'; } else { } ?>" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+        <div id="collapsePages" class="collapse <?php if (strpos($_SERVER['PHP_SELF'], '/admin/announcement.php') !== false || strpos($_SERVER['PHP_SELF'], '/admin/announcement_add.php') !== false || strpos($_SERVER['PHP_SELF'], '/admin/request.php') !== false || strpos($_SERVER['PHP_SELF'], '/admin/request_view.php') !== false || strpos($_SERVER['PHP_SELF'], '/admin/report.php') !== false || strpos($_SERVER['PHP_SELF'], '/admin/report_view.php') !== false || strpos($_SERVER['PHP_SELF'], '/admin/concern.php') !== false || strpos($_SERVER['PHP_SELF'], '/admin/concern_view.php') !== false)  { echo 'show'; } else { } ?>" aria-labelledby="headingPages" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Manage:</h6>
-                <a class="collapse-item <?php if (strpos($_SERVER['PHP_SELF'], '/admin/announcement.php') !== false)  { echo 'active'; } ?>" href="announcement.php">Announcement</a>
-                <a class="collapse-item <?php if (strpos($_SERVER['PHP_SELF'], '/admin/request.php') !== false)  { echo 'active'; } ?>" href="request.php">Request</a>
-                <a class="collapse-item <?php if (strpos($_SERVER['PHP_SELF'], '/admin/report.php') !== false)  { echo 'active'; } ?>" href="report.php">Report</a>
-                <a class="collapse-item <?php if (strpos($_SERVER['PHP_SELF'], '/admin/concern.php') !== false)  { echo 'active'; } ?>" href="concern.php">Concern</a>
+                <a class="collapse-item <?php if (strpos($_SERVER['PHP_SELF'], '/admin/announcement.php') !== false || strpos($_SERVER['PHP_SELF'], '/admin/announcement_add.php') !== false)  { echo 'active'; } ?>" href="announcement.php">Announcement</a>
+                <a class="collapse-item <?php if (strpos($_SERVER['PHP_SELF'], '/admin/request.php') !== false || strpos($_SERVER['PHP_SELF'], '/admin/request_view.php') !== false)  { echo 'active'; } ?>" href="request.php">Request</a>
+                <a class="collapse-item <?php if (strpos($_SERVER['PHP_SELF'], '/admin/report.php') !== false || strpos($_SERVER['PHP_SELF'], '/admin/report_view.php') !== false)  { echo 'active'; } ?>" href="report.php">Report</a>
+                <a class="collapse-item <?php if (strpos($_SERVER['PHP_SELF'], '/admin/concern.php') !== false || strpos($_SERVER['PHP_SELF'], '/admin/concern_view.php') !== false)  { echo 'active'; } ?>" href="concern.php">Concern</a>
             </div>
         </div>
     </li>

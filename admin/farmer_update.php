@@ -164,7 +164,7 @@
 
                             <div class="col-md-9 mb-3">
                                 <label for="" class="required">Place of Birth</label>
-                                <textarea required placeholder="Enter Place of Birth" type="text" value="<?=$user['birthplace'];?>" name="placeofbirth" class="form-control"></textarea>
+                                <textarea required placeholder="Enter Place of Birth" type="text" value="<?=$user['birthplace'];?>" name="placeofbirth" class="form-control"><?=$user['birthplace'];?></textarea>
                             </div> 
 
                             <div class="col-md-3 mb-3">
@@ -242,14 +242,14 @@
                 <br>
                 <div class="card mt-1">
                     <div class="card-header">
-                        <h5>PART II: FARM PROFILE</h5>
+                        <h5>PART II: Farm Profile</h5>
                     </div>
                     <div class="card-body"> 
                         <div class="row">
                             <div class="col-md-12 mb-3">
                                 <label for="" class="required"><strong>Main Livelihood</strong></label>
                                 <br>
-                                <input required class="ml-4" type="radio" name="livelihood" value="Farmer" id="option1" onclick="showDiv('div1')" <?php if($user['livelihood']=="Farmer") {?> <?php echo "checked";?> <?php }?>> Farmer
+                                <input required class="ml-4" type="radio" name="livelihood" value="Farmer" id="option1" onclick="showDiv('div1')" <?php if($user['livelihood']=="Farmer") {?> <?php echo "checked"; ?> <?php }?>> Farmer
                                 <input required  class="ml-4" type="radio" name="livelihood" value="Farmworker" id="option2" onclick="showDiv('div2')" <?php if($user['livelihood']=="Farmworker") {?> <?php echo "checked";?> <?php }?>> Farmworker/Laborer
                                 <input required  class="ml-4" type="radio" name="livelihood" value="Agri Youth" id="option3" onclick="showDiv('div3')" <?php if($user['livelihood']=="Agri Youth") {?> <?php echo "checked";?> <?php }?>> Agri Youth
                             </div>
@@ -259,17 +259,17 @@
                                 <h6 class="text-center mt-4"><u>Type of Farming Activity</u></strong></h6>
                             
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="Rice" name="rice">
+                                    <input class="form-check-input" type="checkbox" value="Rice" name="rice" <?php if($user['rice']=="Rice") {?> <?php echo "checked";?> <?php }?>>
                                     <label class="form-check-label" for="rice">Rice</label>
                                 </div>
 
                                 <div class="form-check mt-2">
-                                    <input class="form-check-input" type="checkbox" value="Corn" name="corn">
+                                    <input class="form-check-input" type="checkbox" value="Corn" name="corn" <?php if($user['corn']=="Corn") {?> <?php echo "checked";?> <?php }?>>
                                     <label class="form-check-label" for="corn">Corn</label>
                                 </div>
 
                                 <label fowr="">Other Crops Specify:</label>
-                                <input placeholder="" type="text" name="other_crops_specify" class="form-control">
+                                <input placeholder="" type="text" name="other_crops_specify" value="<?=$user['other_crops_specify'];?>" class="form-control">
 
                                 <div class="form-check mt-2">
                                     <input class="form-check-input" type="checkbox" value="Livestock" id="livestock" name="livestock">
@@ -277,7 +277,7 @@
                                 </div>
 
                                 <label for="">Specify:</label>
-                                <input placeholder="" type="text" id="livestock_specify" name="livestock_specify" class="form-control" disabled>
+                                <input placeholder="" type="text" id="livestock_specify" value="<?=$user['livestock_specify'];?>" name="livestock_specify" class="form-control" disabled>
 
                                 <div class="form-check mt-2">
                                     <input class="form-check-input" type="checkbox" value="Poultry" id="poultry" name="poultry">
@@ -285,7 +285,7 @@
                                 </div>
                                 
                                 <label for="">Specify:</label>
-                                <input placeholder="" type="text" id="poultry_specify" name="poultry_specify" class="form-control" disabled>
+                                <input placeholder="" type="text" id="poultry_specify" value="<?=$user['poultry_specify'];?>" name="poultry_specify" class="form-control" disabled>
                             </div>
 
                             <div class="col-md-12 mb-3" id="div2" style="display: none;">
@@ -293,32 +293,32 @@
                                 <h6 class="text-center mt-4"><u>Kind of Work</u></strong></h6>
 
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="Owner" name="owner">
+                                    <input class="form-check-input" type="checkbox" value="Owner" name="owner" <?php if($user['owner']=="Owner") {?> <?php echo "checked";?> <?php }?>>
                                     <label class="form-check-label" for="owner">Owner</label>
                                 </div>
 
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="Land Preparation" name="land">
+                                    <input class="form-check-input" type="checkbox" value="Land Preparation" name="land" <?php if($user['land']=="Land Preparation") {?> <?php echo "checked";?> <?php }?>>
                                     <label class="form-check-label" for="land">Land Preparation</label>
                                 </div>
 
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="Cultivation" name="cultivation">
+                                    <input class="form-check-input" type="checkbox" value="Cultivation" name="cultivation" <?php if($user['cultivation']=="Cultivation") {?> <?php echo "checked";?> <?php }?>>
                                     <label class="form-check-label" for="cultivation">Cultivation</label>
                                 </div>
 
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="Planting" name="planting">
+                                    <input class="form-check-input" type="checkbox" value="Planting" name="planting" <?php if($user['planting']=="Planting") {?> <?php echo "checked";?> <?php }?>>
                                     <label class="form-check-label" for="planting">Planting</label>
                                 </div>
 
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="Harvesting" name="harvesting">
+                                    <input class="form-check-input" type="checkbox" value="Harvesting" name="harvesting" <?php if($user['harvesting']=="Harvesting") {?> <?php echo "checked";?> <?php }?>>
                                     <label class="form-check-label" for="Harvesting">Harvesting</label>
                                 </div>
                                     
                                 <label for="">Others, Please Specify:</label>
-                                <input placeholder="" type="text" name="othersfarmworker" class="form-control">
+                                <input placeholder="" type="text" name="othersfarmworker" value="<?=$user['other_farmworker_specify'];?>" class="form-control">
                             </div>
 
                             <div class="col-md-12 mb-3" id="div3" style="display: none;">
@@ -327,27 +327,27 @@
                                 <p class="text-info">For the purpose of trainings, financial assistance, and other programs catered to the youth with involvement to any agriculture activity.</p>
 
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="Part of a farming household" name="part_of_farming">
+                                    <input class="form-check-input" type="checkbox" value="Part of a farming household" name="part_of_farming" <?php if($user['part_of_farming']=="Part of a farming household") {?> <?php echo "checked";?> <?php }?>>
                                     <label class="form-check-label" for="Part of a farming household">Part of a farming household</label>
                                 </div>
 
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="Attending/Attended formal agri-fishery related course" name="attending_formal">
+                                    <input class="form-check-input" type="checkbox" value="Attending/Attended formal agri-fishery related course" name="attending_formal" <?php if($user['attending_formal']=="Attending/Attended formal agri-fishery related course") {?> <?php echo "checked";?> <?php }?>>
                                     <label class="form-check-label" for="Attending/Attended formal agri-fishery related course">Attending/Attended formal agri-fishery related course</label>
                                 </div>
 
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="Attending/Attended non-formal agri-fishery related course" name="attending_nonformal">
+                                    <input class="form-check-input" type="checkbox" value="Attending/Attended non-formal agri-fishery related course" name="attending_nonformal" <?php if($user['attending_nonformal']=="Attending/Attended non-formal agri-fishery related course") {?> <?php echo "checked";?> <?php }?>>
                                     <label class="form-check-label" for="Attending/Attended non-formal agri-fishery related course">Attending/Attended non-formal agri-fishery related course</label>
                                 </div>
 
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="Participated in any agricultural activity/program" name="participated">
+                                    <input class="form-check-input" type="checkbox" value="Participated in any agricultural activity/program" name="participated" <?php if($user['participated']=="Participated in any agricultural activity/program") {?> <?php echo "checked";?> <?php }?>>
                                     <label class="form-check-label" for="Participated in any agricultural activity/program">Participated in any agricultural activity/program</label>
                                 </div>
 
                                 <label for="">Others, Please Specify:</label>
-                                <input placeholder="" type="text" name="other_agri_youth_specify" class="form-control">
+                                <input placeholder="" type="text" name="other_agri_youth_specify" value="<?=$user['other_agri_youth_specify'];?>" class="form-control">
                             </div>
                         </div>
                     </div>
@@ -356,21 +356,15 @@
                 <br>
                 <div class="card mt-1">
                     <div class="card-header">
-                        <h5>PART III: FARM DOCUMENT</h5>
+                        <h5>PART III: Farm Document</h5>
                     </div>
                     <div class="card-body"> 
                         <div class="row">
-                            <div class="col-md-6 mb-3 ml-4">                             
-                                <label for="profilepicture" class="required">Upload 2x2 Picture </label> <br>
-                                <input type="file" class="input-large btn btn-secondary" name="profilepicture" accept=".jpg, .jpeg, .png" value="" onchange="preview()" required>
-                                <img class="mt-2" id="frame" src="../assets/img/no-image.png" alt="Profile Picture" width="240px" height="180px"/>
-                            </div>
-
                             <div class="col-md-5 mb-3">
                                 <div class="qrcode">
                                     <label class="required">
                                         SCAN QR CODE HERE
-                                        <input required type="text" name="qrcode_text" id="qrscan" readonyy="" style="opacity:1%; margin:-6.2rem;">
+                                        <input required type="text" name="qrcode_text" id="qrscan" value="<?=$user['qrcode'];?>" readonyy="" style="opacity:1%; margin:-6.2rem;">
                                     </label>
                                     <video id="preview" width="100%"></video>
                                 </div>
@@ -388,7 +382,7 @@
                 
                 <div class="text-right">
                     <a href="farmer_account.php" class="btn btn-danger"><i class="fa fa-arrow-left"></i> Back</a>
-                    <button type="submit" name="add_farmer" class="btn btn-primary"><i class="fa fa-plus"></i> Add</button>
+                    <button type="submit" name="add_farmer" class="btn btn-primary"><i class="fa fa-save"></i> Update</button>
                 </div>
                 <br>
             </div>
@@ -405,6 +399,38 @@
 
 <?php include('includes/footer.php');?>
 <script>
+    // Script for auto run show div if database selected desired value
+    $(document).ready(function(){
+        <?php if($user['livelihood']=="Farmer") { ?> // For farmer
+            $('#option1').trigger('click');
+        <?php } ?>
+    });
+    $(document).ready(function(){
+        <?php if($user['livelihood']=="Farmworker") { ?> // For Farmworker
+            $('#option2').trigger('click');
+        <?php } ?>
+    });
+    $(document).ready(function(){
+        <?php if($user['livelihood']=="Agri Youth") { ?> // For Agri Youth
+            $('#option3').trigger('click');
+        <?php } ?>
+    });
+    $(document).ready(function(){
+        <?php if($user['livestock']=="Livestock") { ?> // For Livestock
+            $('#livestock').trigger('click');
+        <?php } ?>
+    });
+    $(document).ready(function(){
+        <?php if($user['poultry']=="Poultry") { ?> // For Poultry
+            $('#poultry').trigger('click');
+        <?php } ?>
+    });
+    $(document).ready(function(){
+        <?php if($user['qrcode']==!Null) { ?> // For QR Code scanner
+            $(".qrcode").hide();
+            $(".succqrcode").show();
+        <?php } ?>
+    });
     // File upload image preview
     function preview() {
         let image = document.getElementById("frame");
@@ -441,7 +467,7 @@
     
     document.getElementById('rescan-btn').addEventListener('click', function() {
         scanner.start();
-        document.getElementById('qrscan').value = '';
+        document.getElementById('qrscan').value = ''; // clear the input field
         $(".qrcode").show();
         $(".succqrcode").hide();
     });
