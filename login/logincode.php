@@ -8,9 +8,6 @@ if(isset($_POST['login_btn']))
     $password = mysqli_real_escape_string($con, $_POST['password']);
 
     $login_query = "SELECT user_id,fname,lname,email,password,user_type FROM user
-    WHERE email = '$email' AND password = '$password'
-    UNION
-    SELECT user_id,fname,lname,email,password,user_type FROM farmer
     WHERE email = '$email' AND password = '$password' LIMIT 1";
     $login_query_run = mysqli_query($con, $login_query);
 

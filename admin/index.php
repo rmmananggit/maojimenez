@@ -28,11 +28,11 @@
 
                                             <?php
                                             $total_farmer = "SELECT
-                                            `farmer`.*
+                                            `user`.*
                                         FROM
-                                            `farmer`
+                                            `user`
                                         WHERE
-                                            `farmer`.user_status = 1";
+                                            `user`.user_type = 2";
                                             $total_farmer_query_run = mysqli_query($con, $total_farmer);
 
                                             if($farmer_count = mysqli_num_rows($total_farmer_query_run))
@@ -66,9 +66,7 @@
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">
 
                                             <?php
-                                            $request = "SELECT * FROM `request`
-                                        WHERE
-                                            request_status = 1;";
+                                            $request = "SELECT * FROM `request` ";
                                             $request_query_run = mysqli_query($con, $request);
 
                                             if($request_cpimt = mysqli_num_rows($request_query_run))
@@ -179,11 +177,11 @@
 
                 <?php
                                             $adorable = "SELECT
-                                            farmer.barangay
+                                            user.barangay
                                         FROM
-                                            farmer
+                                            user
                                         WHERE
-                                            farmer.barangay = 'Adorable'";
+                                            user.barangay = 'Adorable'";
                                             $adorable_run = mysqli_query($con, $adorable);
 
                                             if($total_adorable = mysqli_num_rows($adorable_run))
@@ -195,11 +193,11 @@
                  ?>
                  <?php
                                             $butuay = "SELECT
-                                            farmer.barangay
+                                            user.barangay
                                         FROM
-                                            farmer
+                                            user
                                         WHERE
-                                            farmer.barangay = 'Butuay'";
+                                            user.barangay = 'Butuay'";
                                             $butuay_run = mysqli_query($con, $butuay);
 
                                             if($total_butuay = mysqli_num_rows($butuay_run))
@@ -211,11 +209,11 @@
                  ?>
                  <?php
                                             $carmen = "SELECT
-                                            farmer.barangay
+                                            user.barangay
                                         FROM
-                                            farmer
+                                            user
                                         WHERE
-                                            farmer.barangay = 'Carmen'";
+                                            user.barangay = 'Carmen'";
                                             $carmen_run = mysqli_query($con, $carmen);
 
                                             if($total_carmen = mysqli_num_rows($carmen_run))
@@ -227,11 +225,11 @@
                  ?>
                  <?php
                                             $corrales = "SELECT
-                                            farmer.barangay
+                                            user.barangay
                                         FROM
-                                            farmer
+                                            user
                                         WHERE
-                                            farmer.barangay = 'Corrales'";
+                                            user.barangay = 'Corrales'";
                                             $corrales_run = mysqli_query($con, $corrales);
 
                                             if($total_corrales = mysqli_num_rows($corrales_run))
@@ -243,11 +241,11 @@
                  ?>
                  <?php
                                             $dicoloc = "SELECT
-                                            farmer.barangay
+                                            user.barangay
                                         FROM
-                                            farmer
+                                            user
                                         WHERE
-                                            farmer.barangay = 'Dicoloc'";
+                                            user.barangay = 'Dicoloc'";
                                             $dicoloc_run = mysqli_query($con, $dicoloc);
 
                                             if($total_dicoloc = mysqli_num_rows($dicoloc_run))
@@ -259,11 +257,11 @@
                  ?>
                  <?php
                                             $gata = "SELECT
-                                            farmer.barangay
+                                            user.barangay
                                         FROM
-                                            farmer
+                                            user
                                         WHERE
-                                            farmer.barangay = 'Gata'";
+                                            user.barangay = 'Gata'";
                                             $gata_run = mysqli_query($con, $gata);
 
                                             if($total_gata = mysqli_num_rows($gata_run))
@@ -275,11 +273,11 @@
                  ?>
                  <?php
                                             $Guintomoyan = "SELECT
-                                            farmer.barangay
+                                            user.barangay
                                         FROM
-                                            farmer
+                                            user
                                         WHERE
-                                            farmer.barangay = 'Guintomoyan'";
+                                            user.barangay = 'Guintomoyan'";
                                             $Guintomoyan_run = mysqli_query($con, $Guintomoyan);
 
                                             if($total_Guintomoyan = mysqli_num_rows($Guintomoyan_run))
@@ -291,11 +289,11 @@
                  ?>
                  <?php
                                             $Malibacsan = "SELECT
-                                            farmer.barangay
+                                            user.barangay
                                         FROM
-                                            farmer
+                                            user
                                         WHERE
-                                            farmer.barangay = 'Malibacsan'";
+                                            user.barangay = 'Malibacsan'";
                                             $Malibacsan_run = mysqli_query($con, $Malibacsan);
 
                                             if($total_Malibacsan = mysqli_num_rows($Malibacsan_run))
@@ -307,11 +305,11 @@
                  ?>
                  <?php
                                             $Macabayao = "SELECT
-                                            farmer.barangay
+                                            user.barangay
                                         FROM
-                                            farmer
+                                            user
                                         WHERE
-                                            farmer.barangay = 'Macabayao'";
+                                            user.barangay = 'Macabayao'";
                                             $Macabayao_run = mysqli_query($con, $Macabayao);
 
                                             if($total_Macabayao = mysqli_num_rows($Macabayao_run))
@@ -323,11 +321,11 @@
                  ?>
                  <?php
                                             $Matugas_Alto = "SELECT
-                                            farmer.barangay
+                                            user.barangay
                                         FROM
-                                            farmer
+                                            user
                                         WHERE
-                                            farmer.barangay = 'Matugas Alto'";
+                                            user.barangay = 'Matugas Alto'";
                                             $Matugas_Alto_run = mysqli_query($con, $Matugas_Alto);
 
                                             if($total_Matugas_Alto = mysqli_num_rows($Matugas_Alto_run))
@@ -339,11 +337,11 @@
                  ?>
                  <?php
                                             $Matugas_Bajo = "SELECT
-                                            farmer.barangay
+                                            user.barangay
                                         FROM
-                                            farmer
+                                            user
                                         WHERE
-                                            farmer.barangay = 'Matugas Bajo'";
+                                            user.barangay = 'Matugas Bajo'";
                                             $Matugas_Bajo_run = mysqli_query($con, $Matugas_Bajo);
 
                                             if($total_Matugas_Bajo = mysqli_num_rows($Matugas_Bajo_run))
@@ -355,11 +353,11 @@
                  ?>
                  <?php
                                             $Mialem = "SELECT
-                                            farmer.barangay
+                                            user.barangay
                                         FROM
-                                            farmer
+                                            user
                                         WHERE
-                                            farmer.barangay = 'Mialem'";
+                                            user.barangay = 'Mialem'";
                                             $Mialem_run = mysqli_query($con, $Mialem);
 
                                             if($total_Mialem = mysqli_num_rows($Mialem_run))
@@ -371,11 +369,11 @@
                  ?>
                  <?php
                                             $Naga = "SELECT
-                                            farmer.barangay
+                                            user.barangay
                                         FROM
-                                            farmer
+                                            user
                                         WHERE
-                                            farmer.barangay = 'Naga'";
+                                            user.barangay = 'Naga'";
                                             $Naga_run = mysqli_query($con, $Naga);
 
                                             if($total_Naga = mysqli_num_rows($Naga_run))
@@ -387,11 +385,11 @@
                  ?>
                  <?php
                                             $Palilan = "SELECT
-                                            farmer.barangay
+                                            user.barangay
                                         FROM
-                                            farmer
+                                            user
                                         WHERE
-                                            farmer.barangay = 'Palilan'";
+                                            user.barangay = 'Palilan'";
                                             $Palilan_run = mysqli_query($con, $Palilan);
 
                                             if($total_Palilan = mysqli_num_rows($Palilan_run))
@@ -403,11 +401,11 @@
                  ?>
                  <?php
                                             $Nacional = "SELECT
-                                            farmer.barangay
+                                            user.barangay
                                         FROM
-                                            farmer
+                                            user
                                         WHERE
-                                            farmer.barangay = 'Nacional'";
+                                            user.barangay = 'Nacional'";
                                             $Nacional_run = mysqli_query($con, $Nacional);
 
                                             if($total_Nacional = mysqli_num_rows($Nacional_run))
@@ -419,11 +417,11 @@
                  ?>
                  <?php
                                             $Rizal = "SELECT
-                                            farmer.barangay
+                                            user.barangay
                                         FROM
-                                            farmer
+                                            user
                                         WHERE
-                                            farmer.barangay = 'Rizal'";
+                                            user.barangay = 'Rizal'";
                                             $Rizal_run = mysqli_query($con, $Rizal);
 
                                             if($total_Rizal = mysqli_num_rows($Rizal_run))
@@ -435,11 +433,11 @@
                  ?>
                  <?php
                                             $San_Isidro = "SELECT
-                                            farmer.barangay
+                                            user.barangay
                                         FROM
-                                            farmer
+                                            user
                                         WHERE
-                                            farmer.barangay = 'San Isidro'";
+                                            user.barangay = 'San Isidro'";
                                             $San_Isidro_run = mysqli_query($con, $San_Isidro);
 
                                             if($total_San_Isidro = mysqli_num_rows($San_Isidro_run))
@@ -451,11 +449,11 @@
                  ?>
                  <?php
                                             $Santa_Cruz = "SELECT
-                                            farmer.barangay
+                                            user.barangay
                                         FROM
-                                            farmer
+                                            user
                                         WHERE
-                                            farmer.barangay = 'Santa Cruz'";
+                                            user.barangay = 'Santa Cruz'";
                                             $Santa_Cruz_run = mysqli_query($con, $Santa_Cruz);
 
                                             if($total_Santa_Cruz = mysqli_num_rows($Santa_Cruz_run))
@@ -467,11 +465,11 @@
                  ?>
                  <?php
                                             $Sibaroc = "SELECT
-                                            farmer.barangay
+                                            user.barangay
                                         FROM
-                                            farmer
+                                            user
                                         WHERE
-                                            farmer.barangay = 'Sibaroc'";
+                                            user.barangay = 'Sibaroc'";
                                             $Sibaroc_run = mysqli_query($con, $Sibaroc);
 
                                             if($total_Sibaroc = mysqli_num_rows($Sibaroc_run))
@@ -483,11 +481,11 @@
                  ?>
                  <?php
                                             $Sinara_Alto = "SELECT
-                                            farmer.barangay
+                                            user.barangay
                                         FROM
-                                            farmer
+                                            user
                                         WHERE
-                                            farmer.barangay = 'Sinara Alto'";
+                                            user.barangay = 'Sinara Alto'";
                                             $Sinara_Alto_run = mysqli_query($con, $Sinara_Alto);
 
                                             if($total_Sinara_Alto = mysqli_num_rows($Sinara_Alto_run))
@@ -499,11 +497,11 @@
                  ?>
                  <?php
                                             $Sinara_Bajo = "SELECT
-                                            farmer.barangay
+                                            user.barangay
                                         FROM
-                                            farmer
+                                            user
                                         WHERE
-                                            farmer.barangay = 'Sinara Bajo'";
+                                            user.barangay = 'Sinara Bajo'";
                                             $Sinara_Bajo_run = mysqli_query($con, $Sinara_Bajo);
 
                                             if($total_Sinara_Bajo = mysqli_num_rows($Sinara_Bajo_run))
@@ -515,11 +513,11 @@
                  ?>
                  <?php
                                             $Seti = "SELECT
-                                            farmer.barangay
+                                            user.barangay
                                         FROM
-                                            farmer
+                                            user
                                         WHERE
-                                            farmer.barangay = 'Seti'";
+                                            user.barangay = 'Seti'";
                                             $Seti_run = mysqli_query($con, $Seti);
 
                                             if($total_Seti = mysqli_num_rows($Seti_run))
@@ -531,11 +529,11 @@
                  ?>
                  <?php
                                             $Taboo = "SELECT
-                                            farmer.barangay
+                                            user.barangay
                                         FROM
-                                            farmer
+                                            user
                                         WHERE
-                                            farmer.barangay = 'Tabo-o'";
+                                            user.barangay = 'Tabo-o'";
                                             $Taboo_run = mysqli_query($con, $Taboo);
 
                                             if($total_Taboo = mysqli_num_rows($Taboo_run))
@@ -547,11 +545,11 @@
                  ?>
                  <?php
                                             $Taraka = "SELECT
-                                            farmer.barangay
+                                            user.barangay
                                         FROM
-                                            farmer
+                                            user
                                         WHERE
-                                            farmer.barangay = 'Taraka'";
+                                            user.barangay = 'Taraka'";
                                             $Taraka_run = mysqli_query($con, $Taraka);
 
                                             if($total_Taraka = mysqli_num_rows($Taraka_run))
