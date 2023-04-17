@@ -27,66 +27,66 @@
 
 
     <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="<?php echo base_url ?>assets/vendor/jquery/jquery.min.js"></script>
+    <script src="<?php echo base_url ?>assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="<?php echo base_url ?>assets/vendor/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin-2.min.js"></script>
+    <script src="<?php echo base_url ?>assets/js/sb-admin-2.min.js"></script>
 
     <!-- Page level plugins -->
-    <script src="vendor/datatables/jquery.dataTables.min.js"></script>
-    <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+    <script src="<?php echo base_url ?>assets/vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="<?php echo base_url ?>assets/vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
     <!-- Page level custom scripts -->
-    <script src="js/demo/datatables-demo.js"></script>
+    <script src="<?php echo base_url ?>assets/js/demo/datatables-demo.js"></script>
 
     <!-- SCRIPT FOR SWEET ALERT -->
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
-  
-    <?php
-        if(isset($_SESSION['status']) && $_SESSION['status_code'] !='' )
-        {
-            ?>
-                <script>
-                swal({
-                title: "<?php echo $_SESSION['status']; ?>",
-                icon: "<?php echo $_SESSION['status_code']; ?>",
-                timer: 5000,
-                button: "Close",
-                }).then(
-                function () {},
-                // handling the promise rejection
-                function (dismiss) {
-                    if (dismiss === 'timer') {
-                    //console.log('I was closed by the timer')
-                    }
-                }
-                )
-                </script>
-                <?php
-                unset($_SESSION['status']);
-                unset($_SESSION['status_code']);
-        }
-                ?>
+    <!-- Image viewer slider -->
+    <script src="<?php echo base_url ?>assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="<?php echo base_url ?>assets/js/main.js"></script>
 
+    <!-- Loading JS -->
+    <script src="<?php echo base_url ?>assets/js/loader.js"></script>
 
+    <!-- Show PASSWORD JS -->
+    <script src="<?php echo base_url ?>assets/js/showpass.js"></script>
 
+    <!-- Ajax Script -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script>
+
+<?php
+    include ('message.php');
+?>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-function showDiv(id) {
-    $(`#${id}`).show();
-    var divs = ["div1", "div2", "div3"];
-    divs.forEach(div => {
-        if (div !== id) {
-            $(`#${div}`).hide();
+    var base_url = "<?php echo base_url ?>"; // Global base_url in javascript
+    function showDiv(id) {
+        $(`#${id}`).show();
+        var divs = ["div1", "div2", "div3"];
+        divs.forEach(div => {
+            if (div !== id) {
+                $(`#${div}`).hide();
+            }
+        });
+    }
+    function previewImage(frameId, inputId) { // select multiple images viewer if user select desired image.
+        let image = document.getElementById(frameId);
+        let fileInput = document.getElementById(inputId);
+        
+        if (fileInput.files.length > 0) {
+            let file = fileInput.files[0];
+            image.src = URL.createObjectURL(file);
+        } else {
+            image.src = base_url + "assets/img/system/no-image.png";
         }
-    });
-}
+    }
 </script>
 
 
